@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Fstab - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/fstab/</link>
+        <description>Fstab - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 11 Apr 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/fstab/" rel="self" type="application/rss+xml" /><item>
+    <title>Timed out waiting for device /dev/disk/by-uuid/XXXX-XXXX</title>
+    <link>https://blog.synchronized.buzz/2022-04-11-timed-out-waiting-for-device-%5Cdev%5Cdisk%5Cby-uuid%5Cxxxx-xxxx/</link>
+    <pubDate>Mon, 11 Apr 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-04-11-timed-out-waiting-for-device-%5Cdev%5Cdisk%5Cby-uuid%5Cxxxx-xxxx/</guid>
+    <description><![CDATA[最近系统启动时会随机提示如下信息。 1 2 3 4 5 6 7 8 9 10 [ TIME ] Timed out waiting for device /dev/disk/by-uuid/XXXX-XXXX [DEPEND] Dependency failed for /boot/efi. [DEPEND] Dependency failed for Local File Systems. [DEPEND] Dependency failed for File System Check on /dev/disk/by-uuid/XXXX-XXXX. You are in emergency mode. After logging in, type &#34;journalctl - xb&#34; to]]></description>
+</item>
+</channel>
+</rss>

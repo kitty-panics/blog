@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Firewall - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/firewall/</link>
+        <description>Firewall - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 28 Mar 2019 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/firewall/" rel="self" type="application/rss+xml" /><item>
+    <title>使用 UFW 禁用 PING (ICMP)</title>
+    <link>https://blog.synchronized.buzz/2019-03-28-%E4%BD%BF%E7%94%A8-ufw-%E7%A6%81%E7%94%A8-ping-icmp/</link>
+    <pubDate>Thu, 28 Mar 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-03-28-%E4%BD%BF%E7%94%A8-ufw-%E7%A6%81%E7%94%A8-ping-icmp/</guid>
+    <description><![CDATA[选择 UFW 原因之一就是简便，不用像 iptables 那样得输入一大串指令，不足的是要想在 UFW 上实现禁用 PING (ICMP) 这类高级特性，只能通过修改配置文件来完成。 编辑配置文件 vim]]></description>
+</item>
+</channel>
+</rss>

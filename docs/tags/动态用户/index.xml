@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>动态用户 - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/%E5%8A%A8%E6%80%81%E7%94%A8%E6%88%B7/</link>
+        <description>动态用户 - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 22 Mar 2024 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/%E5%8A%A8%E6%80%81%E7%94%A8%E6%88%B7/" rel="self" type="application/rss+xml" /><item>
+    <title>systemd.unit 无侵入性补丁 —— DynamicUser</title>
+    <link>https://blog.synchronized.buzz/2024-03-22-systemd.unit-%E6%97%A0%E4%BE%B5%E5%85%A5%E6%80%A7%E8%A1%A5%E4%B8%81-dynamicuser/</link>
+    <pubDate>Fri, 22 Mar 2024 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2024-03-22-systemd.unit-%E6%97%A0%E4%BE%B5%E5%85%A5%E6%80%A7%E8%A1%A5%E4%B8%81-dynamicuser/</guid>
+    <description><![CDATA[systemd.unit 在未指定 User= 时默认使用 ROOT 用户运行，但从安全角度来看， 这种默认行为风限太大，应该遵寻最小权限原则，比如可以将 User= 指定为 nobody。 如果想要更细]]></description>
+</item>
+</channel>
+</rss>

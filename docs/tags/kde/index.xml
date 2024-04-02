@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>KDE - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/kde/</link>
+        <description>KDE - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 21 Nov 2023 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/kde/" rel="self" type="application/rss+xml" /><item>
+    <title>多平台轻量化粘贴板同步方案</title>
+    <link>https://blog.synchronized.buzz/2023-11-21-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%BD%BB%E9%87%8F%E5%8C%96%E7%B2%98%E8%B4%B4%E6%9D%BF%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88/</link>
+    <pubDate>Tue, 21 Nov 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-11-21-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%BD%BB%E9%87%8F%E5%8C%96%E7%B2%98%E8%B4%B4%E6%9D%BF%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88/</guid>
+    <description><![CDATA[尝试过很多跨平台粘贴板同步方案，甚至动了自己写的念头，好在找到了比较完美的方案： KDE Connect 。 你能想到的想不到的平台都支持，而且功能很多，不只是剪贴]]></description>
+</item>
+</channel>
+</rss>

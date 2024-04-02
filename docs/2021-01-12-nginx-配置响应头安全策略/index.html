@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Nginx 配置响应头安全策略 - Blog of Kitty • Panics - 知知为知知</title><meta name="Description" content=""><meta property="og:title" content="Nginx 配置响应头安全策略" />
+<meta property="og:description" content="HTTP Headers 种类繁多 (详见 HTTP Headers - HTTP | MDN )，对于请求头的安全配置一般只需配置以下七项即可。 Content-Security-Policy 简称 CSP，指定的页面可以加载哪些资源。 Nginx 配置示例: 1 add_header Content-Security-Policy" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.synchronized.buzz/2021-01-12-nginx-%E9%85%8D%E7%BD%AE%E5%93%8D%E5%BA%94%E5%A4%B4%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5/" /><meta property="og:image" content="https://blog.synchronized.buzz/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-01-12T00:00:00+08:00" />
+<meta property="article:modified_time" content="2021-01-12T00:00:00+08:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://blog.synchronized.buzz/" /><meta name="twitter:title" content="Nginx 配置响应头安全策略"/>
+<meta name="twitter:description" content="HTTP Headers 种类繁多 (详见 HTTP Headers - HTTP | MDN )，对于请求头的安全配置一般只需配置以下七项即可。 Content-Security-Policy 简称 CSP，指定的页面可以加载哪些资源。 Nginx 配置示例: 1 add_header Content-Security-Policy"/>
+<meta name="application-name" content="My KeepIt site">
+<meta name="apple-mobile-web-app-title" content="My KeepIt site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.synchronized.buzz/2021-01-12-nginx-%E9%85%8D%E7%BD%AE%E5%93%8D%E5%BA%94%E5%A4%B4%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5/" /><link rel="prev" href="https://blog.synchronized.buzz/2020-12-18-%E8%AF%B7%E5%8F%AB%E6%88%91%E8%8A%B7%E5%85%B0/" /><link rel="next" href="https://blog.synchronized.buzz/2021-02-16-linux-%E4%B8%8A%E5%AF%86%E7%A0%81%E9%94%99%E4%B8%89%E6%AC%A1%E5%90%8E%E6%AD%A3%E7%A1%AE%E5%AF%86%E7%A0%81%E4%B9%9F%E6%8F%90%E7%A4%BA%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Nginx 配置响应头安全策略",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.synchronized.buzz\/2021-01-12-nginx-%E9%85%8D%E7%BD%AE%E5%93%8D%E5%BA%94%E5%A4%B4%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5\/"
+        },"genre": "posts","keywords": "Nginx, HTTP, Headers, Content-Security-Policy, CSP, XSS, Permissions-Policy, FLoC, Referrer-Policy","wordcount":  838 ,
+        "url": "https:\/\/blog.synchronized.buzz\/2021-01-12-nginx-%E9%85%8D%E7%BD%AE%E5%93%8D%E5%BA%94%E5%A4%B4%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5\/","datePublished": "2021-01-12T00:00:00+08:00","dateModified": "2021-01-12T00:00:00+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Kitty • Panics"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> 博文 </a><a class="menu-item" href="/feed/list"> 订阅 </a><a class="menu-item" href="/series/list"> 专题 </a><a class="menu-item" href="/categories-tags/list"> 分类/标签 </a><a class="menu-item" href="/about/list"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts" title="">博文</a><a class="menu-item" href="/feed/list" title="">订阅</a><a class="menu-item" href="/series/list" title="">专题</a><a class="menu-item" href="/categories-tags/list" title="">分类/标签</a><a class="menu-item" href="/about/list" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Nginx 配置响应头安全策略</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/kitty-panics" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kitty • Panics</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/nginx/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Nginx</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-01-12">2021-01-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;838 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#content-security-policy"><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Security-Policy">Content-Security-Policy</a></a></li>
+    <li><a href="#permissions-policy">Permissions-Policy</a></li>
+    <li><a href="#referrer-policy"><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a></a></li>
+    <li><a href="#strict-transport-security"><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Strict-Transport-Security">Strict-Transport-Security</a></a></li>
+    <li><a href="#x-content-type-options"><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/X-Content-Type-Options">X-Content-Type-Options</a></a></li>
+    <li><a href="#x-frame-options"><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a></a></li>
+    <li><a href="#x-xss-protection"><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a></a></li>
+    <li><a href="#扩展阅读">扩展阅读</a>
+      <ul>
+        <li><a href="#server">Server</a></li>
+        <li><a href="#hpkp">HPKP</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>HTTP Headers 种类繁多 (详见 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers" target="_blank" rel="noopener noreffer">HTTP Headers - HTTP | MDN</a>
+)，对于请求头的安全配置一般只需配置以下七项即可。</p>
+<h2 id="content-security-policy"><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Security-Policy" target="_blank" rel="noopener noreffer">Content-Security-Policy</a>
+</h2>
+<p>简称 CSP，指定的页面可以加载哪些资源。</p>
+<ul>
+<li>Nginx 配置示例:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">add_header</span> <span class="s">Content-Security-Policy</span> <span class="s">&#34;default-src</span> <span class="s">&#39;self&#39;</span> <span class="s">https:</span> <span class="s">data:</span> <span class="s">&#39;unsafe-inline&#39;</span><span class="p">;</span><span class="k">&#34;</span> <span class="s">always</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>配置此项可防止 <a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Cross-site_scripting" target="_blank" rel="noopener noreffer">XSS 攻击</a>
+。</p>
+<h2 id="permissions-policy">Permissions-Policy</h2>
+<p>开启/禁用浏览器的属性和 API。</p>
+<ul>
+<li>Nginx 配置示例:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">add_header</span> <span class="s">Permissions-Policy</span> <span class="s">&#34;interest-cohort=()&#34;</span> <span class="s">always</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>现阶段主要用于关闭 <a href="https://web.dev/i18n/zh/floc" target="_blank" rel="noopener noreffer">FLoC</a>
+。</p>
+<h2 id="referrer-policy"><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Referrer-Policy" target="_blank" rel="noopener noreffer">Referrer-Policy</a>
+</h2>
+<p>什么情况下显示 Referer 字段，以及 Referer 字段显示内容多少。</p>
+<ul>
+<li>Nginx 配置示例:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">add_header</span> <span class="s">Referrer-Policy</span> <span class="s">&#34;no-referrer-when-downgrade&#34;</span> <span class="s">always</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="strict-transport-security"><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Strict-Transport-Security" target="_blank" rel="noopener noreffer">Strict-Transport-Security</a>
+</h2>
+<p>简称 HSTS，告诉浏览器只能通过 HTTPS 访问当前资源，而不是HTTP。</p>
+<ul>
+<li>Nginx 配置示例:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">add_header</span> <span class="s">Strict-Transport-Security</span> <span class="s">&#34;max-age=31536000</span><span class="p">;</span> <span class="k">includeSubDomains</span><span class="p">;</span> <span class="k">preload&#34;</span> <span class="s">always</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>配置此项可防止 <a href="https://baike.baidu.com/item/%E9%99%8D%E7%BA%A7%E6%94%BB%E5%87%BB/22722739" target="_blank" rel="noopener noreffer">HTTPS 降级攻击</a>
+。</p>
+<h2 id="x-content-type-options"><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/X-Content-Type-Options" target="_blank" rel="noopener noreffer">X-Content-Type-Options</a>
+</h2>
+<p>用来提示客户端一定要遵循在 Content-Type 首部中对 MIME 类型 的设定，而不能对其进行修改。</p>
+<ul>
+<li>Nginx 配置示例:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">add_header</span> <span class="s">X-Content-Type-Options</span> <span class="s">&#34;nosniff&#34;</span> <span class="s">always</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>配置此项可防止 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types" target="_blank" rel="noopener noreffer">内容嗅探攻击</a>
+。</p>
+<h2 id="x-frame-options"><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/X-Frame-Options" target="_blank" rel="noopener noreffer">X-Frame-Options</a>
+</h2>
+<p>用来给浏览器指示是否允许页面在 <code>&lt;frame&gt;</code>、<code>&lt;iframe&gt;</code>、<code>&lt;embed&gt;</code> 或者 <code>&lt;object&gt;</code> 中显示。</p>
+<ul>
+<li>Nginx 配置示例:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">add_header</span> <span class="s">X-Frame-Options</span> <span class="s">&#34;SAMEORIGIN&#34;</span> <span class="s">always</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>配置此项可防止 <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Types_of_attacks#click-jacking" target="_blank" rel="noopener noreffer">点击劫持攻击</a>
+。</p>
+<h2 id="x-xss-protection"><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/X-XSS-Protection" target="_blank" rel="noopener noreffer">X-XSS-Protection</a>
+</h2>
+<p>当检测到跨站脚本攻击 (XSS) 时，浏览器将停止加载页面。</p>
+<ul>
+<li>Nginx 配置示例:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">add_header</span> <span class="s">X-XSS-Protection</span> <span class="s">&#34;1</span><span class="p">;</span> <span class="k">mode=block&#34;</span> <span class="s">always</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>配置此项可防止 <a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Cross-site_scripting" target="_blank" rel="noopener noreffer">XSS 攻击</a>
+。</p>
+<h2 id="扩展阅读">扩展阅读</h2>
+<h3 id="server">Server</h3>
+<p>Server 标头会提供 Web 服务器及其版本信息，显示服务器版本可能会使服务器更容易受到对应版本漏洞的攻击。
+尽管 Nginx 提供了 <code>server_tokens off;</code> 配置项用来隐藏版本号，但还是知道用的是 Nginx。</p>
+<p>有两种方式可更改此值。</p>
+<ol>
+<li>修改源码 <code>nginx-version/src/http/ngx_http_header_filter_module.c</code>，缺点是每次升级都得编译一次。</li>
+<li>使用 <a href="https://github.com/openresty/headers-more-nginx-module" target="_blank" rel="noopener noreffer">nginx-mod-headers-more</a>
+ 模块。</li>
+</ol>
+<h3 id="hpkp">HPKP</h3>
+<p>国内学编程，一大阻碍就是各种复制剪切拼成的旧文章，然后标个新日期发布，这一两年还有文章在教如何启用
+HPKP，但这玩意都已经被 Google 放弃了。</p>
+<p>有研究表明启用 HPKP 后，攻击者可劫持用户访问并返回恶意 HPKP 头，这种操作并不会造成用户的数据发生泄露。
+但恶意 HPKP 头在被浏览器接收后会阻止用户正常访问网站，因为浏览器校验到的 HPKP 头与真实服务器不同。
+因此恶意攻击者可以利用 HPKP 公钥固定策略无差别的对所有 HTTPS 网站发起这种有点另类的拒绝访问攻击。</p>
+<p>Chrome 从 v68 开始弃用 HPKP，在 v72 正式移除 HPKP (现在 Chrome 都发布 v88 了)，所以不用配置这玩意了。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-01-12</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.synchronized.buzz/2021-01-12-nginx-%E9%85%8D%E7%BD%AE%E5%93%8D%E5%BA%94%E5%A4%B4%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5/" data-title="Nginx 配置响应头安全策略" data-hashtags="Nginx,HTTP,Headers,Content-Security-Policy,CSP,XSS,Permissions-Policy,FLoC,Referrer-Policy"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.synchronized.buzz/2021-01-12-nginx-%E9%85%8D%E7%BD%AE%E5%93%8D%E5%BA%94%E5%A4%B4%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5/" data-hashtag="Nginx"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.synchronized.buzz/2021-01-12-nginx-%E9%85%8D%E7%BD%AE%E5%93%8D%E5%BA%94%E5%A4%B4%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5/" data-title="Nginx 配置响应头安全策略"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.synchronized.buzz/2021-01-12-nginx-%E9%85%8D%E7%BD%AE%E5%93%8D%E5%BA%94%E5%A4%B4%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.synchronized.buzz/2021-01-12-nginx-%E9%85%8D%E7%BD%AE%E5%93%8D%E5%BA%94%E5%A4%B4%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5/" data-title="Nginx 配置响应头安全策略"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://blog.synchronized.buzz/2021-01-12-nginx-%E9%85%8D%E7%BD%AE%E5%93%8D%E5%BA%94%E5%A4%B4%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5/" data-title="Nginx 配置响应头安全策略"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/nginx/">Nginx</a>,&nbsp;<a href="/tags/http/">HTTP</a>,&nbsp;<a href="/tags/headers/">Headers</a>,&nbsp;<a href="/tags/content-security-policy/">Content-Security-Policy</a>,&nbsp;<a href="/tags/csp/">CSP</a>,&nbsp;<a href="/tags/xss/">XSS</a>,&nbsp;<a href="/tags/permissions-policy/">Permissions-Policy</a>,&nbsp;<a href="/tags/floc/">FLoC</a>,&nbsp;<a href="/tags/referrer-policy/">Referrer-Policy</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020-12-18-%E8%AF%B7%E5%8F%AB%E6%88%91%E8%8A%B7%E5%85%B0/" class="prev" rel="prev" title="请叫我芷兰"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>请叫我芷兰</a>
+            <a href="/2021-02-16-linux-%E4%B8%8A%E5%AF%86%E7%A0%81%E9%94%99%E4%B8%89%E6%AC%A1%E5%90%8E%E6%AD%A3%E7%A1%AE%E5%AF%86%E7%A0%81%E4%B9%9F%E6%8F%90%E7%A4%BA%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF/" class="next" rel="next" title="Linux 上密码错三次后正确密码也提示密码错误">Linux 上密码错三次后正确密码也提示密码错误<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2018 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/kitty-panics" target="_blank">Kitty • Panics</a></span>&nbsp;|&nbsp;<span class="license">除非注明，本作品采用 <img style="border-width:0" src="/img/license/BY-NC-ND.png"/> 许可协议</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.fill%2CArray.prototype.find%2CArray.from%2CIntersectionObserver%2CMath.sign%2CObject.assign%2CPromise%2CObject.entries%2Chtml5shiv%2CObject.values%2Cfetch%2CElement.prototype.after"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/object-fit-images@3.2.4/dist/ofi.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.5.4/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10240},"comment":{},"data":{"id-1":"知知为知知","id-2":"知知为知知"},"search":{"highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":100,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

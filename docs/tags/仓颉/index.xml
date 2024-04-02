@@ -1,0 +1,23 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>仓颉 - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/%E4%BB%93%E9%A2%89/</link>
+        <description>仓颉 - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 25 May 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/%E4%BB%93%E9%A2%89/" rel="self" type="application/rss+xml" /><item>
+    <title>&#39;五笔98&#39; 和 &#39;仓颉5&#39; 单字形码方案</title>
+    <link>https://blog.synchronized.buzz/2022-05-25-%E4%BA%94%E7%AC%9498-%E5%92%8C-%E4%BB%93%E9%A2%895-%E5%8D%95%E5%AD%97%E5%BD%A2%E7%A0%81%E6%96%B9%E6%A1%88/</link>
+    <pubDate>Wed, 25 May 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-05-25-%E4%BA%94%E7%AC%9498-%E5%92%8C-%E4%BB%93%E9%A2%895-%E5%8D%95%E5%AD%97%E5%BD%A2%E7%A0%81%E6%96%B9%E6%A1%88/</guid>
+    <description><![CDATA[2023-07-14 的更新 重写了静态全码重码统计工具，列出了支持 Unicode CJK 大字符集形码的重码数据，见 kitty-panics/DCoSC 。 因想要完美而开始的项目，终会因不完美而结束。 最初受不了拼音的]]></description>
+</item>
+<item>
+    <title>个人自制的输入法方案</title>
+    <link>https://blog.synchronized.buzz/2020-01-10-%E4%B8%AA%E4%BA%BA%E8%87%AA%E5%88%B6%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95%E6%96%B9%E6%A1%88/</link>
+    <pubDate>Fri, 10 Jan 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-01-10-%E4%B8%AA%E4%BA%BA%E8%87%AA%E5%88%B6%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95%E6%96%B9%E6%A1%88/</guid>
+    <description><![CDATA[2022-05-25 的更新 由于硬盘损坏 (见: 《重装 Arch Linux 遇到的新坑》 )，数据都丢了，不想重新做了，本文已弃用。 之前对各大输入法或多或少有点不满意，而且它们跨平台]]></description>
+</item>
+</channel>
+</rss>

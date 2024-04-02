@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Flameshot - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/flameshot/</link>
+        <description>Flameshot - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 19 Apr 2019 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/flameshot/" rel="self" type="application/rss+xml" /><item>
+    <title>用脏方法实现 FlameShot 截图后自动退出</title>
+    <link>https://blog.synchronized.buzz/2019-04-19-%E7%94%A8%E8%84%8F%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0-flameshot-%E6%88%AA%E5%9B%BE%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA/</link>
+    <pubDate>Fri, 19 Apr 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-04-19-%E7%94%A8%E8%84%8F%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0-flameshot-%E6%88%AA%E5%9B%BE%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA/</guid>
+    <description><![CDATA[2022-02-04 的更新 截止今日，v11.0.0 可通过 flameshot gui 命令实现截图后自动退出，本文可废弃。 截图工具比较喜欢 FlameShot ，截图后有编辑功能，还算比较轻量，UI 也很好]]></description>
+</item>
+</channel>
+</rss>

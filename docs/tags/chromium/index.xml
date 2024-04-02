@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Chromium - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/chromium/</link>
+        <description>Chromium - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 11 Oct 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/chromium/" rel="self" type="application/rss+xml" /><item>
+    <title>proxychains-ng 对 Chromium 无效</title>
+    <link>https://blog.synchronized.buzz/2022-10-11-proxychains-ng-%E5%AF%B9-chromium-%E6%97%A0%E6%95%88/</link>
+    <pubDate>Tue, 11 Oct 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-10-11-proxychains-ng-%E5%AF%B9-chromium-%E6%97%A0%E6%95%88/</guid>
+    <description><![CDATA[最近 Google 关闭国内服务器的翻译 API 服务，才发现 Chrome 自带的网页翻译居然不受扩展控制， 尽管设置中显示 &ldquo;Chrome is using proxy settings from an extension&rdquo;。 那些]]></description>
+</item>
+</channel>
+</rss>

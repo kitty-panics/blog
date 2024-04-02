@@ -1,0 +1,55 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Steam - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/steam/</link>
+        <description>Steam - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 15 Feb 2020 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/steam/" rel="self" type="application/rss+xml" /><item>
+    <title>Steam need online update</title>
+    <link>https://blog.synchronized.buzz/2020-02-15-steam-need-online-update/</link>
+    <pubDate>Sat, 15 Feb 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-02-15-steam-need-online-update/</guid>
+    <description><![CDATA[打算把卸载掉的 Steam 装回来，结果运行安装程序时弹出 &ldquo;Steam need online update&rdquo; 错误提示。 给出的错误信息实在太少了，不过对于这种情况可以在终端运行试试，一般来说能获取]]></description>
+</item>
+<item>
+    <title>不清真的 Steam</title>
+    <link>https://blog.synchronized.buzz/tags-mood/2019-06-03-%E4%B8%8D%E6%B8%85%E7%9C%9F%E7%9A%84-steam/</link>
+    <pubDate>Mon, 03 Jun 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/tags-mood/2019-06-03-%E4%B8%8D%E6%B8%85%E7%9C%9F%E7%9A%84-steam/</guid>
+    <description><![CDATA[统一了下 GTK3 和 QT5 的外观，绝大部分程序的风格看起来很协调了，唯独 Steam 托盘图标的右键菜单一如既往的丑，还以为这货的主题像其 Proxy 一样不受系统控制。 今天因]]></description>
+</item>
+<item>
+    <title>汉化：Linux 上玩 DiRT 4 (尘埃 4)</title>
+    <link>https://blog.synchronized.buzz/series-games/%E6%B1%89%E5%8C%96linux-%E4%B8%8A%E7%8E%A9-dirt-4-%E5%B0%98%E5%9F%83-4/</link>
+    <pubDate>Tue, 02 Jan 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/series-games/%E6%B1%89%E5%8C%96linux-%E4%B8%8A%E7%8E%A9-dirt-4-%E5%B0%98%E5%9F%83-4/</guid>
+    <description><![CDATA[DiRT 4 (尘埃 4) 官方不支持中文，倒是有很多第三方汉化包 (比如 3DM、游侠&hellip;)， 可惜的是这些汉化包都只支持 Windows 版本。但是可以另辟蹊径，]]></description>
+</item>
+<item>
+    <title>汉化：Linux 上玩 DiRT Rally (尘埃拉力赛)</title>
+    <link>https://blog.synchronized.buzz/series-games/%E6%B1%89%E5%8C%96linux-%E4%B8%8A%E7%8E%A9-dirt-rally-%E5%B0%98%E5%9F%83%E6%8B%89%E5%8A%9B%E8%B5%9B/</link>
+    <pubDate>Tue, 02 Jan 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/series-games/%E6%B1%89%E5%8C%96linux-%E4%B8%8A%E7%8E%A9-dirt-rally-%E5%B0%98%E5%9F%83%E6%8B%89%E5%8A%9B%E8%B5%9B/</guid>
+    <description><![CDATA[DiRT Rally (尘埃拉力赛) 官方不支持中文，倒是有很多第三方汉化包 (比如 3DM、游侠&hellip;)， 可惜的是这些汉化包都只支持 Windows 版本。但是可以另辟]]></description>
+</item>
+<item>
+    <title>汉化：Linux 上玩 Mad Max (疯狂的麦克斯)</title>
+    <link>https://blog.synchronized.buzz/series-games/%E6%B1%89%E5%8C%96linux-%E4%B8%8A%E7%8E%A9-mad-max-%E7%96%AF%E7%8B%82%E7%9A%84%E9%BA%A6%E5%85%8B%E6%96%AF/</link>
+    <pubDate>Tue, 02 Jan 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/series-games/%E6%B1%89%E5%8C%96linux-%E4%B8%8A%E7%8E%A9-mad-max-%E7%96%AF%E7%8B%82%E7%9A%84%E9%BA%A6%E5%85%8B%E6%96%AF/</guid>
+    <description><![CDATA[Mad Max 官方不支持中文，倒是有很多第三方汉化包 (比如 3DM、游侠&hellip;)， 可惜的是这些汉化包都只支持 Windows 版本。但是可以另辟蹊径，通过 Proton 安]]></description>
+</item>
+<item>
+    <title>汉化：Rusted Warfare (铁锈战争)</title>
+    <link>https://blog.synchronized.buzz/series-games/%E6%B1%89%E5%8C%96rusted-warfare-%E9%93%81%E9%94%88%E6%88%98%E4%BA%89/</link>
+    <pubDate>Tue, 02 Jan 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/series-games/%E6%B1%89%E5%8C%96rusted-warfare-%E9%93%81%E9%94%88%E6%88%98%E4%BA%89/</guid>
+    <description><![CDATA[其实 Rusted Warfare 官方是自带中文的，但是它不会根据 Locale 自动更改， 也不支持通过 Steam 命令行指定，得自己手动修改配置文件。 1 2 3 4 5 6 7 8 # 编辑设置文件 vim $HOME/.local/share/Steam/steamapps/common/Rusted Warfare/preferences.ini #]]></description>
+</item>
+</channel>
+</rss>

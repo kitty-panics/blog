@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Series on Blog of Kitty • Panics - 知知为知知</title>
+    <link>https://blog.synchronized.buzz/series/</link>
+    <description>Recent content in Series on Blog of Kitty • Panics - 知知为知知</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 01 Jan 2018 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.synchronized.buzz/series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>专题</title>
+      <link>https://blog.synchronized.buzz/series/list/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0800</pubDate>
+      <guid>https://blog.synchronized.buzz/series/list/</guid>
+      <description>Linux 游戏 自从有了 Proton 的加持，Linux 上的游戏体验有了质的飞跃。 但是还有很多游戏的使用配置和中文汉化不像 Windows 上那样开籍即用，需要手动干预。 读书笔记</description>
+    </item>
+  </channel>
+</rss>

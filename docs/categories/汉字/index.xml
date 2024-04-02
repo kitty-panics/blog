@@ -1,0 +1,55 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>汉字 - Category - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/categories/%E6%B1%89%E5%AD%97/</link>
+        <description>汉字 - Category - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 19 Feb 2023 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/categories/%E6%B1%89%E5%AD%97/" rel="self" type="application/rss+xml" /><item>
+    <title>猜猜汉字笔画是奇数多还是偶数多</title>
+    <link>https://blog.synchronized.buzz/2023-02-19-%E7%8C%9C%E7%8C%9C%E6%B1%89%E5%AD%97%E7%AC%94%E7%94%BB%E6%98%AF%E5%A5%87%E6%95%B0%E5%A4%9A%E8%BF%98%E6%98%AF%E5%81%B6%E6%95%B0%E5%A4%9A/</link>
+    <pubDate>Sun, 19 Feb 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-02-19-%E7%8C%9C%E7%8C%9C%E6%B1%89%E5%AD%97%E7%AC%94%E7%94%BB%E6%98%AF%E5%A5%87%E6%95%B0%E5%A4%9A%E8%BF%98%E6%98%AF%E5%81%B6%E6%95%B0%E5%A4%9A/</guid>
+    <description><![CDATA[好吧，虽然这是一个无聊的话题，不过也还是有点儿有趣。 笔顺数据 笔顺数据采用 CNMan/UnicodeCJK-WuBi ，这是网友做的整合版，可能是全网最全的。 Unicode CJK 收录了近 10 万多个汉字，]]></description>
+</item>
+<item>
+    <title>常用汉字中平均每字的字母长度</title>
+    <link>https://blog.synchronized.buzz/2022-11-11-%E5%B8%B8%E7%94%A8%E6%B1%89%E5%AD%97%E4%B8%AD%E5%B9%B3%E5%9D%87%E6%AF%8F%E5%AD%97%E7%9A%84%E5%AD%97%E6%AF%8D%E9%95%BF%E5%BA%A6/</link>
+    <pubDate>Fri, 11 Nov 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-11-11-%E5%B8%B8%E7%94%A8%E6%B1%89%E5%AD%97%E4%B8%AD%E5%B9%B3%E5%9D%87%E6%AF%8F%E5%AD%97%E7%9A%84%E5%AD%97%E6%AF%8D%E9%95%BF%E5%BA%A6/</guid>
+    <description><![CDATA[多年音形码、形码用户，当初抛弃全拼就是因为码长太长，重码太多。打了很久的单字， 感觉有时码长并不比全拼短，但个人主观感受是不准确的，遂统计一下]]></description>
+</item>
+<item>
+    <title>简中常用 3500 汉字及其读音</title>
+    <link>https://blog.synchronized.buzz/2022-08-16-%E7%AE%80%E4%B8%AD%E5%B8%B8%E7%94%A8-3500-%E6%B1%89%E5%AD%97%E5%8F%8A%E5%85%B6%E8%AF%BB%E9%9F%B3/</link>
+    <pubDate>Tue, 16 Aug 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-08-16-%E7%AE%80%E4%B8%AD%E5%B8%B8%E7%94%A8-3500-%E6%B1%89%E5%AD%97%E5%8F%8A%E5%85%B6%E8%AF%BB%E9%9F%B3/</guid>
+    <description><![CDATA[网上找到的常用汉字及其读音都太随意了。要不就几百个汉字，要不拼音不准，所以自己整理了一份 《简中常用 3500 汉字及其读音》。 3500 个汉字有两个来源，一个]]></description>
+</item>
+<item>
+    <title>&#39;五笔98&#39; 和 &#39;仓颉5&#39; 单字形码方案</title>
+    <link>https://blog.synchronized.buzz/2022-05-25-%E4%BA%94%E7%AC%9498-%E5%92%8C-%E4%BB%93%E9%A2%895-%E5%8D%95%E5%AD%97%E5%BD%A2%E7%A0%81%E6%96%B9%E6%A1%88/</link>
+    <pubDate>Wed, 25 May 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-05-25-%E4%BA%94%E7%AC%9498-%E5%92%8C-%E4%BB%93%E9%A2%895-%E5%8D%95%E5%AD%97%E5%BD%A2%E7%A0%81%E6%96%B9%E6%A1%88/</guid>
+    <description><![CDATA[2023-07-14 的更新 重写了静态全码重码统计工具，列出了支持 Unicode CJK 大字符集形码的重码数据，见 kitty-panics/DCoSC 。 因想要完美而开始的项目，终会因不完美而结束。 最初受不了拼音的]]></description>
+</item>
+<item>
+    <title>中国大陆与中国台湾常用语差异</title>
+    <link>https://blog.synchronized.buzz/2022-03-27-%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%E4%B8%8E%E4%B8%AD%E5%9B%BD%E5%8F%B0%E6%B9%BE%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%B7%AE%E5%BC%82/</link>
+    <pubDate>Sun, 27 Mar 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-03-27-%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%E4%B8%8E%E4%B8%AD%E5%9B%BD%E5%8F%B0%E6%B9%BE%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%B7%AE%E5%BC%82/</guid>
+    <description><![CDATA[整理了一份《中国大陆与中国台湾常用语差异》表。如果想分享此表格的话， 可以下载图片版、Excel 版和 PDF 版。 《中国大陆与中国台湾常用语差异》- PNG]]></description>
+</item>
+<item>
+    <title>个人自制的输入法方案</title>
+    <link>https://blog.synchronized.buzz/2020-01-10-%E4%B8%AA%E4%BA%BA%E8%87%AA%E5%88%B6%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95%E6%96%B9%E6%A1%88/</link>
+    <pubDate>Fri, 10 Jan 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-01-10-%E4%B8%AA%E4%BA%BA%E8%87%AA%E5%88%B6%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95%E6%96%B9%E6%A1%88/</guid>
+    <description><![CDATA[2022-05-25 的更新 由于硬盘损坏 (见: 《重装 Arch Linux 遇到的新坑》 )，数据都丢了，不想重新做了，本文已弃用。 之前对各大输入法或多或少有点不满意，而且它们跨平台]]></description>
+</item>
+</channel>
+</rss>

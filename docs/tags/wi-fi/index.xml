@@ -1,0 +1,31 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Wi-Fi - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/wi-fi/</link>
+        <description>Wi-Fi - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 05 Oct 2021 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/wi-fi/" rel="self" type="application/rss+xml" /><item>
+    <title>OrangePi-Lite (Arch Linux ARM) 重启后 Wi-Fi 无网络</title>
+    <link>https://blog.synchronized.buzz/2021-10-05-orangepi-lite-arch-linux-arm-%E9%87%8D%E5%90%AF%E5%90%8E-wi-fi-%E6%97%A0%E7%BD%91%E7%BB%9C/</link>
+    <pubDate>Tue, 05 Oct 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-10-05-orangepi-lite-arch-linux-arm-%E9%87%8D%E5%90%AF%E5%90%8E-wi-fi-%E6%97%A0%E7%BD%91%E7%BB%9C/</guid>
+    <description><![CDATA[上一篇说到在 OrangePi Lite 中安装了 Arch Linux ARM ，由于 Orange Pi Lite 没有有线网络接口， 所以只能使用 Wi-Fi。Wi-Fi 连接方案如下。 使用 wpa_supplicant 连接到 Wi-Fi。 使用 dhcpcd 请]]></description>
+</item>
+<item>
+    <title>安卓 PERSIST 分区损坏造成手机 Wi-Fi、蓝牙、收音机无法使用</title>
+    <link>https://blog.synchronized.buzz/2020-11-04-%E5%AE%89%E5%8D%93-persist-%E5%88%86%E5%8C%BA%E6%8D%9F%E5%9D%8F%E9%80%A0%E6%88%90%E6%89%8B%E6%9C%BA-wi-fi%E8%93%9D%E7%89%99%E6%94%B6%E9%9F%B3%E6%9C%BA%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/</link>
+    <pubDate>Wed, 04 Nov 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-11-04-%E5%AE%89%E5%8D%93-persist-%E5%88%86%E5%8C%BA%E6%8D%9F%E5%9D%8F%E9%80%A0%E6%88%90%E6%89%8B%E6%9C%BA-wi-fi%E8%93%9D%E7%89%99%E6%94%B6%E9%9F%B3%E6%9C%BA%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/</guid>
+    <description><![CDATA[最近把备用机系统换成了 MIUI EU ，刷完发现 Wi-Fi 功能不能打开了。 这种情况通常是 PERSIST 分区损坏造成的，这种情况除非硬件有问题一般都能通过线刷解决。 不过线刷后]]></description>
+</item>
+<item>
+    <title>类原生 ROM 时间校准、无线认证</title>
+    <link>https://blog.synchronized.buzz/2018-11-07-%E5%8E%9F%E7%94%9F-rom-%E6%97%B6%E9%97%B4%E6%A0%A1%E5%87%86%E6%97%A0%E7%BA%BF%E8%AE%A4%E8%AF%81/</link>
+    <pubDate>Wed, 07 Nov 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2018-11-07-%E5%8E%9F%E7%94%9F-rom-%E6%97%B6%E9%97%B4%E6%A0%A1%E5%87%86%E6%97%A0%E7%BA%BF%E8%AE%A4%E8%AF%81/</guid>
+    <description><![CDATA[使用类原生系统有两个地方很烦人，一是没插 SIM 卡时时间不能自动校准，二是 Wi-Fi 经常提示 &ldquo;已连接，但无法访问互联网&rdquo;、&ldq]]></description>
+</item>
+</channel>
+</rss>

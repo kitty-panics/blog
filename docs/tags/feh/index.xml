@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Feh - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/feh/</link>
+        <description>Feh - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 01 May 2019 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/feh/" rel="self" type="application/rss+xml" /><item>
+    <title>获取每日 Bing 美图</title>
+    <link>https://blog.synchronized.buzz/2019-05-01-%E8%8E%B7%E5%8F%96%E6%AF%8F%E6%97%A5-bing-%E7%BE%8E%E5%9B%BE/</link>
+    <pubDate>Wed, 01 May 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-05-01-%E8%8E%B7%E5%8F%96%E6%AF%8F%E6%97%A5-bing-%E7%BE%8E%E5%9B%BE/</guid>
+    <description><![CDATA[2019-06-05 的更新 意外发现 Bing 主页图片其实有提供 API，这样的话就能用更优雅的方法解析了。 1 https://bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1 简要的 API 说明如下。 URL 组成部分 参数 含义 https://bing.com/HPImageArchive.aspx ? 无 无 format=js js (也就是 json),]]></description>
+</item>
+</channel>
+</rss>

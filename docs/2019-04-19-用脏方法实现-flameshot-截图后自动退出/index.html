@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>用脏方法实现 FlameShot 截图后自动退出 - Blog of Kitty • Panics - 知知为知知</title><meta name="Description" content=""><meta property="og:title" content="用脏方法实现 FlameShot 截图后自动退出" />
+<meta property="og:description" content="2022-02-04 的更新 截止今日，v11.0.0 可通过 flameshot gui 命令实现截图后自动退出，本文可废弃。 截图工具比较喜欢 FlameShot ，截图后有编辑功能，还算比较轻量，UI 也很好" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.synchronized.buzz/2019-04-19-%E7%94%A8%E8%84%8F%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0-flameshot-%E6%88%AA%E5%9B%BE%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA/" /><meta property="og:image" content="https://blog.synchronized.buzz/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-04-19T00:00:00+08:00" />
+<meta property="article:modified_time" content="2019-04-19T00:00:00+08:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://blog.synchronized.buzz/" /><meta name="twitter:title" content="用脏方法实现 FlameShot 截图后自动退出"/>
+<meta name="twitter:description" content="2022-02-04 的更新 截止今日，v11.0.0 可通过 flameshot gui 命令实现截图后自动退出，本文可废弃。 截图工具比较喜欢 FlameShot ，截图后有编辑功能，还算比较轻量，UI 也很好"/>
+<meta name="application-name" content="My KeepIt site">
+<meta name="apple-mobile-web-app-title" content="My KeepIt site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.synchronized.buzz/2019-04-19-%E7%94%A8%E8%84%8F%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0-flameshot-%E6%88%AA%E5%9B%BE%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA/" /><link rel="prev" href="https://blog.synchronized.buzz/2019-03-28-%E4%BD%BF%E7%94%A8-ufw-%E7%A6%81%E7%94%A8-ping-icmp/" /><link rel="next" href="https://blog.synchronized.buzz/2019-05-01-%E8%8E%B7%E5%8F%96%E6%AF%8F%E6%97%A5-bing-%E7%BE%8E%E5%9B%BE/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "用脏方法实现 FlameShot 截图后自动退出",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.synchronized.buzz\/2019-04-19-%E7%94%A8%E8%84%8F%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0-flameshot-%E6%88%AA%E5%9B%BE%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA\/"
+        },"genre": "posts","keywords": "Flameshot, i3wm, 键盘流","wordcount":  958 ,
+        "url": "https:\/\/blog.synchronized.buzz\/2019-04-19-%E7%94%A8%E8%84%8F%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0-flameshot-%E6%88%AA%E5%9B%BE%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA\/","datePublished": "2019-04-19T00:00:00+08:00","dateModified": "2019-04-19T00:00:00+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Kitty • Panics"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> 博文 </a><a class="menu-item" href="/feed/list"> 订阅 </a><a class="menu-item" href="/series/list"> 专题 </a><a class="menu-item" href="/categories-tags/list"> 分类/标签 </a><a class="menu-item" href="/about/list"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts" title="">博文</a><a class="menu-item" href="/feed/list" title="">订阅</a><a class="menu-item" href="/series/list" title="">专题</a><a class="menu-item" href="/categories-tags/list" title="">分类/标签</a><a class="menu-item" href="/about/list" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">用脏方法实现 FlameShot 截图后自动退出</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/kitty-panics" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kitty • Panics</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/%E8%BD%AF%E4%BB%B6/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2019-04-19">2019-04-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;958 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#2022-02-04-的更新">2022-02-04 的更新</a></li>
+    <li><a href="#分析">分析</a></li>
+    <li><a href="#实现">实现</a></li>
+    <li><a href="#释疑">释疑</a>
+      <ul>
+        <li><a href="#截图后为何要等待-2-秒">截图后为何要等待 2 秒</a></li>
+        <li><a href="#为何要加---raw-参数">为何要加 <code>--raw</code> 参数</a></li>
+      </ul>
+    </li>
+    <li><a href="#扩展阅读">扩展阅读</a>
+      <ul>
+        <li><a href="#被-kill-掉后截的图不能粘贴">被 Kill 掉后截的图不能粘贴</a></li>
+        <li><a href="#键盘流">键盘流</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="2022-02-04-的更新">2022-02-04 的更新</h2>
+<p>截止今日，v11.0.0 可通过 <code>flameshot gui</code> 命令实现截图后自动退出，本文可废弃。</p>
+<p> </p>
+<hr>
+<p> </p>
+<p>截图工具比较喜欢 <a href="https://flameshot.org" target="_blank" rel="noopener noreffer">FlameShot</a>
+，截图后有编辑功能，还算比较轻量，UI 也很好看。
+不过用了几次后，发现它有一个逼死强迫症的问题。</p>
+<p><strong>不能设置为每次截图后自动退出，它会驻留在后台。</strong></p>
+<p>因为对我来说截图并不一个常用的功能，每次截图后，还占着一个托盘位置看着实在碍眼。</p>
+<h2 id="分析">分析</h2>
+<p>本来打算根据程序返回的状态码来判断是否截图成功，结果 FlameShot 不管什么情况都返回 0。</p>
+<p>逛了一圈 Issues，发现有人提出过 <a href="https://github.com/flameshot-org/flameshot/issues/302" target="_blank" rel="noopener noreffer">这个问题</a>
+，也在一个 <a href="https://github.com/flameshot-org/flameshot/pull/424" target="_blank" rel="noopener noreffer">PR</a>
+ 中被修复了。
+不过不知为啥已经是最新版的 FlameShot 依然有这问题，好在因为这个 PR 意外了发现
+<code>--raw</code> 参数有妙用。</p>
+<h2 id="实现">实现</h2>
+<p>然后写了个 Shell 脚本以不优雅的方式解决了这个问题。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># FlameShot 截图后结束进程</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 直接截取整个桌面</span>
+</span></span><span class="line"><span class="cl">Entire_Desktop<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 开始截图</span>
+</span></span><span class="line"><span class="cl">    flameshot full --raw --path <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/Pictures/&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 等待 2 秒</span>
+</span></span><span class="line"><span class="cl">    sleep 2s
+</span></span><span class="line"><span class="cl">    <span class="c1"># 结束 FlameShot</span>
+</span></span><span class="line"><span class="cl">    killall flameshot
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 手动框选截图</span>
+</span></span><span class="line"><span class="cl">Manual_Capture<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 开始截图</span>
+</span></span><span class="line"><span class="cl">    flameshot gui --raw --path <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/Pictures/&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 等待 2 秒</span>
+</span></span><span class="line"><span class="cl">    sleep 2s
+</span></span><span class="line"><span class="cl">    <span class="c1"># 结束 FlameShot</span>
+</span></span><span class="line"><span class="cl">    killall flameshot
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 帮助页</span>
+</span></span><span class="line"><span class="cl">Manual_Page<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    cat <span class="s">&lt;&lt; EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">    Usage: _flameshot [options] [arguments]
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">    Options:
+</span></span></span><span class="line"><span class="cl"><span class="s">    -h, --help     Displays this help
+</span></span></span><span class="line"><span class="cl"><span class="s">    -v, --version  Displays version information
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">    Arguments:
+</span></span></span><span class="line"><span class="cl"><span class="s">    full           Capture the entire desktop.
+</span></span></span><span class="line"><span class="cl"><span class="s">    select         Start a manual capture in GUI mode.
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 版本信息</span>
+</span></span><span class="line"><span class="cl">Show_Version<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    cat <span class="s">&lt;&lt; EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">    _flameshot v0.0.3
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">    It is written in the scripting language Bash.
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 参数判断</span>
+</span></span><span class="line"><span class="cl"><span class="k">case</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> in
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;h&#34;</span> <span class="p">|</span> <span class="s2">&#34;-h&#34;</span> <span class="p">|</span> <span class="s2">&#34;help&#34;</span> <span class="p">|</span> <span class="s2">&#34;--help&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">        Manual_Page
+</span></span><span class="line"><span class="cl">        <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;v&#34;</span> <span class="p">|</span> <span class="s2">&#34;-v&#34;</span> <span class="p">|</span> <span class="s2">&#34;version&#34;</span> <span class="p">|</span> <span class="s2">&#34;--version&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">        Show_Version
+</span></span><span class="line"><span class="cl">        <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;f&#34;</span> <span class="p">|</span> <span class="s2">&#34;-f&#34;</span> <span class="p">|</span> <span class="s2">&#34;full&#34;</span> <span class="p">|</span> <span class="s2">&#34;--full&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">        Entire_Desktop
+</span></span><span class="line"><span class="cl">        <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;s&#34;</span> <span class="p">|</span> <span class="s2">&#34;-s&#34;</span> <span class="p">|</span> <span class="s2">&#34;select&#34;</span> <span class="p">|</span> <span class="s2">&#34;--select&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">        Manual_Capture
+</span></span><span class="line"><span class="cl">        <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">    *<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        cat <span class="s">&lt;&lt; EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">    No options/arguments were used or the wrong options/arguments were used.
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">    Use the -h/-help option for detailed help.
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">        <span class="p">;;</span>
+</span></span><span class="line"><span class="cl"><span class="k">esac</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="释疑">释疑</h2>
+<h3 id="截图后为何要等待-2-秒">截图后为何要等待 2 秒</h3>
+<p>为了让 FlameShot 截图后有时间写入文件到磁盘 (2 秒已足够)。</p>
+<h3 id="为何要加---raw-参数">为何要加 <code>--raw</code> 参数</h3>
+<p>如果不加 <code>--raw</code> 参数，脚本的第 10/20 行中的动作几乎是一瞬间执行完成，然后就会继续执行 <code>kill</code> 操作
+(尽管 FlameShot 还在后台运行)。这样的话就不能在截图后使用编辑功能了，因为只有 2 秒的时间来编辑。</p>
+<p>而加了这个参数，FlameShot 就会一直处于前台，直到完成截图或取消截图才执行下一步 <code>kill</code> 操作。</p>
+<h2 id="扩展阅读">扩展阅读</h2>
+<h3 id="被-kill-掉后截的图不能粘贴">被 Kill 掉后截的图不能粘贴</h3>
+<p>是这样的，这是 <code>X</code> 的 <strong>剪切板</strong> 机制所决定的。鱼和熊掌不可兼得。</p>
+<h3 id="键盘流">键盘流</h3>
+<p>上面的脚本肯定是不能手动运行的，太低效了，应该以 <code>_flameshot</code> 名称保存到 PATH 中，然后设置快捷键调用。</p>
+<p>我使用的是 <a href="https://i3wm.org" target="_blank" rel="noopener noreffer">i3wm</a>
+，所以就以此为例。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">bindsym $mod+m mode &#34;+Multimedia&#34;
+</span></span><span class="line"><span class="cl">mode &#34;+Multimedia&#34; {
+</span></span><span class="line"><span class="cl">    bindsym f exec --no-startup-id _flameshot full         ,mode &#34;default&#34;
+</span></span><span class="line"><span class="cl">    bindsym Shift+f exec --no-startup-id _flameshot select ,mode &#34;default&#34;
+</span></span><span class="line"><span class="cl">    bindsym Escape mode &#34;default&#34;
+</span></span><span class="line"><span class="cl">    bindsym Return mode &#34;default&#34;
+</span></span><span class="line"><span class="cl">    bindsym $mod+m mode &#34;default&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>按下 <strong>Win+M键</strong> 后，再按下 <strong>F键</strong> 可进行全屏截图。</p>
+<p>按下 <strong>Win+M键</strong> 后，再按下 <strong>Shift+F键</strong> 可手动选择区域进行截图。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2019-04-19</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.synchronized.buzz/2019-04-19-%E7%94%A8%E8%84%8F%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0-flameshot-%E6%88%AA%E5%9B%BE%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA/" data-title="用脏方法实现 FlameShot 截图后自动退出" data-hashtags="Flameshot,i3wm,键盘流"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.synchronized.buzz/2019-04-19-%E7%94%A8%E8%84%8F%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0-flameshot-%E6%88%AA%E5%9B%BE%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA/" data-hashtag="Flameshot"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.synchronized.buzz/2019-04-19-%E7%94%A8%E8%84%8F%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0-flameshot-%E6%88%AA%E5%9B%BE%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA/" data-title="用脏方法实现 FlameShot 截图后自动退出"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.synchronized.buzz/2019-04-19-%E7%94%A8%E8%84%8F%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0-flameshot-%E6%88%AA%E5%9B%BE%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.synchronized.buzz/2019-04-19-%E7%94%A8%E8%84%8F%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0-flameshot-%E6%88%AA%E5%9B%BE%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA/" data-title="用脏方法实现 FlameShot 截图后自动退出"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://blog.synchronized.buzz/2019-04-19-%E7%94%A8%E8%84%8F%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0-flameshot-%E6%88%AA%E5%9B%BE%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA/" data-title="用脏方法实现 FlameShot 截图后自动退出"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/flameshot/">Flameshot</a>,&nbsp;<a href="/tags/i3wm/">I3wm</a>,&nbsp;<a href="/tags/%E9%94%AE%E7%9B%98%E6%B5%81/">键盘流</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2019-03-28-%E4%BD%BF%E7%94%A8-ufw-%E7%A6%81%E7%94%A8-ping-icmp/" class="prev" rel="prev" title="使用 UFW 禁用 PING (ICMP)"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>使用 UFW 禁用 PING (ICMP)</a>
+            <a href="/2019-05-01-%E8%8E%B7%E5%8F%96%E6%AF%8F%E6%97%A5-bing-%E7%BE%8E%E5%9B%BE/" class="next" rel="next" title="获取每日 Bing 美图">获取每日 Bing 美图<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2018 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/kitty-panics" target="_blank">Kitty • Panics</a></span>&nbsp;|&nbsp;<span class="license">除非注明，本作品采用 <img style="border-width:0" src="/img/license/BY-NC-ND.png"/> 许可协议</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.fill%2CArray.prototype.find%2CArray.from%2CIntersectionObserver%2CMath.sign%2CObject.assign%2CPromise%2CObject.entries%2Chtml5shiv%2CObject.values%2Cfetch%2CElement.prototype.after"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/object-fit-images@3.2.4/dist/ofi.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.5.4/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10240},"comment":{},"data":{"id-1":"知知为知知","id-2":"知知为知知"},"search":{"highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":100,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

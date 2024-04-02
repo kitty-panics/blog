@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>PUA - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/pua/</link>
+        <description>PUA - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 18 Oct 2020 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/pua/" rel="self" type="application/rss+xml" /><item>
+    <title>png、svg 格式的图片转换成字体</title>
+    <link>https://blog.synchronized.buzz/2020-10-18-pngsvg-%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E6%88%90%E5%AD%97%E4%BD%93/</link>
+    <pubDate>Sun, 18 Oct 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-10-18-pngsvg-%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E6%88%90%E5%AD%97%E4%BD%93/</guid>
+    <description><![CDATA[2022-05-19 的更新 不知从何时起，IcoMoon 只能上传 SVG 格式的图像了。不过对于简单的 png 格式图片可以用 png2svg 脚本转换成 svg 格式。 最近有需求要在某软件的状态栏上]]></description>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,569 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/</link>
+        <description>Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 22 Mar 2024 00:00:00 &#43;0800</lastBuildDate>
+            <atom:link href="https://blog.synchronized.buzz/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>systemd.unit 无侵入性补丁 —— DynamicUser</title>
+    <link>https://blog.synchronized.buzz/2024-03-22-systemd.unit-%E6%97%A0%E4%BE%B5%E5%85%A5%E6%80%A7%E8%A1%A5%E4%B8%81-dynamicuser/</link>
+    <pubDate>Fri, 22 Mar 2024 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2024-03-22-systemd.unit-%E6%97%A0%E4%BE%B5%E5%85%A5%E6%80%A7%E8%A1%A5%E4%B8%81-dynamicuser/</guid>
+    <description><![CDATA[systemd.unit 在未指定 User= 时默认使用 ROOT 用户运行，但从安全角度来看， 这种默认行为风限太大，应该遵寻最小权限原则，比如可以将 User= 指定为 nobody。 如果想要更细]]></description>
+</item>
+<item>
+    <title>Android 彻底快速清理垃圾文件</title>
+    <link>https://blog.synchronized.buzz/2024-02-11-android-%E5%BD%BB%E5%BA%95%E5%BF%AB%E9%80%9F%E6%B8%85%E7%90%86%E5%9E%83%E5%9C%BE%E6%96%87%E4%BB%B6/</link>
+    <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2024-02-11-android-%E5%BD%BB%E5%BA%95%E5%BF%AB%E9%80%9F%E6%B8%85%E7%90%86%E5%9E%83%E5%9C%BE%E6%96%87%E4%BB%B6/</guid>
+    <description><![CDATA[市面上有很多手机清理工具，这类软件属于开发容易 (如果你会 Android 开发的话)，维护太难。 其难度在于识别垃圾文件都是基于黑名单，为海量 APP 建立庞大的黑名]]></description>
+</item>
+<item>
+    <title>多平台异地二层虚拟组网</title>
+    <link>https://blog.synchronized.buzz/2024-01-06-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%BC%82%E5%9C%B0%E4%BA%8C%E5%B1%82%E8%99%9A%E6%8B%9F%E7%BB%84%E7%BD%91/</link>
+    <pubDate>Sat, 06 Jan 2024 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2024-01-06-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%BC%82%E5%9C%B0%E4%BA%8C%E5%B1%82%E8%99%9A%E6%8B%9F%E7%BB%84%E7%BD%91/</guid>
+    <description><![CDATA[去年有篇文章介绍了使用 KDE Connect 进行多平台粘贴板同步，跨局域网通信用 Tailscale 、 ZeroTier 之类的软件。 多平台轻量化粘贴板同步方案 - Blog of Kitty • Panics - 知知为知知 这类软件虽]]></description>
+</item>
+<item>
+    <title>2023 年上半年读过的书 [TODO]</title>
+    <link>https://blog.synchronized.buzz/2023-12-30-2023-%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%AF%BB%E8%BF%87%E7%9A%84%E4%B9%A6/</link>
+    <pubDate>Sat, 30 Dec 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-12-30-2023-%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%AF%BB%E8%BF%87%E7%9A%84%E4%B9%A6/</guid>
+    <description><![CDATA[TODO 书籍涉及实体书，多个阅读 APP，整理笔记实在太麻烦，等一个契机集中整理。]]></description>
+</item>
+<item>
+    <title>多平台轻量化粘贴板同步方案</title>
+    <link>https://blog.synchronized.buzz/2023-11-21-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%BD%BB%E9%87%8F%E5%8C%96%E7%B2%98%E8%B4%B4%E6%9D%BF%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88/</link>
+    <pubDate>Tue, 21 Nov 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-11-21-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%BD%BB%E9%87%8F%E5%8C%96%E7%B2%98%E8%B4%B4%E6%9D%BF%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88/</guid>
+    <description><![CDATA[尝试过很多跨平台粘贴板同步方案，甚至动了自己写的念头，好在找到了比较完美的方案： KDE Connect 。 你能想到的想不到的平台都支持，而且功能很多，不只是剪贴]]></description>
+</item>
+<item>
+    <title>AUR 打包时不包含隐私数据</title>
+    <link>https://blog.synchronized.buzz/2023-10-27-aur-%E6%89%93%E5%8C%85%E6%97%B6%E4%B8%8D%E5%8C%85%E5%90%AB%E9%9A%90%E7%A7%81%E6%95%B0%E6%8D%AE/</link>
+    <pubDate>Fri, 27 Oct 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-10-27-aur-%E6%89%93%E5%8C%85%E6%97%B6%E4%B8%8D%E5%8C%85%E5%90%AB%E9%9A%90%E7%A7%81%E6%95%B0%E6%8D%AE/</guid>
+    <description><![CDATA[这两天拆包时瞥了一眼元数据文件 .BUILDINFO，突然发现其中的 builddir、startdir、 installed 变量存在隐私泄漏的风险。 去翻了下 pacman 的]]></description>
+</item>
+<item>
+    <title>根据 URL 使用不同的浏览器</title>
+    <link>https://blog.synchronized.buzz/2023-09-26-%E6%A0%B9%E6%8D%AE-url-%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8/</link>
+    <pubDate>Tue, 26 Sep 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-09-26-%E6%A0%B9%E6%8D%AE-url-%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8/</guid>
+    <description><![CDATA[2023-11-21 的更新 补充一个新例子。 Youtube has started to artificially slow down video load times if you use Firefox. Spoofing Chrome magically makes this problem go away. : youtube 作为 Firefox 用户，有些网站会恶意降低 Firefox 的体验，很是遭糕。从外部 URL 打开浏览器]]></description>
+</item>
+<item>
+    <title>Linux 分离式 Header 全盘加密</title>
+    <link>https://blog.synchronized.buzz/2023-08-19-linux-%E5%88%86%E7%A6%BB%E5%BC%8F-header-%E5%85%A8%E7%9B%98%E5%8A%A0%E5%AF%86/</link>
+    <pubDate>Sat, 19 Aug 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-08-19-linux-%E5%88%86%E7%A6%BB%E5%BC%8F-header-%E5%85%A8%E7%9B%98%E5%8A%A0%E5%AF%86/</guid>
+    <description><![CDATA[Linux 全盘加密的文章已经很多了，本文就不再赘述，主要介绍分离式 Header 全盘加密。 预先准备 创建分区也不赘述了，不过在进行手动分区时更推荐用带 TUI 的 cfdisk 命令，]]></description>
+</item>
+<item>
+    <title>Xorg 交换 ESC 和 CapsLock 键</title>
+    <link>https://blog.synchronized.buzz/2023-07-22-xorg-%E4%BA%A4%E6%8D%A2-esc-%E5%92%8C-capslock-%E9%94%AE/</link>
+    <pubDate>Sat, 22 Jul 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-07-22-xorg-%E4%BA%A4%E6%8D%A2-esc-%E5%92%8C-capslock-%E9%94%AE/</guid>
+    <description><![CDATA[用了很多年 xmodmap 方案实现交换 ESC 和 CapsLock 键，最近发现更新系统后有时会失效。 排查了一番，发现是有些软件包在更新后会触发 systemd udev 重载钩子。 1 2 3 # cat /usr/share/libalpm/hooks/30-systemd-udev-reload.hook sudo /usr/share/libalpm/scripts/systemd-hook udev-reload 配]]></description>
+</item>
+<item>
+    <title>2023 年上半年读过的书 [TODO]</title>
+    <link>https://blog.synchronized.buzz/2023-06-30-2023-%E5%B9%B4%E4%B8%8A%E5%8D%8A%E5%B9%B4%E8%AF%BB%E8%BF%87%E7%9A%84%E4%B9%A6/</link>
+    <pubDate>Fri, 30 Jun 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-06-30-2023-%E5%B9%B4%E4%B8%8A%E5%8D%8A%E5%B9%B4%E8%AF%BB%E8%BF%87%E7%9A%84%E4%B9%A6/</guid>
+    <description><![CDATA[TODO 书籍涉及实体书，多个阅读 APP，整理笔记实在太麻烦，等一个契机集中整理。]]></description>
+</item>
+<item>
+    <title>隐私保护 —— 伪装浏览器指纹</title>
+    <link>https://blog.synchronized.buzz/2023-05-18-%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4-%E4%BC%AA%E8%A3%85%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8C%87%E7%BA%B9/</link>
+    <pubDate>Thu, 18 May 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-05-18-%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4-%E4%BC%AA%E8%A3%85%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8C%87%E7%BA%B9/</guid>
+    <description><![CDATA[虽说现在越来越多的网络服务只提供 APP，还有些就算提供网页版也需要登录， 但还是有隐私保护的习惯。 IP 地址 IP 地址应该算是最好伪装的，得益于国内分]]></description>
+</item>
+<item>
+    <title>Github 显示直接文件下载地址</title>
+    <link>https://blog.synchronized.buzz/2023-04-22-github-%E6%98%BE%E7%A4%BA%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/</link>
+    <pubDate>Sat, 22 Apr 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-04-22-github-%E6%98%BE%E7%A4%BA%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/</guid>
+    <description><![CDATA[Github 网页下载文件的体验太糟糕了，得点击好几次，有时我只是想复制下载链接而已。 页面中文件列表最右边的目录、文件图标也没有什么用，直接将其替换成下]]></description>
+</item>
+<item>
+    <title>Github 显示绝对时间</title>
+    <link>https://blog.synchronized.buzz/2023-03-25-github-%E6%98%BE%E7%A4%BA%E7%BB%9D%E5%AF%B9%E6%97%B6%E9%97%B4/</link>
+    <pubDate>Sat, 25 Mar 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-03-25-github-%E6%98%BE%E7%A4%BA%E7%BB%9D%E5%AF%B9%E6%97%B6%E9%97%B4/</guid>
+    <description><![CDATA[很奇怪 Github 的产品设计逻辑，用户都是开发者，很多东西需要精确表达，在时间设计上偏偏用相对时间， 有时真的很碍事，尽管可以通过悬停鼠标来显示绝对时间]]></description>
+</item>
+<item>
+    <title>猜猜汉字笔画是奇数多还是偶数多</title>
+    <link>https://blog.synchronized.buzz/2023-02-19-%E7%8C%9C%E7%8C%9C%E6%B1%89%E5%AD%97%E7%AC%94%E7%94%BB%E6%98%AF%E5%A5%87%E6%95%B0%E5%A4%9A%E8%BF%98%E6%98%AF%E5%81%B6%E6%95%B0%E5%A4%9A/</link>
+    <pubDate>Sun, 19 Feb 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-02-19-%E7%8C%9C%E7%8C%9C%E6%B1%89%E5%AD%97%E7%AC%94%E7%94%BB%E6%98%AF%E5%A5%87%E6%95%B0%E5%A4%9A%E8%BF%98%E6%98%AF%E5%81%B6%E6%95%B0%E5%A4%9A/</guid>
+    <description><![CDATA[好吧，虽然这是一个无聊的话题，不过也还是有点儿有趣。 笔顺数据 笔顺数据采用 CNMan/UnicodeCJK-WuBi ，这是网友做的整合版，可能是全网最全的。 Unicode CJK 收录了近 10 万多个汉字，]]></description>
+</item>
+<item>
+    <title>禁止 VBox Guest Additions 检查更新</title>
+    <link>https://blog.synchronized.buzz/2023-01-09-%E7%A6%81%E6%AD%A2-vbox-guest-additions-%E6%A3%80%E6%9F%A5%E6%9B%B4%E6%96%B0/</link>
+    <pubDate>Mon, 09 Jan 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-01-09-%E7%A6%81%E6%AD%A2-vbox-guest-additions-%E6%A3%80%E6%9F%A5%E6%9B%B4%E6%96%B0/</guid>
+    <description><![CDATA[使用 VirtualBox 时，VBoxGuestAdditions 应该是必装的，共享粘贴板、文件夹…… 等功能都依赖此组件。 但 VBoxGuestAdditions 每次在系统启动后会进行更新检查，如]]></description>
+</item>
+<item>
+    <title>2022 年下半年读过的书 [TODO]</title>
+    <link>https://blog.synchronized.buzz/2022-12-27-2022-%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%AF%BB%E8%BF%87%E7%9A%84%E4%B9%A6/</link>
+    <pubDate>Tue, 27 Dec 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-12-27-2022-%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%AF%BB%E8%BF%87%E7%9A%84%E4%B9%A6/</guid>
+    <description><![CDATA[TODO 书籍涉及实体书，多个阅读 APP，整理笔记实在太麻烦，等一个契机集中整理。]]></description>
+</item>
+<item>
+    <title>常用汉字中平均每字的字母长度</title>
+    <link>https://blog.synchronized.buzz/2022-11-11-%E5%B8%B8%E7%94%A8%E6%B1%89%E5%AD%97%E4%B8%AD%E5%B9%B3%E5%9D%87%E6%AF%8F%E5%AD%97%E7%9A%84%E5%AD%97%E6%AF%8D%E9%95%BF%E5%BA%A6/</link>
+    <pubDate>Fri, 11 Nov 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-11-11-%E5%B8%B8%E7%94%A8%E6%B1%89%E5%AD%97%E4%B8%AD%E5%B9%B3%E5%9D%87%E6%AF%8F%E5%AD%97%E7%9A%84%E5%AD%97%E6%AF%8D%E9%95%BF%E5%BA%A6/</guid>
+    <description><![CDATA[多年音形码、形码用户，当初抛弃全拼就是因为码长太长，重码太多。打了很久的单字， 感觉有时码长并不比全拼短，但个人主观感受是不准确的，遂统计一下]]></description>
+</item>
+<item>
+    <title>proxychains-ng 对 Chromium 无效</title>
+    <link>https://blog.synchronized.buzz/2022-10-11-proxychains-ng-%E5%AF%B9-chromium-%E6%97%A0%E6%95%88/</link>
+    <pubDate>Tue, 11 Oct 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-10-11-proxychains-ng-%E5%AF%B9-chromium-%E6%97%A0%E6%95%88/</guid>
+    <description><![CDATA[最近 Google 关闭国内服务器的翻译 API 服务，才发现 Chrome 自带的网页翻译居然不受扩展控制， 尽管设置中显示 &ldquo;Chrome is using proxy settings from an extension&rdquo;。 那些]]></description>
+</item>
+<item>
+    <title>在 JDK 11 上运行 XMind 8</title>
+    <link>https://blog.synchronized.buzz/2022-09-11-%E5%9C%A8-jdk-11-%E4%B8%8A%E8%BF%90%E8%A1%8C-xmind-8/</link>
+    <pubDate>Sun, 11 Sep 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-09-11-%E5%9C%A8-jdk-11-%E4%B8%8A%E8%BF%90%E8%A1%8C-xmind-8/</guid>
+    <description><![CDATA[虽然 XMind 8 已经停止支持了，但个人感觉比新版更好用，而且它是用 Java 写的， 在后面很多年都可以运行的很好。 Error 目前我正在逐步移除系统中依赖 JDK 8 的软件，X]]></description>
+</item>
+<item>
+    <title>简中常用 3500 汉字及其读音</title>
+    <link>https://blog.synchronized.buzz/2022-08-16-%E7%AE%80%E4%B8%AD%E5%B8%B8%E7%94%A8-3500-%E6%B1%89%E5%AD%97%E5%8F%8A%E5%85%B6%E8%AF%BB%E9%9F%B3/</link>
+    <pubDate>Tue, 16 Aug 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-08-16-%E7%AE%80%E4%B8%AD%E5%B8%B8%E7%94%A8-3500-%E6%B1%89%E5%AD%97%E5%8F%8A%E5%85%B6%E8%AF%BB%E9%9F%B3/</guid>
+    <description><![CDATA[网上找到的常用汉字及其读音都太随意了。要不就几百个汉字，要不拼音不准，所以自己整理了一份 《简中常用 3500 汉字及其读音》。 3500 个汉字有两个来源，一个]]></description>
+</item>
+<item>
+    <title>在 x86 机器上编译 ARM 软件</title>
+    <link>https://blog.synchronized.buzz/2022-07-09-%E5%9C%A8-x86-%E6%9C%BA%E5%99%A8%E4%B8%8A%E7%BC%96%E8%AF%91-arm-%E8%BD%AF%E4%BB%B6/</link>
+    <pubDate>Sat, 09 Jul 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-07-09-%E5%9C%A8-x86-%E6%9C%BA%E5%99%A8%E4%B8%8A%E7%BC%96%E8%AF%91-arm-%E8%BD%AF%E4%BB%B6/</guid>
+    <description><![CDATA[前文回顾 《在 Orange Pi Lite 上安装 Arch Linux ARM》 《OrangePi-Lite (Arch Linux ARM) 重启后 Wi-Fi 无网络》 几年前买的 Orange Pi Lite 不带网口，联网只能靠 Wi-Fi，每次升]]></description>
+</item>
+<item>
+    <title>2022 年上半年读过的书</title>
+    <link>https://blog.synchronized.buzz/2022-06-24-2022-%E5%B9%B4%E4%B8%8A%E5%8D%8A%E5%B9%B4%E8%AF%BB%E8%BF%87%E7%9A%84%E4%B9%A6/</link>
+    <pubDate>Fri, 24 Jun 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-06-24-2022-%E5%B9%B4%E4%B8%8A%E5%8D%8A%E5%B9%B4%E8%AF%BB%E8%BF%87%E7%9A%84%E4%B9%A6/</guid>
+    <description><![CDATA[《黄金时代》 作 者: 王小波 推荐指数: ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ 短 评: 读的第二本王二的书，王二的书看的过程中好像什么都明白了，关上书好像又什么都不记得]]></description>
+</item>
+<item>
+    <title>&#39;五笔98&#39; 和 &#39;仓颉5&#39; 单字形码方案</title>
+    <link>https://blog.synchronized.buzz/2022-05-25-%E4%BA%94%E7%AC%9498-%E5%92%8C-%E4%BB%93%E9%A2%895-%E5%8D%95%E5%AD%97%E5%BD%A2%E7%A0%81%E6%96%B9%E6%A1%88/</link>
+    <pubDate>Wed, 25 May 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-05-25-%E4%BA%94%E7%AC%9498-%E5%92%8C-%E4%BB%93%E9%A2%895-%E5%8D%95%E5%AD%97%E5%BD%A2%E7%A0%81%E6%96%B9%E6%A1%88/</guid>
+    <description><![CDATA[2023-07-14 的更新 重写了静态全码重码统计工具，列出了支持 Unicode CJK 大字符集形码的重码数据，见 kitty-panics/DCoSC 。 因想要完美而开始的项目，终会因不完美而结束。 最初受不了拼音的]]></description>
+</item>
+<item>
+    <title>Timed out waiting for device /dev/disk/by-uuid/XXXX-XXXX</title>
+    <link>https://blog.synchronized.buzz/2022-04-11-timed-out-waiting-for-device-%5Cdev%5Cdisk%5Cby-uuid%5Cxxxx-xxxx/</link>
+    <pubDate>Mon, 11 Apr 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-04-11-timed-out-waiting-for-device-%5Cdev%5Cdisk%5Cby-uuid%5Cxxxx-xxxx/</guid>
+    <description><![CDATA[最近系统启动时会随机提示如下信息。 1 2 3 4 5 6 7 8 9 10 [ TIME ] Timed out waiting for device /dev/disk/by-uuid/XXXX-XXXX [DEPEND] Dependency failed for /boot/efi. [DEPEND] Dependency failed for Local File Systems. [DEPEND] Dependency failed for File System Check on /dev/disk/by-uuid/XXXX-XXXX. You are in emergency mode. After logging in, type &#34;journalctl - xb&#34; to]]></description>
+</item>
+<item>
+    <title>中国大陆与中国台湾常用语差异</title>
+    <link>https://blog.synchronized.buzz/2022-03-27-%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%E4%B8%8E%E4%B8%AD%E5%9B%BD%E5%8F%B0%E6%B9%BE%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%B7%AE%E5%BC%82/</link>
+    <pubDate>Sun, 27 Mar 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-03-27-%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%E4%B8%8E%E4%B8%AD%E5%9B%BD%E5%8F%B0%E6%B9%BE%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%B7%AE%E5%BC%82/</guid>
+    <description><![CDATA[整理了一份《中国大陆与中国台湾常用语差异》表。如果想分享此表格的话， 可以下载图片版、Excel 版和 PDF 版。 《中国大陆与中国台湾常用语差异》- PNG]]></description>
+</item>
+<item>
+    <title>为 OpenSSH 配置家宽 IP 白名单</title>
+    <link>https://blog.synchronized.buzz/2022-02-02-%E4%B8%BA-openssh-%E9%85%8D%E7%BD%AE%E5%AE%B6%E5%AE%BD-ip-%E7%99%BD%E5%90%8D%E5%8D%95/</link>
+    <pubDate>Wed, 02 Feb 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-02-02-%E4%B8%BA-openssh-%E9%85%8D%E7%BD%AE%E5%AE%B6%E5%AE%BD-ip-%E7%99%BD%E5%90%8D%E5%8D%95/</guid>
+    <description><![CDATA[对于防火墙的配置，安全的方案应该是默认拒绝所有流量进入，然后根据实际需求只放行一小部分必要的流量， 再对这一小部分流量加上一些限制。 一般来说，]]></description>
+</item>
+<item>
+    <title>被速率限制时自动切换 Github 镜像站</title>
+    <link>https://blog.synchronized.buzz/2022-01-12-%E8%A2%AB%E9%80%9F%E7%8E%87%E9%99%90%E5%88%B6%E6%97%B6%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2-github-%E9%95%9C%E5%83%8F%E7%AB%99/</link>
+    <pubDate>Wed, 12 Jan 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-01-12-%E8%A2%AB%E9%80%9F%E7%8E%87%E9%99%90%E5%88%B6%E6%97%B6%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2-github-%E9%95%9C%E5%83%8F%E7%AB%99/</guid>
+    <description><![CDATA[由于众所周知的原因，访问 Github 变得越来越困难，幸好还有大量的镜像站可用，但镜像站使用的人太多， 很容易被速率限制。 被速率限制时，只能等待一会再访问]]></description>
+</item>
+<item>
+    <title>Linux 版的存储空间隔离</title>
+    <link>https://blog.synchronized.buzz/2021-12-19-linux-%E7%89%88%E7%9A%84%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E9%9A%94%E7%A6%BB/</link>
+    <pubDate>Sun, 19 Dec 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-12-19-linux-%E7%89%88%E7%9A%84%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E9%9A%94%E7%A6%BB/</guid>
+    <description><![CDATA[用过 Android 系统的同学都知道，几乎所有软件都会请求存储权限，然后在里面各种乱拉屎， 导致存储空间乱七八遭的，每次找个东西得翻动半天。为此有开发者写了]]></description>
+</item>
+<item>
+    <title>JavaScript 中 getIndexByValue、getKeyByValue</title>
+    <link>https://blog.synchronized.buzz/2021-11-22-javascript-%E4%B8%AD-getindexbyvaluegetkeybyvalue/</link>
+    <pubDate>Mon, 22 Nov 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-11-22-javascript-%E4%B8%AD-getindexbyvaluegetkeybyvalue/</guid>
+    <description><![CDATA[分享两个有用的 JavaScript 代码片段。 getIndexByValue 通过值查数组的下标。 1 2 3 4 5 function getIndexByValue(array, value) { return array.map(function (item) { return item; }).indexOf(value); } getKeyByValue 通过值查对象的键。 1 2 3 4 5 function getKeyByValue(object, value) { return Object.keys(object).find(function (key) { return object[key] === value; }); }]]></description>
+</item>
+<item>
+    <title>OrangePi-Lite (Arch Linux ARM) 重启后 Wi-Fi 无网络</title>
+    <link>https://blog.synchronized.buzz/2021-10-05-orangepi-lite-arch-linux-arm-%E9%87%8D%E5%90%AF%E5%90%8E-wi-fi-%E6%97%A0%E7%BD%91%E7%BB%9C/</link>
+    <pubDate>Tue, 05 Oct 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-10-05-orangepi-lite-arch-linux-arm-%E9%87%8D%E5%90%AF%E5%90%8E-wi-fi-%E6%97%A0%E7%BD%91%E7%BB%9C/</guid>
+    <description><![CDATA[上一篇说到在 OrangePi Lite 中安装了 Arch Linux ARM ，由于 Orange Pi Lite 没有有线网络接口， 所以只能使用 Wi-Fi。Wi-Fi 连接方案如下。 使用 wpa_supplicant 连接到 Wi-Fi。 使用 dhcpcd 请]]></description>
+</item>
+<item>
+    <title>R7000 2020 在 Linux 中完全关闭 N 卡</title>
+    <link>https://blog.synchronized.buzz/2021-09-24-r7000-2020-%E5%9C%A8-linux-%E4%B8%AD%E5%AE%8C%E5%85%A8%E5%85%B3%E9%97%AD-n-%E5%8D%A1/</link>
+    <pubDate>Fri, 24 Sep 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-09-24-r7000-2020-%E5%9C%A8-linux-%E4%B8%AD%E5%AE%8C%E5%85%A8%E5%85%B3%E9%97%AD-n-%E5%8D%A1/</guid>
+    <description><![CDATA[在 Linux 中完全关闭 NVIDIA 独立显卡就三个方法。 在 BIOS 中禁用。 使用 bbswitch 。 使用 acpi_call 。 第 1 种方法应该是最简便最彻底的，可惜绝大多数笔记本的 BIOS 并不支持禁用独显。 那就]]></description>
+</item>
+<item>
+    <title>服务器使用 Arch Linux 的七大理由</title>
+    <link>https://blog.synchronized.buzz/2021-08-11-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8-arch-linux-%E7%9A%84%E5%85%AD%E5%A4%A7%E7%90%86%E7%94%B1/</link>
+    <pubDate>Wed, 11 Aug 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-08-11-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8-arch-linux-%E7%9A%84%E5%85%AD%E5%A4%A7%E7%90%86%E7%94%B1/</guid>
+    <description><![CDATA[2024-03-30 的更新 最新仅针对 deb/rpm 投毒的案例，Arch Linux 没有魔改上游的习惯，又逃过一劫。 xz 软件包被植入后门 。 本来打算写一篇有关 Linux 服务器安全配置的博文，但网]]></description>
+</item>
+<item>
+    <title>在 Orange Pi Lite 上安装 Arch Linux ARM</title>
+    <link>https://blog.synchronized.buzz/2021-07-05-%E5%9C%A8-orange-pi-lite-%E4%B8%8A%E5%AE%89%E8%A3%85-arch-linux-arm/</link>
+    <pubDate>Mon, 05 Jul 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-07-05-%E5%9C%A8-orange-pi-lite-%E4%B8%8A%E5%AE%89%E8%A3%85-arch-linux-arm/</guid>
+    <description><![CDATA[前段时间将云服务器的系统都换成了 Arch Linux，最近意外发现角落吃灰的 Orange Pi Lite。 正好手上有张多余的 MicroSD 卡，烧录了几个系统发现都不如意 (官方提]]></description>
+</item>
+<item>
+    <title>&#39;ssl_stapling&#39; ignored, host not found in OCSP responder &#39;r3.o.lencr.org&#39; in the cert &#39;fullchain.pem&#39;</title>
+    <link>https://blog.synchronized.buzz/2021-06-21-ssl_stapling-ignored-host-not-found-in-ocsp-responder-r3.o.lencr.org-in-the-cert-fullchain.pem/</link>
+    <pubDate>Mon, 21 Jun 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-06-21-ssl_stapling-ignored-host-not-found-in-ocsp-responder-r3.o.lencr.org-in-the-cert-fullchain.pem/</guid>
+    <description><![CDATA[在查看服务器日志时发现 Nginx 中有一个 Warn。 1 2 [warn] 285#285: &#34;ssl_stapling&#34; ignored, host not found in OCSP responder &#34;r3.o.lencr.org&#34; in the certificate &#34;/XXXX/YYYY/ZZZZ/fullchain.pem&#34; 看到这个警告第一反应是不是 Let&rsquo;s Encrypt 的服务挂了，毕竟它以前也出过几次问]]></description>
+</item>
+<item>
+    <title>使用 Python3 解压乱码的 zip 文件</title>
+    <link>https://blog.synchronized.buzz/2021-05-07-%E4%BD%BF%E7%94%A8-python3-%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E7%9A%84-zip-%E6%96%87%E4%BB%B6/</link>
+    <pubDate>Fri, 07 May 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-05-07-%E4%BD%BF%E7%94%A8-python3-%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E7%9A%84-zip-%E6%96%87%E4%BB%B6/</guid>
+    <description><![CDATA[由于 zip 压缩格式默认没有指定编码格式，所以会使用系统默认的编码 (在简中 Windows 上通常是 GBK，在 Linux 上通常是 UTF-8)，这会导致在 Linux 上解压 Windows 中创建的]]></description>
+</item>
+<item>
+    <title>解决 XFS 2038 年时间戳问题</title>
+    <link>https://blog.synchronized.buzz/2021-04-18-%E8%A7%A3%E5%86%B3-xfs-2038-%E5%B9%B4%E6%97%B6%E9%97%B4%E6%88%B3%E9%97%AE%E9%A2%98/</link>
+    <pubDate>Sun, 18 Apr 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-04-18-%E8%A7%A3%E5%86%B3-xfs-2038-%E5%B9%B4%E6%97%B6%E9%97%B4%E6%88%B3%E9%97%AE%E9%A2%98/</guid>
+    <description><![CDATA[2022-04-07 的更新 从 xfsprogs v5.15 开始，mkfs.xfs 时默认启用大时间戳 (Big Timestamps)。 如果有使用 XFS 文件系统，在浏览系统日志 (journalctl -b) 时一定会发现有以下内]]></description>
+</item>
+<item>
+    <title>重装 Arch Linux 遇到的新坑</title>
+    <link>https://blog.synchronized.buzz/2021-03-05-%E9%87%8D%E8%A3%85-arch-linux-%E9%81%87%E5%88%B0%E7%9A%84%E6%96%B0%E5%9D%91/</link>
+    <pubDate>Fri, 05 Mar 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-03-05-%E9%87%8D%E8%A3%85-arch-linux-%E9%81%87%E5%88%B0%E7%9A%84%E6%96%B0%E5%9D%91/</guid>
+    <description><![CDATA[2023-04-11 的更新 ArchWiki 里更新了 GRUB2 的 LUKS2 配置文档。 2021-06-08 的更新 世界变化真快，GRUB2 也支持 LUKS2 了 (详见：GRUB 2.06 Released With BootHole Fixes, LUKS2 Encrypted Volume Support )。 但是支持的还不完善，需要手]]></description>
+</item>
+<item>
+    <title>Linux 上密码错三次后正确密码也提示密码错误</title>
+    <link>https://blog.synchronized.buzz/2021-02-16-linux-%E4%B8%8A%E5%AF%86%E7%A0%81%E9%94%99%E4%B8%89%E6%AC%A1%E5%90%8E%E6%AD%A3%E7%A1%AE%E5%AF%86%E7%A0%81%E4%B9%9F%E6%8F%90%E7%A4%BA%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF/</link>
+    <pubDate>Tue, 16 Feb 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-02-16-linux-%E4%B8%8A%E5%AF%86%E7%A0%81%E9%94%99%E4%B8%89%E6%AC%A1%E5%90%8E%E6%AD%A3%E7%A1%AE%E5%AF%86%E7%A0%81%E4%B9%9F%E6%8F%90%E7%A4%BA%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF/</guid>
+    <description><![CDATA[突然发现用户密码输错三次后，再输入正确密码也会提示密码错误，要等待一段时间才恢复正常。 一番搜索后发现是 pambase 在 v20200721.1-2 版本加入的新特性：即在 15min 内密码错]]></description>
+</item>
+<item>
+    <title>Nginx 配置响应头安全策略</title>
+    <link>https://blog.synchronized.buzz/2021-01-12-nginx-%E9%85%8D%E7%BD%AE%E5%93%8D%E5%BA%94%E5%A4%B4%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5/</link>
+    <pubDate>Tue, 12 Jan 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-01-12-nginx-%E9%85%8D%E7%BD%AE%E5%93%8D%E5%BA%94%E5%A4%B4%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5/</guid>
+    <description><![CDATA[HTTP Headers 种类繁多 (详见 HTTP Headers - HTTP | MDN )，对于请求头的安全配置一般只需配置以下七项即可。 Content-Security-Policy 简称 CSP，指定的页面可以加载哪些资源。 Nginx 配置示例: 1 add_header Content-Security-Policy]]></description>
+</item>
+<item>
+    <title>请叫我芷兰</title>
+    <link>https://blog.synchronized.buzz/2020-12-18-%E8%AF%B7%E5%8F%AB%E6%88%91%E8%8A%B7%E5%85%B0/</link>
+    <pubDate>Fri, 18 Dec 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-12-18-%E8%AF%B7%E5%8F%AB%E6%88%91%E8%8A%B7%E5%85%B0/</guid>
+    <description><![CDATA[名 当然，守一 并不是我的真名，这只是一个花名。真实名字有两个字， 其中一字表示字辈不要，所以单取一个 &ldquo;正&rdquo; 字。 何为 &ld]]></description>
+</item>
+<item>
+    <title>安卓 PERSIST 分区损坏造成手机 Wi-Fi、蓝牙、收音机无法使用</title>
+    <link>https://blog.synchronized.buzz/2020-11-04-%E5%AE%89%E5%8D%93-persist-%E5%88%86%E5%8C%BA%E6%8D%9F%E5%9D%8F%E9%80%A0%E6%88%90%E6%89%8B%E6%9C%BA-wi-fi%E8%93%9D%E7%89%99%E6%94%B6%E9%9F%B3%E6%9C%BA%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/</link>
+    <pubDate>Wed, 04 Nov 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-11-04-%E5%AE%89%E5%8D%93-persist-%E5%88%86%E5%8C%BA%E6%8D%9F%E5%9D%8F%E9%80%A0%E6%88%90%E6%89%8B%E6%9C%BA-wi-fi%E8%93%9D%E7%89%99%E6%94%B6%E9%9F%B3%E6%9C%BA%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/</guid>
+    <description><![CDATA[最近把备用机系统换成了 MIUI EU ，刷完发现 Wi-Fi 功能不能打开了。 这种情况通常是 PERSIST 分区损坏造成的，这种情况除非硬件有问题一般都能通过线刷解决。 不过线刷后]]></description>
+</item>
+<item>
+    <title>png、svg 格式的图片转换成字体</title>
+    <link>https://blog.synchronized.buzz/2020-10-18-pngsvg-%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E6%88%90%E5%AD%97%E4%BD%93/</link>
+    <pubDate>Sun, 18 Oct 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-10-18-pngsvg-%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E6%88%90%E5%AD%97%E4%BD%93/</guid>
+    <description><![CDATA[2022-05-19 的更新 不知从何时起，IcoMoon 只能上传 SVG 格式的图像了。不过对于简单的 png 格式图片可以用 png2svg 脚本转换成 svg 格式。 最近有需求要在某软件的状态栏上]]></description>
+</item>
+<item>
+    <title>Linux 下开发的一些约定俗成</title>
+    <link>https://blog.synchronized.buzz/2020-09-05-linux-%E4%B8%8B%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BA%A6%E5%AE%9A%E4%BF%97%E6%88%90/</link>
+    <pubDate>Sat, 05 Sep 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-09-05-linux-%E4%B8%8B%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BA%A6%E5%AE%9A%E4%BF%97%E6%88%90/</guid>
+    <description><![CDATA[为方便使用和开发，使用 Linux 时需要遵守一些约定俗成。 像 rm 不要加 -f 参数，使用 mv 替代 rm，不要日常使用 ROOT 用户，使用 ROOT 权限需通过 sudo 这些烂大街的就不说了]]></description>
+</item>
+<item>
+    <title>Nginx 只允许 HTTP/2、HTTP/3 协议</title>
+    <link>https://blog.synchronized.buzz/2020-08-12-nginx-%E5%8F%AA%E5%85%81%E8%AE%B8-http%5C2http%5C3-%E5%8D%8F%E8%AE%AE/</link>
+    <pubDate>Wed, 12 Aug 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-08-12-nginx-%E5%8F%AA%E5%85%81%E8%AE%B8-http%5C2http%5C3-%E5%8D%8F%E8%AE%AE/</guid>
+    <description><![CDATA[个人网站没什么用户，不需要考虑兼容性，喜欢启用一些新特性。 如果只单单允许 HTTP/1.1 或只允许 HTTP/2 倒是很容易，一个 if 语句就行了。 1 2 3 if ($server_protocol !~* &#34;HTTP/1.1&#34;) { return 403 &#34;Only HTTP/1.1 protocol]]></description>
+</item>
+<item>
+    <title>离线安装 VS2015/VS2017 提示包损坏或丢失，安装 VS2019 程序闪退</title>
+    <link>https://blog.synchronized.buzz/2020-07-28-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85-vs2015%5Cvs2017-%E6%8F%90%E7%A4%BA%E5%8C%85%E6%8D%9F%E5%9D%8F%E6%88%96%E4%B8%A2%E5%A4%B1%E5%AE%89%E8%A3%85-vs2019-%E7%A8%8B%E5%BA%8F%E9%97%AA%E9%80%80/</link>
+    <pubDate>Tue, 28 Jul 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-07-28-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85-vs2015%5Cvs2017-%E6%8F%90%E7%A4%BA%E5%8C%85%E6%8D%9F%E5%9D%8F%E6%88%96%E4%B8%A2%E5%A4%B1%E5%AE%89%E8%A3%85-vs2019-%E7%A8%8B%E5%BA%8F%E9%97%AA%E9%80%80/</guid>
+    <description><![CDATA[之前为方便后续快速安装 Visual Studio，缓存了 VS2015/2017/2019 的 MS Build Tools 离线安装包在本地。今天在安装 VS2015/2017 时提示包损坏或丢失，安装 VS2019 时安装程序直接闪退。 搜索了一番]]></description>
+</item>
+<item>
+    <title>Xfce4 中实现类 i3wm 二级快捷键</title>
+    <link>https://blog.synchronized.buzz/2020-06-28-xfce4-%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%B1%BB-i3wm-%E4%BA%8C%E7%BA%A7%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+    <pubDate>Sun, 28 Jun 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-06-28-xfce4-%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%B1%BB-i3wm-%E4%BA%8C%E7%BA%A7%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+    <description><![CDATA[使用 i3wm 有一两年时间，虽然很喜欢它，但受不了很多窗口得手动干预才能显示成正常大小， 遂转用了 Xfce ，在使用 Xfce 的日子里，最怀念的就是 i3wm 二级快捷键 功能。]]></description>
+</item>
+<item>
+    <title>ABS 打包指定源码克隆深度</title>
+    <link>https://blog.synchronized.buzz/2020-05-28-abs-%E6%89%93%E5%8C%85%E6%8C%87%E5%AE%9A%E6%BA%90%E7%A0%81%E5%85%8B%E9%9A%86%E6%B7%B1%E5%BA%A6/</link>
+    <pubDate>Thu, 28 May 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-05-28-abs-%E6%89%93%E5%8C%85%E6%8C%87%E5%AE%9A%E6%BA%90%E7%A0%81%E5%85%8B%E9%9A%86%E6%B7%B1%E5%BA%A6/</guid>
+    <description><![CDATA[源代码仓库太大，国内下载速度慢真是种煎熬。一般 git clone 时能通过加上 --depth=1 参数指定克隆深度来解决。 但在 AUR 打包时，并不能把 --depth=1 写在 PKGBUILD 中，而应该是 makepkg 的配置文]]></description>
+</item>
+<item>
+    <title>深切哀悼在抗击新冠肺炎斗争中的牺牲烈士和逝世同胞</title>
+    <link>https://blog.synchronized.buzz/2020-04-04-%E6%B7%B1%E5%88%87%E5%93%80%E6%82%BC%E5%9C%A8%E6%8A%97%E5%87%BB%E6%96%B0%E5%86%A0%E8%82%BA%E7%82%8E%E6%96%97%E4%BA%89%E4%B8%AD%E7%9A%84%E7%89%BA%E7%89%B2%E7%83%88%E5%A3%AB%E5%92%8C%E9%80%9D%E4%B8%96%E5%90%8C%E8%83%9E/</link>
+    <pubDate>Sat, 04 Apr 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-04-04-%E6%B7%B1%E5%88%87%E5%93%80%E6%82%BC%E5%9C%A8%E6%8A%97%E5%87%BB%E6%96%B0%E5%86%A0%E8%82%BA%E7%82%8E%E6%96%97%E4%BA%89%E4%B8%AD%E7%9A%84%E7%89%BA%E7%89%B2%E7%83%88%E5%A3%AB%E5%92%8C%E9%80%9D%E4%B8%96%E5%90%8C%E8%83%9E/</guid>
+    <description><![CDATA[为深切哀悼在抗击新冠肺炎斗争中的牺牲烈士和逝世同胞，我的个人网站将全站变灰 3 天。 愿逝者安息，愿生者奋发，愿祖国昌盛。 网页变灰的 UserScript 为此写了一个]]></description>
+</item>
+<item>
+    <title>部分机型使用 TWRP 后加密手机失败</title>
+    <link>https://blog.synchronized.buzz/2020-03-26-%E9%83%A8%E5%88%86%E6%9C%BA%E5%9E%8B%E4%BD%BF%E7%94%A8-twrp-%E5%90%8E%E5%8A%A0%E5%AF%86%E6%89%8B%E6%9C%BA%E5%A4%B1%E8%B4%A5/</link>
+    <pubDate>Thu, 26 Mar 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-03-26-%E9%83%A8%E5%88%86%E6%9C%BA%E5%9E%8B%E4%BD%BF%E7%94%A8-twrp-%E5%90%8E%E5%8A%A0%E5%AF%86%E6%89%8B%E6%9C%BA%E5%A4%B1%E8%B4%A5/</guid>
+    <description><![CDATA[备用机一直在用 LineageOS 类原生系统，今天突然发现系统居然未加密 (从 Android 7.0 开始默认使用文件级加密 (FBE))，尝试加密还失败了。 开始以为是系统的问题，然]]></description>
+</item>
+<item>
+    <title>Steam need online update</title>
+    <link>https://blog.synchronized.buzz/2020-02-15-steam-need-online-update/</link>
+    <pubDate>Sat, 15 Feb 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-02-15-steam-need-online-update/</guid>
+    <description><![CDATA[打算把卸载掉的 Steam 装回来，结果运行安装程序时弹出 &ldquo;Steam need online update&rdquo; 错误提示。 给出的错误信息实在太少了，不过对于这种情况可以在终端运行试试，一般来说能获取]]></description>
+</item>
+<item>
+    <title>个人自制的输入法方案</title>
+    <link>https://blog.synchronized.buzz/2020-01-10-%E4%B8%AA%E4%BA%BA%E8%87%AA%E5%88%B6%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95%E6%96%B9%E6%A1%88/</link>
+    <pubDate>Fri, 10 Jan 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-01-10-%E4%B8%AA%E4%BA%BA%E8%87%AA%E5%88%B6%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95%E6%96%B9%E6%A1%88/</guid>
+    <description><![CDATA[2022-05-25 的更新 由于硬盘损坏 (见: 《重装 Arch Linux 遇到的新坑》 )，数据都丢了，不想重新做了，本文已弃用。 之前对各大输入法或多或少有点不满意，而且它们跨平台]]></description>
+</item>
+<item>
+    <title>加快 Stack OverFlow 访问速度</title>
+    <link>https://blog.synchronized.buzz/2019-12-15-%E5%8A%A0%E5%BF%AB-stack-overflow-%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/</link>
+    <pubDate>Sun, 15 Dec 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-12-15-%E5%8A%A0%E5%BF%AB-stack-overflow-%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/</guid>
+    <description><![CDATA[2021-11-22 的更新 此方法已失效，因为 Stack OverFlow 现在搜索时需先通过 Google 的 reCAPTCHE 验证码， 禁用掉 JavaScript 也就无法加载验证码了。 reCAPTCHE 验证码脚本共有两个地址，默认使用第一个 (但第一]]></description>
+</item>
+<item>
+    <title>GRUB2 多重引导</title>
+    <link>https://blog.synchronized.buzz/2019-11-09-grub2-%E5%A4%9A%E9%87%8D%E5%BC%95%E5%AF%BC/</link>
+    <pubDate>Sat, 09 Nov 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-11-09-grub2-%E5%A4%9A%E9%87%8D%E5%BC%95%E5%AF%BC/</guid>
+    <description><![CDATA[2021-04-22 日的更新 最近发现一个很棒的多系统启动盘制作工具：Ventoy 。 只需要把 ISO/WIM/IMG/VHD(X)/EFI 等类型的文件拷贝到 U 盘里面就可以启动了，无需其他操作。 还可以一次性]]></description>
+</item>
+<item>
+    <title>Batch 提升为 Administrator 权限</title>
+    <link>https://blog.synchronized.buzz/2019-10-14-batch-%E6%8F%90%E5%8D%87%E4%B8%BA-administrator-%E6%9D%83%E9%99%90/</link>
+    <pubDate>Mon, 14 Oct 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-10-14-batch-%E6%8F%90%E5%8D%87%E4%B8%BA-administrator-%E6%9D%83%E9%99%90/</guid>
+    <description><![CDATA[尽管 Windows 用户都默认使用 Administrator 帐户，但它虽名为 Administrator，其实并没有 Administrator 全部的权限，很多操作会受到限制。 所以在执行某些 Batch 脚本时需要提升]]></description>
+</item>
+<item>
+    <title>一键重启移动光猫</title>
+    <link>https://blog.synchronized.buzz/2019-09-28-%E4%B8%80%E9%94%AE%E9%87%8D%E5%90%AF%E7%A7%BB%E5%8A%A8%E5%85%89%E7%8C%AB/</link>
+    <pubDate>Sat, 28 Sep 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-09-28-%E4%B8%80%E9%94%AE%E9%87%8D%E5%90%AF%E7%A7%BB%E5%8A%A8%E5%85%89%E7%8C%AB/</guid>
+    <description><![CDATA[2022-06-01 的更新 家里升级到了 1000M 宽带，换了一个新光猫。登录与重启相对于之前有大两个变化。 登录密码无需经过 Base64 编码。 重启不再需要 CurrentLocalTime (当前时间) 参数。 我这里]]></description>
+</item>
+<item>
+    <title>解决使用 USB3.0 时硬盘 freezes 的问题</title>
+    <link>https://blog.synchronized.buzz/2019-08-30-%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8-usb3.0-%E6%97%B6%E7%A1%AC%E7%9B%98-freezes-%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+    <pubDate>Fri, 30 Aug 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-08-30-%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8-usb3.0-%E6%97%B6%E7%A1%AC%E7%9B%98-freezes-%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+    <description><![CDATA[Error 当外接磁盘使用的是 USB 3.0 时，磁盘会随缘 freezes。错误日志如下。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 [ +10.195770] sd 7:0:0:0: [sdc] tag#2 data cmplt err -71 uas-tag 3 inflight:]]></description>
+</item>
+<item>
+    <title>长度刚好在大腿处的白丝最诱人</title>
+    <link>https://blog.synchronized.buzz/2019-07-05-%E9%95%BF%E5%BA%A6%E5%88%9A%E5%A5%BD%E5%9C%A8%E5%A4%A7%E8%85%BF%E5%A4%84%E7%9A%84%E7%99%BD%E4%B8%9D%E6%9C%80%E8%AF%B1%E4%BA%BA/</link>
+    <pubDate>Fri, 05 Jul 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-07-05-%E9%95%BF%E5%BA%A6%E5%88%9A%E5%A5%BD%E5%9C%A8%E5%A4%A7%E8%85%BF%E5%A4%84%E7%9A%84%E7%99%BD%E4%B8%9D%E6%9C%80%E8%AF%B1%E4%BA%BA/</guid>
+    <description><![CDATA[以为本文会有图？ 很遗憾，并没有。 2019-04-07 的更新 了解到一个新词：绝对领域 。 果然，每当以为自己脑洞大开时，世界上早已有人发现了。 有个疑问 作为一名高强度]]></description>
+</item>
+<item>
+    <title>i3wm 中工作区含指定程序时关闭护眼模式</title>
+    <link>https://blog.synchronized.buzz/2019-06-05-i3wm-%E4%B8%AD%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%90%AB%E6%8C%87%E5%AE%9A%E7%A8%8B%E5%BA%8F%E6%97%B6%E5%85%B3%E9%97%AD%E6%8A%A4%E7%9C%BC%E6%A8%A1%E5%BC%8F/</link>
+    <pubDate>Wed, 05 Jun 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-06-05-i3wm-%E4%B8%AD%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%90%AB%E6%8C%87%E5%AE%9A%E7%A8%8B%E5%BA%8F%E6%97%B6%E5%85%B3%E9%97%AD%E6%8A%A4%E7%9C%BC%E6%A8%A1%E5%BC%8F/</guid>
+    <description><![CDATA[作为长时间使用电脑的人群，电脑上启用护眼模式真的很重要。 但是护眼模式会使屏幕色温发生改变，颜色也就不正常了，而像追剧、 修图、游戏等场景又需要]]></description>
+</item>
+<item>
+    <title>获取每日 Bing 美图</title>
+    <link>https://blog.synchronized.buzz/2019-05-01-%E8%8E%B7%E5%8F%96%E6%AF%8F%E6%97%A5-bing-%E7%BE%8E%E5%9B%BE/</link>
+    <pubDate>Wed, 01 May 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-05-01-%E8%8E%B7%E5%8F%96%E6%AF%8F%E6%97%A5-bing-%E7%BE%8E%E5%9B%BE/</guid>
+    <description><![CDATA[2019-06-05 的更新 意外发现 Bing 主页图片其实有提供 API，这样的话就能用更优雅的方法解析了。 1 https://bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1 简要的 API 说明如下。 URL 组成部分 参数 含义 https://bing.com/HPImageArchive.aspx ? 无 无 format=js js (也就是 json),]]></description>
+</item>
+<item>
+    <title>用脏方法实现 FlameShot 截图后自动退出</title>
+    <link>https://blog.synchronized.buzz/2019-04-19-%E7%94%A8%E8%84%8F%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0-flameshot-%E6%88%AA%E5%9B%BE%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA/</link>
+    <pubDate>Fri, 19 Apr 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-04-19-%E7%94%A8%E8%84%8F%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0-flameshot-%E6%88%AA%E5%9B%BE%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA/</guid>
+    <description><![CDATA[2022-02-04 的更新 截止今日，v11.0.0 可通过 flameshot gui 命令实现截图后自动退出，本文可废弃。 截图工具比较喜欢 FlameShot ，截图后有编辑功能，还算比较轻量，UI 也很好]]></description>
+</item>
+<item>
+    <title>使用 UFW 禁用 PING (ICMP)</title>
+    <link>https://blog.synchronized.buzz/2019-03-28-%E4%BD%BF%E7%94%A8-ufw-%E7%A6%81%E7%94%A8-ping-icmp/</link>
+    <pubDate>Thu, 28 Mar 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-03-28-%E4%BD%BF%E7%94%A8-ufw-%E7%A6%81%E7%94%A8-ping-icmp/</guid>
+    <description><![CDATA[选择 UFW 原因之一就是简便，不用像 iptables 那样得输入一大串指令，不足的是要想在 UFW 上实现禁用 PING (ICMP) 这类高级特性，只能通过修改配置文件来完成。 编辑配置文件 vim]]></description>
+</item>
+<item>
+    <title>使用 Rsync 备份整个系统</title>
+    <link>https://blog.synchronized.buzz/2019-02-21-%E4%BD%BF%E7%94%A8-rsync-%E5%A4%87%E4%BB%BD%E6%95%B4%E4%B8%AA%E7%B3%BB%E7%BB%9F/</link>
+    <pubDate>Thu, 21 Feb 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-02-21-%E4%BD%BF%E7%94%A8-rsync-%E5%A4%87%E4%BB%BD%E6%95%B4%E4%B8%AA%E7%B3%BB%E7%BB%9F/</guid>
+    <description><![CDATA[刚开始用 Linux 时，都是通过 dotfiles 管理器 管理和备份各种 dotfiles， 就算重装系统也可以快速将系统恢复至理想状态。不过随着使用的软件越来越多， 系统的]]></description>
+</item>
+<item>
+    <title>在执行 grub-mkconfig 时卡住很长时间</title>
+    <link>https://blog.synchronized.buzz/2019-01-05-%E5%9C%A8%E6%89%A7%E8%A1%8C-grub-mkconfig-%E6%97%B6%E5%8D%A1%E4%BD%8F%E5%BE%88%E9%95%BF%E6%97%B6%E9%97%B4/</link>
+    <pubDate>Sat, 05 Jan 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-01-05-%E5%9C%A8%E6%89%A7%E8%A1%8C-grub-mkconfig-%E6%97%B6%E5%8D%A1%E4%BD%8F%E5%BE%88%E9%95%BF%E6%97%B6%E9%97%B4/</guid>
+    <description><![CDATA[Error 最近需要把系统重装在 LVM on LUKS 上，在安装的最后一步 grub-mkconfig 卡住了，提示以下错误。 1 WARNING: Device /dev/xxx not initialized in udev database even after waiting 10000000 microseconds Fix 这个错误是由于 lvm2 上游的变动，导致 GRUB2 出现]]></description>
+</item>
+<item>
+    <title>批量解析顶级域名和二级域名</title>
+    <link>https://blog.synchronized.buzz/2018-12-11-%E6%89%B9%E9%87%8F%E8%A7%A3%E6%9E%90%E9%A1%B6%E7%BA%A7%E5%9F%9F%E5%90%8D%E5%92%8C%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D/</link>
+    <pubDate>Tue, 11 Dec 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2018-12-11-%E6%89%B9%E9%87%8F%E8%A7%A3%E6%9E%90%E9%A1%B6%E7%BA%A7%E5%9F%9F%E5%90%8D%E5%92%8C%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D/</guid>
+    <description><![CDATA[为方便描述，本文将 .com、.cn、.com.cn、.edu.cn 这类一级 / 二级域名统一定义为 顶级域名，对其下一级子域名定义为 二级域名。 最近]]></description>
+</item>
+<item>
+    <title>类原生 ROM 时间校准、无线认证</title>
+    <link>https://blog.synchronized.buzz/2018-11-07-%E5%8E%9F%E7%94%9F-rom-%E6%97%B6%E9%97%B4%E6%A0%A1%E5%87%86%E6%97%A0%E7%BA%BF%E8%AE%A4%E8%AF%81/</link>
+    <pubDate>Wed, 07 Nov 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2018-11-07-%E5%8E%9F%E7%94%9F-rom-%E6%97%B6%E9%97%B4%E6%A0%A1%E5%87%86%E6%97%A0%E7%BA%BF%E8%AE%A4%E8%AF%81/</guid>
+    <description><![CDATA[使用类原生系统有两个地方很烦人，一是没插 SIM 卡时时间不能自动校准，二是 Wi-Fi 经常提示 &ldquo;已连接，但无法访问互联网&rdquo;、&ldq]]></description>
+</item>
+<item>
+    <title>GRUB2 救援模式下解密 LUKS1</title>
+    <link>https://blog.synchronized.buzz/2018-10-12-grub2-%E6%95%91%E6%8F%B4%E6%A8%A1%E5%BC%8F%E4%B8%8B%E8%A7%A3%E5%AF%86-luks1/</link>
+    <pubDate>Fri, 12 Oct 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2018-10-12-grub2-%E6%95%91%E6%8F%B4%E6%A8%A1%E5%BC%8F%E4%B8%8B%E8%A7%A3%E5%AF%86-luks1/</guid>
+    <description><![CDATA[众所周知，GRUB2 有两种模式，一种是正常模式，支持超多的特性、超多的模块，使得 GRUB 有着 GRUB OS 的称号。另一种就是救援模式，只支持最基本的命令，最]]></description>
+</item>
+<item>
+    <title>禁用 Linux 系统的蜂鸣声</title>
+    <link>https://blog.synchronized.buzz/2018-08-22-%E7%A6%81%E7%94%A8-linux-%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%9C%82%E9%B8%A3%E5%A3%B0/</link>
+    <pubDate>Wed, 22 Aug 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2018-08-22-%E7%A6%81%E7%94%A8-linux-%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%9C%82%E9%B8%A3%E5%A3%B0/</guid>
+    <description><![CDATA[有时在终端或 TTY 中按下 Backspace、Tab 键会发出 &ldquo;滴&rdquo; 声，还是最大音量， 特别是在大半夜，会吓死人的。 搜索了一番]]></description>
+</item>
+<item>
+    <title>使用 OpenSSL 创建自签证书</title>
+    <link>https://blog.synchronized.buzz/2018-07-26-%E4%BD%BF%E7%94%A8-openssl-%E5%88%9B%E5%BB%BA%E8%87%AA%E7%AD%BE%E8%AF%81%E4%B9%A6/</link>
+    <pubDate>Thu, 26 Jul 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2018-07-26-%E4%BD%BF%E7%94%A8-openssl-%E5%88%9B%E5%BB%BA%E8%87%AA%E7%AD%BE%E8%AF%81%E4%B9%A6/</guid>
+    <description><![CDATA[不需要证书签名请求 依次执行下面两条命令即可。 生成私钥 RSA openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -out 私钥.key ECDSA openssl genpkey -algorithm EC -pkeyopt ec_paramgen_curve:P-256 -out 私钥.key 生成证书 openssl req -x509 -days 90 -key 私钥.key]]></description>
+</item>
+<item>
+    <title>关于小马激活工具 Oem7F7</title>
+    <link>https://blog.synchronized.buzz/2018-06-17-%E5%85%B3%E4%BA%8E%E5%B0%8F%E9%A9%AC%E6%BF%80%E6%B4%BB%E5%B7%A5%E5%85%B7-oem7f7/</link>
+    <pubDate>Sun, 17 Jun 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2018-06-17-%E5%85%B3%E4%BA%8E%E5%B0%8F%E9%A9%AC%E6%BF%80%E6%B4%BB%E5%B7%A5%E5%85%B7-oem7f7/</guid>
+    <description><![CDATA[2022-02-16 的更新 去官网瞥了一眼，没想到小马激活官网又提供激活工具了 (KMS10.zip)，当然鉴于下述原因，不要使用。 需要用回 Windows 7 系统，激活工具用的]]></description>
+</item>
+<item>
+    <title>第一篇博客</title>
+    <link>https://blog.synchronized.buzz/2018-05-09-%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
+    <pubDate>Wed, 09 May 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2018-05-09-%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
+    <description><![CDATA[种一棵树， 最好的时间是十年前， 其次是现在。 大学伊始，就开始了写博客之路，直到今天，差不多快两年啦。 按照互联网行业的两年来算，两年能改变的东西]]></description>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>USB3.0 - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/usb3.0/</link>
+        <description>USB3.0 - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 30 Aug 2019 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/usb3.0/" rel="self" type="application/rss+xml" /><item>
+    <title>解决使用 USB3.0 时硬盘 freezes 的问题</title>
+    <link>https://blog.synchronized.buzz/2019-08-30-%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8-usb3.0-%E6%97%B6%E7%A1%AC%E7%9B%98-freezes-%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+    <pubDate>Fri, 30 Aug 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-08-30-%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8-usb3.0-%E6%97%B6%E7%A1%AC%E7%9B%98-freezes-%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+    <description><![CDATA[Error 当外接磁盘使用的是 USB 3.0 时，磁盘会随缘 freezes。错误日志如下。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 [ +10.195770] sd 7:0:0:0: [sdc] tag#2 data cmplt err -71 uas-tag 3 inflight:]]></description>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>多平台轻量化粘贴板同步方案 - Blog of Kitty • Panics - 知知为知知</title><meta name="Description" content=""><meta property="og:title" content="多平台轻量化粘贴板同步方案" />
+<meta property="og:description" content="尝试过很多跨平台粘贴板同步方案，甚至动了自己写的念头，好在找到了比较完美的方案： KDE Connect 。 你能想到的想不到的平台都支持，而且功能很多，不只是剪贴" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.synchronized.buzz/2023-11-21-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%BD%BB%E9%87%8F%E5%8C%96%E7%B2%98%E8%B4%B4%E6%9D%BF%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88/" /><meta property="og:image" content="https://blog.synchronized.buzz/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-11-21T00:00:00+08:00" />
+<meta property="article:modified_time" content="2023-11-21T00:00:00+08:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://blog.synchronized.buzz/" /><meta name="twitter:title" content="多平台轻量化粘贴板同步方案"/>
+<meta name="twitter:description" content="尝试过很多跨平台粘贴板同步方案，甚至动了自己写的念头，好在找到了比较完美的方案： KDE Connect 。 你能想到的想不到的平台都支持，而且功能很多，不只是剪贴"/>
+<meta name="application-name" content="My KeepIt site">
+<meta name="apple-mobile-web-app-title" content="My KeepIt site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.synchronized.buzz/2023-11-21-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%BD%BB%E9%87%8F%E5%8C%96%E7%B2%98%E8%B4%B4%E6%9D%BF%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88/" /><link rel="prev" href="https://blog.synchronized.buzz/2023-10-27-aur-%E6%89%93%E5%8C%85%E6%97%B6%E4%B8%8D%E5%8C%85%E5%90%AB%E9%9A%90%E7%A7%81%E6%95%B0%E6%8D%AE/" /><link rel="next" href="https://blog.synchronized.buzz/2023-12-30-2023-%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%AF%BB%E8%BF%87%E7%9A%84%E4%B9%A6/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "多平台轻量化粘贴板同步方案",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.synchronized.buzz\/2023-11-21-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%BD%BB%E9%87%8F%E5%8C%96%E7%B2%98%E8%B4%B4%E6%9D%BF%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88\/"
+        },"genre": "posts","keywords": "KDE, KDE Connect, GNOME, GSConnect, gjs, Arch, Linux, AUR, PKGBUILD","wordcount":  777 ,
+        "url": "https:\/\/blog.synchronized.buzz\/2023-11-21-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%BD%BB%E9%87%8F%E5%8C%96%E7%B2%98%E8%B4%B4%E6%9D%BF%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88\/","datePublished": "2023-11-21T00:00:00+08:00","dateModified": "2023-11-21T00:00:00+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Kitty • Panics"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> 博文 </a><a class="menu-item" href="/feed/list"> 订阅 </a><a class="menu-item" href="/series/list"> 专题 </a><a class="menu-item" href="/categories-tags/list"> 分类/标签 </a><a class="menu-item" href="/about/list"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts" title="">博文</a><a class="menu-item" href="/feed/list" title="">订阅</a><a class="menu-item" href="/series/list" title="">专题</a><a class="menu-item" href="/categories-tags/list" title="">分类/标签</a><a class="menu-item" href="/about/list" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">多平台轻量化粘贴板同步方案</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/kitty-panics" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kitty • Panics</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-11-21">2023-11-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;777 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#跨局域网">跨局域网</a></li>
+    <li><a href="#android-10-后台同步剪贴板">Android 10+ 后台同步剪贴板</a>
+      <ul>
+        <li><a href="#magisk--xposed">Magisk / Xposed</a></li>
+        <li><a href="#adb">ADB</a></li>
+      </ul>
+    </li>
+    <li><a href="#linux-上轻量化方案">Linux 上轻量化方案</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>尝试过很多跨平台粘贴板同步方案，甚至动了自己写的念头，好在找到了比较完美的方案：
+<a href="https://kdeconnect.kde.org/" target="_blank" rel="noopener noreffer">KDE Connect</a>
+。</p>
+<p>你能想到的想不到的平台都支持，而且功能很多，不只是剪贴板同步，还有虚拟触摸板、
+通知同步、控制音乐/幻灯片、查看/回复信息、浏览器集成、远程访问设备文件……</p>
+<h2 id="跨局域网">跨局域网</h2>
+<p>功能很多，但缺点也很明显，<a href="https://kdeconnect.kde.org/" target="_blank" rel="noopener noreffer">KDE Connect</a>
+ 是为局域网设计，好在跨局域网互通也很简单。
+可以用 <a href="https://tailscale.com/" target="_blank" rel="noopener noreffer">Tailscale</a>
+、<a href="https://www.zerotier.com/" target="_blank" rel="noopener noreffer">ZeroTier</a>
+ 之类的异地组网方案。</p>
+<h2 id="android-10-后台同步剪贴板">Android 10+ 后台同步剪贴板</h2>
+<p>从 Android 10 开始，出于安全考虑，禁止了 APP 后台读取剪贴板。要绕过这一限制有两种方案。</p>
+<h3 id="magisk--xposed">Magisk / Xposed</h3>
+<p>如果设备有 ROOT 此方案更优，只需勾选目标 APP 即可。</p>
+<ul>
+<li>Magisk：<a href="https://github.com/Kr328/Riru-ClipboardWhitelist" target="_blank" rel="noopener noreffer">Kr328/Riru-ClipboardWhitelist</a>
+</li>
+<li>Xposed：<a href="https://github.com/GamerGirlandCo/xposed-clipboard-whitelist" target="_blank" rel="noopener noreffer">GamerGirlandCo/xposed-clipboard-whitelist</a>
+</li>
+</ul>
+<h3 id="adb">ADB</h3>
+<p>国产设备 ROOT 都很麻烦，好在 <a href="https://kdeconnect.kde.org/" target="_blank" rel="noopener noreffer">KDE Connect</a>
+ 提供了另一种方案，执行下面三条 adb
+命令即可。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">adb -d shell pm grant org.kde.kdeconnect_tp android.permission.READ_LOGS<span class="p">;</span>
+</span></span><span class="line"><span class="cl">adb -d shell appops <span class="nb">set</span> org.kde.kdeconnect_tp SYSTEM_ALERT_WINDOW allow<span class="p">;</span>
+</span></span><span class="line"><span class="cl">adb -d shell am force-stop org.kde.kdeconnect_tp<span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="linux-上轻量化方案">Linux 上轻量化方案</h2>
+<p><a href="https://kdeconnect.kde.org/" target="_blank" rel="noopener noreffer">KDE Connect</a>
+ 对 Windows、Android、macOS 系统都提供了一键安装包，iOS 也可以从
+App Store] 下载，都比较方便。</p>
+<p>Linux 虽然各发行版官方仓库都有收录，但因其依赖了很多 KDE 组件，对于非 KDE
+用户来说依赖数量实在太多了，就算想静态编译也非常麻烦，Flatpak 体积又过大。</p>
+<p>发现隔壁 GNOME 用 JavaScript 重写了 <a href="https://kdeconnect.kde.org/" target="_blank" rel="noopener noreffer">KDE Connect</a>
+: <a href="https://github.com/GSConnect/gnome-shell-extension-gsconnect" target="_blank" rel="noopener noreffer">GSConnect</a>
+。当然，它作为
+GNOME 扩展自然也依赖了一些 GNOME 的组件，但如果只需要粘贴板同步功能，
+可以精简掉多余依赖，将依赖数量降低到 1 —— <a href="https://wiki.gnome.org/Projects/Gjs" target="_blank" rel="noopener noreffer">gjs</a>
+。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Maintainer: Kitty Panics</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#pkgbase=</span>
+</span></span><span class="line"><span class="cl"><span class="nv">pkgname</span><span class="o">=</span>gsconnect
+</span></span><span class="line"><span class="cl"><span class="nv">pkgver</span><span class="o">=</span><span class="m">56</span>
+</span></span><span class="line"><span class="cl"><span class="nv">pkgrel</span><span class="o">=</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#epoch=1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">pkgdesc</span><span class="o">=</span><span class="s2">&#34;KDE Connect implementation for GNOME.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">arch</span><span class="o">=(</span><span class="s1">&#39;x86_64&#39;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">url</span><span class="o">=</span><span class="s2">&#34;https://github.com/GSConnect/gnome-shell-extension-gsconnect&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">license</span><span class="o">=(</span><span class="s1">&#39;GPL2&#39;</span> <span class="s1">&#39;MPL2&#39;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">depends</span><span class="o">=(</span><span class="s1">&#39;gjs&#39;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">makedepends</span><span class="o">=(</span><span class="s1">&#39;meson&#39;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">optdepends</span><span class="o">=(</span><span class="s1">&#39;gnome-shell: Get all the functions&#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;evolution-data-server: Contacts Integration&#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;python-nautilus: File Manager Integration (Nautilus)&#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;gsound: Sound Effects&#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;libcanberra: Sound Effects&#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;ydotool: Generic command-line automation tool (Wayland)&#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;wl-clipboard: Command-line copy/paste utilities (Wayland)&#39;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">provides</span><span class="o">=(</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">pkgname</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;gnome-shell-extension-</span><span class="si">${</span><span class="nv">pkgname</span><span class="si">}</span><span class="s2">&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">conflicts</span><span class="o">=(</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">pkgname</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;gnome-shell-extension-</span><span class="si">${</span><span class="nv">pkgname</span><span class="si">}</span><span class="s2">&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#backup=(&#34;&#34;)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#options=(&#39;&#39;)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#install=xyz.install</span>
+</span></span><span class="line"><span class="cl"><span class="nv">source</span><span class="o">=(</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">url</span><span class="si">}</span><span class="s2">/archive/refs/tags/v</span><span class="si">${</span><span class="nv">pkgver</span><span class="si">}</span><span class="s2">.tar.gz&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;</span><span class="si">${</span><span class="nv">pkgname</span><span class="si">}</span><span class="s2">-daemon.sh&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;</span><span class="si">${</span><span class="nv">pkgname</span><span class="si">}</span><span class="s2">-preferences.sh&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#noextract=(&#34;&#34;)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">sha256sums</span><span class="o">=(</span><span class="s1">&#39;SKIP&#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;SKIP&#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;SKIP&#39;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">build<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">cd</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">srcdir</span><span class="si">}</span><span class="s2">&#34;</span>/gnome-shell-extension-<span class="s2">&#34;</span><span class="si">${</span><span class="nv">pkgname</span><span class="si">}</span><span class="s2">&#34;</span>-<span class="s2">&#34;</span><span class="si">${</span><span class="nv">pkgver</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
+</span></span><span class="line"><span class="cl">    meson --prefix<span class="o">=</span>/usr <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>          -Dinstalled_tests<span class="o">=</span><span class="nb">false</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>          -Dfirewalld<span class="o">=</span><span class="nb">false</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>          -Dwebextension<span class="o">=</span><span class="nb">false</span> ..
+</span></span><span class="line"><span class="cl">    meson compile
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">package<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># mkdir</span>
+</span></span><span class="line"><span class="cl">    install -dm755 <span class="s2">&#34;</span><span class="si">${</span><span class="nv">pkgdir</span><span class="si">}</span><span class="s2">&#34;</span>/usr
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># pkg files</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">cd</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">srcdir</span><span class="si">}</span><span class="s2">&#34;</span>/gnome-shell-extension-<span class="s2">&#34;</span><span class="si">${</span><span class="nv">pkgname</span><span class="si">}</span><span class="s2">&#34;</span>-<span class="s2">&#34;</span><span class="si">${</span><span class="nv">pkgver</span><span class="si">}</span><span class="s2">&#34;</span>/build
+</span></span><span class="line"><span class="cl">    <span class="nv">DESTDIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">pkgdir</span><span class="si">}</span><span class="s2">&#34;</span>/ meson install
+</span></span><span class="line"><span class="cl">    <span class="c1"># bin</span>
+</span></span><span class="line"><span class="cl">    install -Dm755 <span class="s2">&#34;</span><span class="si">${</span><span class="nv">srcdir</span><span class="si">}</span><span class="s2">&#34;</span>/gsconnect-daemon.sh <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                   <span class="s2">&#34;</span><span class="si">${</span><span class="nv">pkgdir</span><span class="si">}</span><span class="s2">&#34;</span>/usr/bin/gsconnect-daemon
+</span></span><span class="line"><span class="cl">    install -Dm755 <span class="s2">&#34;</span><span class="si">${</span><span class="nv">srcdir</span><span class="si">}</span><span class="s2">&#34;</span>/gsconnect-preferences.sh <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                   <span class="s2">&#34;</span><span class="si">${</span><span class="nv">pkgdir</span><span class="si">}</span><span class="s2">&#34;</span>/usr/bin/gsconnect-pref
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-11-21</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.synchronized.buzz/2023-11-21-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%BD%BB%E9%87%8F%E5%8C%96%E7%B2%98%E8%B4%B4%E6%9D%BF%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88/" data-title="多平台轻量化粘贴板同步方案" data-hashtags="KDE,KDE Connect,GNOME,GSConnect,gjs,Arch,Linux,AUR,PKGBUILD"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.synchronized.buzz/2023-11-21-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%BD%BB%E9%87%8F%E5%8C%96%E7%B2%98%E8%B4%B4%E6%9D%BF%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88/" data-hashtag="KDE"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.synchronized.buzz/2023-11-21-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%BD%BB%E9%87%8F%E5%8C%96%E7%B2%98%E8%B4%B4%E6%9D%BF%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88/" data-title="多平台轻量化粘贴板同步方案"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.synchronized.buzz/2023-11-21-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%BD%BB%E9%87%8F%E5%8C%96%E7%B2%98%E8%B4%B4%E6%9D%BF%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.synchronized.buzz/2023-11-21-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%BD%BB%E9%87%8F%E5%8C%96%E7%B2%98%E8%B4%B4%E6%9D%BF%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88/" data-title="多平台轻量化粘贴板同步方案"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://blog.synchronized.buzz/2023-11-21-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%BD%BB%E9%87%8F%E5%8C%96%E7%B2%98%E8%B4%B4%E6%9D%BF%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88/" data-title="多平台轻量化粘贴板同步方案"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/kde/">KDE</a>,&nbsp;<a href="/tags/kde-connect/">KDE Connect</a>,&nbsp;<a href="/tags/gnome/">GNOME</a>,&nbsp;<a href="/tags/gsconnect/">GSConnect</a>,&nbsp;<a href="/tags/gjs/">Gjs</a>,&nbsp;<a href="/tags/arch/">Arch</a>,&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/aur/">AUR</a>,&nbsp;<a href="/tags/pkgbuild/">PKGBUILD</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2023-10-27-aur-%E6%89%93%E5%8C%85%E6%97%B6%E4%B8%8D%E5%8C%85%E5%90%AB%E9%9A%90%E7%A7%81%E6%95%B0%E6%8D%AE/" class="prev" rel="prev" title="AUR 打包时不包含隐私数据"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>AUR 打包时不包含隐私数据</a>
+            <a href="/2023-12-30-2023-%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%AF%BB%E8%BF%87%E7%9A%84%E4%B9%A6/" class="next" rel="next" title="2023 年上半年读过的书 [TODO]">2023 年上半年读过的书 [TODO]<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2018 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/kitty-panics" target="_blank">Kitty • Panics</a></span>&nbsp;|&nbsp;<span class="license">除非注明，本作品采用 <img style="border-width:0" src="/img/license/BY-NC-ND.png"/> 许可协议</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.fill%2CArray.prototype.find%2CArray.from%2CIntersectionObserver%2CMath.sign%2CObject.assign%2CPromise%2CObject.entries%2Chtml5shiv%2CObject.values%2Cfetch%2CElement.prototype.after"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/object-fit-images@3.2.4/dist/ofi.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.5.4/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10240},"comment":{},"data":{"id-1":"知知为知知","id-2":"知知为知知"},"search":{"highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":100,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

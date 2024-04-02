@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>音量 - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/%E9%9F%B3%E9%87%8F/</link>
+        <description>音量 - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 08 Nov 2019 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/%E9%9F%B3%E9%87%8F/" rel="self" type="application/rss+xml" /><item>
+    <title>是 BUG，也是 Feature</title>
+    <link>https://blog.synchronized.buzz/tags-mood/2019-11-08-%E6%98%AF-bug%E4%B9%9F%E6%98%AF-feature/</link>
+    <pubDate>Fri, 08 Nov 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/tags-mood/2019-11-08-%E6%98%AF-bug%E4%B9%9F%E6%98%AF-feature/</guid>
+    <description><![CDATA[之前以为 Firefox 在 Linux 下音频输出有问题 (每次播放音频时，系统音量值随缘跳动， 不能像其它程序能设定一个固定值)。 刚准备去报 BUG，结果突然发现这居然是]]></description>
+</item>
+</channel>
+</rss>

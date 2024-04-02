@@ -1,0 +1,63 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Python - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/python/</link>
+        <description>Python - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 26 Sep 2023 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/python/" rel="self" type="application/rss+xml" /><item>
+    <title>根据 URL 使用不同的浏览器</title>
+    <link>https://blog.synchronized.buzz/2023-09-26-%E6%A0%B9%E6%8D%AE-url-%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8/</link>
+    <pubDate>Tue, 26 Sep 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-09-26-%E6%A0%B9%E6%8D%AE-url-%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8/</guid>
+    <description><![CDATA[2023-11-21 的更新 补充一个新例子。 Youtube has started to artificially slow down video load times if you use Firefox. Spoofing Chrome magically makes this problem go away. : youtube 作为 Firefox 用户，有些网站会恶意降低 Firefox 的体验，很是遭糕。从外部 URL 打开浏览器]]></description>
+</item>
+<item>
+    <title>猜猜汉字笔画是奇数多还是偶数多</title>
+    <link>https://blog.synchronized.buzz/2023-02-19-%E7%8C%9C%E7%8C%9C%E6%B1%89%E5%AD%97%E7%AC%94%E7%94%BB%E6%98%AF%E5%A5%87%E6%95%B0%E5%A4%9A%E8%BF%98%E6%98%AF%E5%81%B6%E6%95%B0%E5%A4%9A/</link>
+    <pubDate>Sun, 19 Feb 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-02-19-%E7%8C%9C%E7%8C%9C%E6%B1%89%E5%AD%97%E7%AC%94%E7%94%BB%E6%98%AF%E5%A5%87%E6%95%B0%E5%A4%9A%E8%BF%98%E6%98%AF%E5%81%B6%E6%95%B0%E5%A4%9A/</guid>
+    <description><![CDATA[好吧，虽然这是一个无聊的话题，不过也还是有点儿有趣。 笔顺数据 笔顺数据采用 CNMan/UnicodeCJK-WuBi ，这是网友做的整合版，可能是全网最全的。 Unicode CJK 收录了近 10 万多个汉字，]]></description>
+</item>
+<item>
+    <title>使用 Python3 解压乱码的 zip 文件</title>
+    <link>https://blog.synchronized.buzz/2021-05-07-%E4%BD%BF%E7%94%A8-python3-%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E7%9A%84-zip-%E6%96%87%E4%BB%B6/</link>
+    <pubDate>Fri, 07 May 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-05-07-%E4%BD%BF%E7%94%A8-python3-%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E7%9A%84-zip-%E6%96%87%E4%BB%B6/</guid>
+    <description><![CDATA[由于 zip 压缩格式默认没有指定编码格式，所以会使用系统默认的编码 (在简中 Windows 上通常是 GBK，在 Linux 上通常是 UTF-8)，这会导致在 Linux 上解压 Windows 中创建的]]></description>
+</item>
+<item>
+    <title>Linux 下开发的一些约定俗成</title>
+    <link>https://blog.synchronized.buzz/2020-09-05-linux-%E4%B8%8B%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BA%A6%E5%AE%9A%E4%BF%97%E6%88%90/</link>
+    <pubDate>Sat, 05 Sep 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-09-05-linux-%E4%B8%8B%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BA%A6%E5%AE%9A%E4%BF%97%E6%88%90/</guid>
+    <description><![CDATA[为方便使用和开发，使用 Linux 时需要遵守一些约定俗成。 像 rm 不要加 -f 参数，使用 mv 替代 rm，不要日常使用 ROOT 用户，使用 ROOT 权限需通过 sudo 这些烂大街的就不说了]]></description>
+</item>
+<item>
+    <title>一键重启移动光猫</title>
+    <link>https://blog.synchronized.buzz/2019-09-28-%E4%B8%80%E9%94%AE%E9%87%8D%E5%90%AF%E7%A7%BB%E5%8A%A8%E5%85%89%E7%8C%AB/</link>
+    <pubDate>Sat, 28 Sep 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-09-28-%E4%B8%80%E9%94%AE%E9%87%8D%E5%90%AF%E7%A7%BB%E5%8A%A8%E5%85%89%E7%8C%AB/</guid>
+    <description><![CDATA[2022-06-01 的更新 家里升级到了 1000M 宽带，换了一个新光猫。登录与重启相对于之前有大两个变化。 登录密码无需经过 Base64 编码。 重启不再需要 CurrentLocalTime (当前时间) 参数。 我这里]]></description>
+</item>
+<item>
+    <title>获取每日 Bing 美图</title>
+    <link>https://blog.synchronized.buzz/2019-05-01-%E8%8E%B7%E5%8F%96%E6%AF%8F%E6%97%A5-bing-%E7%BE%8E%E5%9B%BE/</link>
+    <pubDate>Wed, 01 May 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-05-01-%E8%8E%B7%E5%8F%96%E6%AF%8F%E6%97%A5-bing-%E7%BE%8E%E5%9B%BE/</guid>
+    <description><![CDATA[2019-06-05 的更新 意外发现 Bing 主页图片其实有提供 API，这样的话就能用更优雅的方法解析了。 1 https://bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1 简要的 API 说明如下。 URL 组成部分 参数 含义 https://bing.com/HPImageArchive.aspx ? 无 无 format=js js (也就是 json),]]></description>
+</item>
+<item>
+    <title>批量解析顶级域名和二级域名</title>
+    <link>https://blog.synchronized.buzz/2018-12-11-%E6%89%B9%E9%87%8F%E8%A7%A3%E6%9E%90%E9%A1%B6%E7%BA%A7%E5%9F%9F%E5%90%8D%E5%92%8C%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D/</link>
+    <pubDate>Tue, 11 Dec 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2018-12-11-%E6%89%B9%E9%87%8F%E8%A7%A3%E6%9E%90%E9%A1%B6%E7%BA%A7%E5%9F%9F%E5%90%8D%E5%92%8C%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D/</guid>
+    <description><![CDATA[为方便描述，本文将 .com、.cn、.com.cn、.edu.cn 这类一级 / 二级域名统一定义为 顶级域名，对其下一级子域名定义为 二级域名。 最近]]></description>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,23 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>中文 - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/%E4%B8%AD%E6%96%87/</link>
+        <description>中文 - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 02 Jan 2018 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/%E4%B8%AD%E6%96%87/" rel="self" type="application/rss+xml" /><item>
+    <title>教程：CS:GO 中不能使用 Fcitx 输入中文</title>
+    <link>https://blog.synchronized.buzz/series-games/%E6%95%99%E7%A8%8Bcsgo-%E4%B8%AD%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8-fcitx-%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87/</link>
+    <pubDate>Tue, 02 Jan 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/series-games/%E6%95%99%E7%A8%8Bcsgo-%E4%B8%AD%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8-fcitx-%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87/</guid>
+    <description><![CDATA[CS:GO 的中文输入和 SDL 库有关，根据查询 SDL 库的 commit 可知。 在 2014-06-18 支持了 IBus 在 2016-10-07 支持了 Fcitx 在 2020-05-11 支持了 Fcitx5 如果要在 CS:GO 中使用 Fcitx/Fcitx5 输入法，需添加 SDL_IM_MODULE=fcitx 环境变量。]]></description>
+</item>
+<item>
+    <title>教程：CS:GO 中控制台不能显示中文</title>
+    <link>https://blog.synchronized.buzz/series-games/%E6%95%99%E7%A8%8Bcsgo-%E4%B8%AD%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%8D%E8%83%BD%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87/</link>
+    <pubDate>Tue, 02 Jan 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/series-games/%E6%95%99%E7%A8%8Bcsgo-%E4%B8%AD%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%8D%E8%83%BD%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87/</guid>
+    <description><![CDATA[CS:GO 默认是完全支持中文的，翻译更新也非常即时，可惜在 Linux 下不能开箱即用。 控制台不能显示中文的问题是由于字体配置文件有误导致的，可以通过修改 30-non-latin-inf-win.conf 文件]]></description>
+</item>
+</channel>
+</rss>

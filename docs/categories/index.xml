@@ -1,0 +1,87 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Categories - Category - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/categories/</link>
+        <description>Categories - Category - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 22 Mar 2024 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>安全</title>
+    <link>https://blog.synchronized.buzz/categories/%E5%AE%89%E5%85%A8/</link>
+    <pubDate>Fri, 22 Mar 2024 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/categories/%E5%AE%89%E5%85%A8/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Android</title>
+    <link>https://blog.synchronized.buzz/categories/android/</link>
+    <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/categories/android/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>软件</title>
+    <link>https://blog.synchronized.buzz/categories/%E8%BD%AF%E4%BB%B6/</link>
+    <pubDate>Sat, 06 Jan 2024 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/categories/%E8%BD%AF%E4%BB%B6/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>随想</title>
+    <link>https://blog.synchronized.buzz/categories/%E9%9A%8F%E6%83%B3/</link>
+    <pubDate>Sat, 30 Dec 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/categories/%E9%9A%8F%E6%83%B3/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Linux</title>
+    <link>https://blog.synchronized.buzz/categories/linux/</link>
+    <pubDate>Tue, 21 Nov 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/categories/linux/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Windows</title>
+    <link>https://blog.synchronized.buzz/categories/windows/</link>
+    <pubDate>Tue, 26 Sep 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/categories/windows/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>JavaScript</title>
+    <link>https://blog.synchronized.buzz/categories/javascript/</link>
+    <pubDate>Sat, 22 Apr 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/categories/javascript/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>汉字</title>
+    <link>https://blog.synchronized.buzz/categories/%E6%B1%89%E5%AD%97/</link>
+    <pubDate>Sun, 19 Feb 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/categories/%E6%B1%89%E5%AD%97/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Nginx</title>
+    <link>https://blog.synchronized.buzz/categories/nginx/</link>
+    <pubDate>Mon, 21 Jun 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/categories/nginx/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Python3</title>
+    <link>https://blog.synchronized.buzz/categories/python3/</link>
+    <pubDate>Fri, 07 May 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/categories/python3/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
+</rss>

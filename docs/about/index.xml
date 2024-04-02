@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abouts on Blog of Kitty • Panics - 知知为知知</title>
+    <link>https://blog.synchronized.buzz/about/</link>
+    <description>Recent content in Abouts on Blog of Kitty • Panics - 知知为知知</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 01 Jan 2018 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.synchronized.buzz/about/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于 • 联系</title>
+      <link>https://blog.synchronized.buzz/about/list/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0800</pubDate>
+      <guid>https://blog.synchronized.buzz/about/list/</guid>
+      <description>可以通过 E-Mail 与我取得联系。 blog@synchronized.buzz</description>
+    </item>
+  </channel>
+</rss>

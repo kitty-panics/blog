@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>类原生 ROM 时间校准、无线认证 - Blog of Kitty • Panics - 知知为知知</title><meta name="Description" content=""><meta property="og:title" content="类原生 ROM 时间校准、无线认证" />
+<meta property="og:description" content="使用类原生系统有两个地方很烦人，一是没插 SIM 卡时时间不能自动校准，二是 Wi-Fi 经常提示 &ldquo;已连接，但无法访问互联网&rdquo;、&ldq" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.synchronized.buzz/2018-11-07-%E5%8E%9F%E7%94%9F-rom-%E6%97%B6%E9%97%B4%E6%A0%A1%E5%87%86%E6%97%A0%E7%BA%BF%E8%AE%A4%E8%AF%81/" /><meta property="og:image" content="https://blog.synchronized.buzz/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-11-07T00:00:00+08:00" />
+<meta property="article:modified_time" content="2018-11-07T00:00:00+08:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://blog.synchronized.buzz/" /><meta name="twitter:title" content="类原生 ROM 时间校准、无线认证"/>
+<meta name="twitter:description" content="使用类原生系统有两个地方很烦人，一是没插 SIM 卡时时间不能自动校准，二是 Wi-Fi 经常提示 &ldquo;已连接，但无法访问互联网&rdquo;、&ldq"/>
+<meta name="application-name" content="My KeepIt site">
+<meta name="apple-mobile-web-app-title" content="My KeepIt site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.synchronized.buzz/2018-11-07-%E5%8E%9F%E7%94%9F-rom-%E6%97%B6%E9%97%B4%E6%A0%A1%E5%87%86%E6%97%A0%E7%BA%BF%E8%AE%A4%E8%AF%81/" /><link rel="prev" href="https://blog.synchronized.buzz/2018-10-12-grub2-%E6%95%91%E6%8F%B4%E6%A8%A1%E5%BC%8F%E4%B8%8B%E8%A7%A3%E5%AF%86-luks1/" /><link rel="next" href="https://blog.synchronized.buzz/2018-12-11-%E6%89%B9%E9%87%8F%E8%A7%A3%E6%9E%90%E9%A1%B6%E7%BA%A7%E5%9F%9F%E5%90%8D%E5%92%8C%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "类原生 ROM 时间校准、无线认证",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.synchronized.buzz\/2018-11-07-%E5%8E%9F%E7%94%9F-rom-%E6%97%B6%E9%97%B4%E6%A0%A1%E5%87%86%E6%97%A0%E7%BA%BF%E8%AE%A4%E8%AF%81\/"
+        },"genre": "posts","keywords": "AOSP, Android, NTP Server, Captive Portal, ADB, Wi-Fi, 小米, MIUI","wordcount":  375 ,
+        "url": "https:\/\/blog.synchronized.buzz\/2018-11-07-%E5%8E%9F%E7%94%9F-rom-%E6%97%B6%E9%97%B4%E6%A0%A1%E5%87%86%E6%97%A0%E7%BA%BF%E8%AE%A4%E8%AF%81\/","datePublished": "2018-11-07T00:00:00+08:00","dateModified": "2018-11-07T00:00:00+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Kitty • Panics"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> 博文 </a><a class="menu-item" href="/feed/list"> 订阅 </a><a class="menu-item" href="/series/list"> 专题 </a><a class="menu-item" href="/categories-tags/list"> 分类/标签 </a><a class="menu-item" href="/about/list"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts" title="">博文</a><a class="menu-item" href="/feed/list" title="">订阅</a><a class="menu-item" href="/series/list" title="">专题</a><a class="menu-item" href="/categories-tags/list" title="">分类/标签</a><a class="menu-item" href="/about/list" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">类原生 ROM 时间校准、无线认证</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/kitty-panics" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kitty • Panics</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/android/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Android</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2018-11-07">2018-11-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;375 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#ntp-server">NTP Server</a></li>
+    <li><a href="#captive-portal">Captive Portal</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>使用类原生系统有两个地方很烦人，一是没插 SIM 卡时时间不能自动校准，二是 Wi-Fi
+经常提示 &ldquo;已连接，但无法访问互联网&rdquo;、&ldquo;网络连接受限&rdquo;。</p>
+<h2 id="ntp-server">NTP Server</h2>
+<p>Android 手机在联网 / 插上 SIM 卡后会自动校对时间，这是因为系统预设了授时服务器，
+但在类原生 ROM 上一般未设置或设置的 Google 的地址，所以需要手动设置授时服务器地址。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 设置 ntp_server 值</span>
+</span></span><span class="line"><span class="cl">adb shell settings put global ntp_server time.tencent.com
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看 ntp_server 值</span>
+</span></span><span class="line"><span class="cl">adb shell settings get global ntp_server
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="captive-portal">Captive Portal</h2>
+<p>Android 手机在连上 Wi-Fi 后会在后台静默向访问一个 URL (访问这个 URL 会返回 204 状态码)，
+用于判断是否需要弹出网络认证页面。</p>
+<p>但在类原生 ROM 上，请求的 URL 是 Google 家的，国内并不能使用，所以需要重新设置。
+国内很多个人站长搭建有这项服务 (当然我也弄了一个)，但个人站长的大都不是很稳定，
+所以推荐使用小米家的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 设置 captive_portal_http(s)_url 值</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Android 7.1.1+</span>
+</span></span><span class="line"><span class="cl">adb shell settings put global captive_portal_http_url http://connect.rom.miui.com/generate_204
+</span></span><span class="line"><span class="cl">adb shell settings put global captive_portal_https_url https://connect.rom.miui.com/generate_204
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看 captive_portal_http(s)_url 值</span>
+</span></span><span class="line"><span class="cl">adb shell settings get global captive_portal_http_url
+</span></span><span class="line"><span class="cl">adb shell settings get global captive_portal_https_url
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2018-11-07</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.synchronized.buzz/2018-11-07-%E5%8E%9F%E7%94%9F-rom-%E6%97%B6%E9%97%B4%E6%A0%A1%E5%87%86%E6%97%A0%E7%BA%BF%E8%AE%A4%E8%AF%81/" data-title="类原生 ROM 时间校准、无线认证" data-hashtags="AOSP,Android,NTP Server,Captive Portal,ADB,Wi-Fi,小米,MIUI"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.synchronized.buzz/2018-11-07-%E5%8E%9F%E7%94%9F-rom-%E6%97%B6%E9%97%B4%E6%A0%A1%E5%87%86%E6%97%A0%E7%BA%BF%E8%AE%A4%E8%AF%81/" data-hashtag="AOSP"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.synchronized.buzz/2018-11-07-%E5%8E%9F%E7%94%9F-rom-%E6%97%B6%E9%97%B4%E6%A0%A1%E5%87%86%E6%97%A0%E7%BA%BF%E8%AE%A4%E8%AF%81/" data-title="类原生 ROM 时间校准、无线认证"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.synchronized.buzz/2018-11-07-%E5%8E%9F%E7%94%9F-rom-%E6%97%B6%E9%97%B4%E6%A0%A1%E5%87%86%E6%97%A0%E7%BA%BF%E8%AE%A4%E8%AF%81/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.synchronized.buzz/2018-11-07-%E5%8E%9F%E7%94%9F-rom-%E6%97%B6%E9%97%B4%E6%A0%A1%E5%87%86%E6%97%A0%E7%BA%BF%E8%AE%A4%E8%AF%81/" data-title="类原生 ROM 时间校准、无线认证"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://blog.synchronized.buzz/2018-11-07-%E5%8E%9F%E7%94%9F-rom-%E6%97%B6%E9%97%B4%E6%A0%A1%E5%87%86%E6%97%A0%E7%BA%BF%E8%AE%A4%E8%AF%81/" data-title="类原生 ROM 时间校准、无线认证"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/aosp/">AOSP</a>,&nbsp;<a href="/tags/android/">Android</a>,&nbsp;<a href="/tags/ntp-server/">NTP Server</a>,&nbsp;<a href="/tags/captive-portal/">Captive Portal</a>,&nbsp;<a href="/tags/adb/">ADB</a>,&nbsp;<a href="/tags/wi-fi/">Wi-Fi</a>,&nbsp;<a href="/tags/%E5%B0%8F%E7%B1%B3/">小米</a>,&nbsp;<a href="/tags/miui/">MIUI</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2018-10-12-grub2-%E6%95%91%E6%8F%B4%E6%A8%A1%E5%BC%8F%E4%B8%8B%E8%A7%A3%E5%AF%86-luks1/" class="prev" rel="prev" title="GRUB2 救援模式下解密 LUKS1"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>GRUB2 救援模式下解密 LUKS1</a>
+            <a href="/2018-12-11-%E6%89%B9%E9%87%8F%E8%A7%A3%E6%9E%90%E9%A1%B6%E7%BA%A7%E5%9F%9F%E5%90%8D%E5%92%8C%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D/" class="next" rel="next" title="批量解析顶级域名和二级域名">批量解析顶级域名和二级域名<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2018 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/kitty-panics" target="_blank">Kitty • Panics</a></span>&nbsp;|&nbsp;<span class="license">除非注明，本作品采用 <img style="border-width:0" src="/img/license/BY-NC-ND.png"/> 许可协议</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.fill%2CArray.prototype.find%2CArray.from%2CIntersectionObserver%2CMath.sign%2CObject.assign%2CPromise%2CObject.entries%2Chtml5shiv%2CObject.values%2Cfetch%2CElement.prototype.after"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/object-fit-images@3.2.4/dist/ofi.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.5.4/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10240},"comment":{},"data":{"id-1":"知知为知知","id-2":"知知为知知"},"search":{"highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":100,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

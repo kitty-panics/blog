@@ -1,0 +1,23 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Chroot - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/chroot/</link>
+        <description>Chroot - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 09 Jul 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/chroot/" rel="self" type="application/rss+xml" /><item>
+    <title>在 x86 机器上编译 ARM 软件</title>
+    <link>https://blog.synchronized.buzz/2022-07-09-%E5%9C%A8-x86-%E6%9C%BA%E5%99%A8%E4%B8%8A%E7%BC%96%E8%AF%91-arm-%E8%BD%AF%E4%BB%B6/</link>
+    <pubDate>Sat, 09 Jul 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-07-09-%E5%9C%A8-x86-%E6%9C%BA%E5%99%A8%E4%B8%8A%E7%BC%96%E8%AF%91-arm-%E8%BD%AF%E4%BB%B6/</guid>
+    <description><![CDATA[前文回顾 《在 Orange Pi Lite 上安装 Arch Linux ARM》 《OrangePi-Lite (Arch Linux ARM) 重启后 Wi-Fi 无网络》 几年前买的 Orange Pi Lite 不带网口，联网只能靠 Wi-Fi，每次升]]></description>
+</item>
+<item>
+    <title>在执行 grub-mkconfig 时卡住很长时间</title>
+    <link>https://blog.synchronized.buzz/2019-01-05-%E5%9C%A8%E6%89%A7%E8%A1%8C-grub-mkconfig-%E6%97%B6%E5%8D%A1%E4%BD%8F%E5%BE%88%E9%95%BF%E6%97%B6%E9%97%B4/</link>
+    <pubDate>Sat, 05 Jan 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-01-05-%E5%9C%A8%E6%89%A7%E8%A1%8C-grub-mkconfig-%E6%97%B6%E5%8D%A1%E4%BD%8F%E5%BE%88%E9%95%BF%E6%97%B6%E9%97%B4/</guid>
+    <description><![CDATA[Error 最近需要把系统重装在 LVM on LUKS 上，在安装的最后一步 grub-mkconfig 卡住了，提示以下错误。 1 WARNING: Device /dev/xxx not initialized in udev database even after waiting 10000000 microseconds Fix 这个错误是由于 lvm2 上游的变动，导致 GRUB2 出现]]></description>
+</item>
+</channel>
+</rss>

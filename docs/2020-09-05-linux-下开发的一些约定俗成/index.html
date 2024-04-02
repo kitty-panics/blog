@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Linux 下开发的一些约定俗成 - Blog of Kitty • Panics - 知知为知知</title><meta name="Description" content=""><meta property="og:title" content="Linux 下开发的一些约定俗成" />
+<meta property="og:description" content="为方便使用和开发，使用 Linux 时需要遵守一些约定俗成。 像 rm 不要加 -f 参数，使用 mv 替代 rm，不要日常使用 ROOT 用户，使用 ROOT 权限需通过 sudo 这些烂大街的就不说了" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.synchronized.buzz/2020-09-05-linux-%E4%B8%8B%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BA%A6%E5%AE%9A%E4%BF%97%E6%88%90/" /><meta property="og:image" content="https://blog.synchronized.buzz/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-09-05T00:00:00+08:00" />
+<meta property="article:modified_time" content="2020-09-05T00:00:00+08:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://blog.synchronized.buzz/" /><meta name="twitter:title" content="Linux 下开发的一些约定俗成"/>
+<meta name="twitter:description" content="为方便使用和开发，使用 Linux 时需要遵守一些约定俗成。 像 rm 不要加 -f 参数，使用 mv 替代 rm，不要日常使用 ROOT 用户，使用 ROOT 权限需通过 sudo 这些烂大街的就不说了"/>
+<meta name="application-name" content="My KeepIt site">
+<meta name="apple-mobile-web-app-title" content="My KeepIt site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.synchronized.buzz/2020-09-05-linux-%E4%B8%8B%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BA%A6%E5%AE%9A%E4%BF%97%E6%88%90/" /><link rel="prev" href="https://blog.synchronized.buzz/2020-08-12-nginx-%E5%8F%AA%E5%85%81%E8%AE%B8-http%5C2http%5C3-%E5%8D%8F%E8%AE%AE/" /><link rel="next" href="https://blog.synchronized.buzz/2020-10-18-pngsvg-%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E6%88%90%E5%AD%97%E4%BD%93/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Linux 下开发的一些约定俗成",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.synchronized.buzz\/2020-09-05-linux-%E4%B8%8B%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BA%A6%E5%AE%9A%E4%BF%97%E6%88%90\/"
+        },"genre": "posts","keywords": "Linux, 包管理器, Android, Android SDK, Python, Node.js","wordcount":  760 ,
+        "url": "https:\/\/blog.synchronized.buzz\/2020-09-05-linux-%E4%B8%8B%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BA%A6%E5%AE%9A%E4%BF%97%E6%88%90\/","datePublished": "2020-09-05T00:00:00+08:00","dateModified": "2020-09-05T00:00:00+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Kitty • Panics"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> 博文 </a><a class="menu-item" href="/feed/list"> 订阅 </a><a class="menu-item" href="/series/list"> 专题 </a><a class="menu-item" href="/categories-tags/list"> 分类/标签 </a><a class="menu-item" href="/about/list"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts" title="">博文</a><a class="menu-item" href="/feed/list" title="">订阅</a><a class="menu-item" href="/series/list" title="">专题</a><a class="menu-item" href="/categories-tags/list" title="">分类/标签</a><a class="menu-item" href="/about/list" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux 下开发的一些约定俗成</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/kitty-panics" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kitty • Panics</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-09-05">2020-09-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;760 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#配置文件">配置文件</a></li>
+    <li><a href="#包管理">包管理</a></li>
+    <li><a href="#android-sdk">Android SDK</a></li>
+    <li><a href="#python--nodejs">Python / Node.js</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>为方便使用和开发，使用 Linux 时需要遵守一些约定俗成。</p>
+<p>像 <code>rm</code> 不要加 -f 参数，使用 <code>mv</code> 替代 <code>rm</code>，不要日常使用 ROOT 用户，使用 ROOT
+权限需通过 <code>sudo</code> 这些烂大街的就不说了。</p>
+<h2 id="配置文件">配置文件</h2>
+<p>任何时候改动配置文件都应将作用域限定在自身所在的用户中，原因有二。</p>
+<ol>
+<li>Linux 是一个多用户操作系统，修改配置不应该影响到其它用户
+(不过这一点在个人电脑上倒是无所谓，但出于保持系统文件的整洁建议遵守)</li>
+<li>软件升级时，很可能会覆盖掉所改动的配置文件，造成配置失效。</li>
+</ol>
+<p>当然也有些软件必须修改系统级配置文件才能生效，对于这种情况，在改动时应 <code>cp</code>
+一份同名但后缀为 <strong>.bak</strong> 的文件，方便在配置文件被改得面目全非时方便还原。</p>
+<h2 id="包管理">包管理</h2>
+<p>为提高系统的稳定性，安装软件应通过包管理进行安装，如果官方/第三方仓库没有就自己打包。</p>
+<p>这样做是为了不用人脑记忆软件版本、依赖关系等信息，不然在后续更新时，
+可能一不小心会覆盖掉系统原有的库文件，影响到部分软件的正常运行。</p>
+<ul>
+<li>一个反向案例：<a href="https://zhuanlan.zhihu.com/p/403316313" target="_blank" rel="noopener noreffer">记一次Centos 6.1云服务器升级libc-2.15.so失败过程</a>
+。</li>
+</ul>
+<h2 id="android-sdk">Android SDK</h2>
+<p>前面说到，应尽可能使用包管理工具安装一切软件，不过对于 Android SDK 是个例外。</p>
+<p>虽然有的发行版官方或第三方软件仓库会提供 Android SDK 的包，但不建议使用，因为 Android
+SDK 的包一般会被安装到 /opt/android-sdk 目录，使用 SDK Manager 需要 ROOT 权限，
+会有诸多不便。而应该由 Android-Studio 来管理 SDK，SDK 安装路径也应该设置在用户目录下。</p>
+<h2 id="python--nodejs">Python / Node.js</h2>
+<p>这两个软件合在一起说。</p>
+<p>如果官方或第三方软件仓库没有想要的 Python / Node.js 的模块，也不建议使用 <code>sudo pip install</code> 和
+<code>sudo npm -g install</code> 进行安装。因为这会将模块安装到系统目录，造成系统的包管理处理对应文件时出现错误。
+再加上 pip 和 npm 卸载时不会一并卸载依赖，会残留很多文件在系统目录，破坏系统文件的整洁。</p>
+<p>正确的做法是将 <strong>$HOME/.local/bin</strong> 和 <strong>$HOME/.node_modules/bin</strong> 加入到 PATH 中，再通过
+<code>pip install --user</code> 和 <code>npm -g install</code> 安装，当然 Python 更推荐使用 <a href="https://wiki.archlinux.org/title/Python/Virtual_environment" target="_blank" rel="noopener noreffer">Virtual environment</a>
+。</p>
+<p>如果必须将 Python 和 Node.js 的模块安装到系统目录，应自行为所使用的发行版打包。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-09-05</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.synchronized.buzz/2020-09-05-linux-%E4%B8%8B%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BA%A6%E5%AE%9A%E4%BF%97%E6%88%90/" data-title="Linux 下开发的一些约定俗成" data-hashtags="Linux,包管理器,Android,Android SDK,Python,Node.js"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.synchronized.buzz/2020-09-05-linux-%E4%B8%8B%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BA%A6%E5%AE%9A%E4%BF%97%E6%88%90/" data-hashtag="Linux"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.synchronized.buzz/2020-09-05-linux-%E4%B8%8B%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BA%A6%E5%AE%9A%E4%BF%97%E6%88%90/" data-title="Linux 下开发的一些约定俗成"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.synchronized.buzz/2020-09-05-linux-%E4%B8%8B%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BA%A6%E5%AE%9A%E4%BF%97%E6%88%90/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.synchronized.buzz/2020-09-05-linux-%E4%B8%8B%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BA%A6%E5%AE%9A%E4%BF%97%E6%88%90/" data-title="Linux 下开发的一些约定俗成"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://blog.synchronized.buzz/2020-09-05-linux-%E4%B8%8B%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BA%A6%E5%AE%9A%E4%BF%97%E6%88%90/" data-title="Linux 下开发的一些约定俗成"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/">包管理器</a>,&nbsp;<a href="/tags/android/">Android</a>,&nbsp;<a href="/tags/android-sdk/">Android SDK</a>,&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/node.js/">Node.js</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020-08-12-nginx-%E5%8F%AA%E5%85%81%E8%AE%B8-http%5C2http%5C3-%E5%8D%8F%E8%AE%AE/" class="prev" rel="prev" title="Nginx 只允许 HTTP/2、HTTP/3 协议"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Nginx 只允许 HTTP/2、HTTP/3 协议</a>
+            <a href="/2020-10-18-pngsvg-%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E6%88%90%E5%AD%97%E4%BD%93/" class="next" rel="next" title="png、svg 格式的图片转换成字体">png、svg 格式的图片转换成字体<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2018 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/kitty-panics" target="_blank">Kitty • Panics</a></span>&nbsp;|&nbsp;<span class="license">除非注明，本作品采用 <img style="border-width:0" src="/img/license/BY-NC-ND.png"/> 许可协议</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.fill%2CArray.prototype.find%2CArray.from%2CIntersectionObserver%2CMath.sign%2CObject.assign%2CPromise%2CObject.entries%2Chtml5shiv%2CObject.values%2Cfetch%2CElement.prototype.after"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/object-fit-images@3.2.4/dist/ofi.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.5.4/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10240},"comment":{},"data":{"id-1":"知知为知知","id-2":"知知为知知"},"search":{"highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":100,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

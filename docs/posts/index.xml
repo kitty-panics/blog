@@ -1,0 +1,87 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>All Posts - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/posts/</link>
+        <description>All Posts | Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 22 Mar 2024 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>systemd.unit 无侵入性补丁 —— DynamicUser</title>
+    <link>https://blog.synchronized.buzz/2024-03-22-systemd.unit-%E6%97%A0%E4%BE%B5%E5%85%A5%E6%80%A7%E8%A1%A5%E4%B8%81-dynamicuser/</link>
+    <pubDate>Fri, 22 Mar 2024 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2024-03-22-systemd.unit-%E6%97%A0%E4%BE%B5%E5%85%A5%E6%80%A7%E8%A1%A5%E4%B8%81-dynamicuser/</guid>
+    <description><![CDATA[systemd.unit 在未指定 User= 时默认使用 ROOT 用户运行，但从安全角度来看， 这种默认行为风限太大，应该遵寻最小权限原则，比如可以将 User= 指定为 nobody。 如果想要更细]]></description>
+</item>
+<item>
+    <title>Android 彻底快速清理垃圾文件</title>
+    <link>https://blog.synchronized.buzz/2024-02-11-android-%E5%BD%BB%E5%BA%95%E5%BF%AB%E9%80%9F%E6%B8%85%E7%90%86%E5%9E%83%E5%9C%BE%E6%96%87%E4%BB%B6/</link>
+    <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2024-02-11-android-%E5%BD%BB%E5%BA%95%E5%BF%AB%E9%80%9F%E6%B8%85%E7%90%86%E5%9E%83%E5%9C%BE%E6%96%87%E4%BB%B6/</guid>
+    <description><![CDATA[市面上有很多手机清理工具，这类软件属于开发容易 (如果你会 Android 开发的话)，维护太难。 其难度在于识别垃圾文件都是基于黑名单，为海量 APP 建立庞大的黑名]]></description>
+</item>
+<item>
+    <title>多平台异地二层虚拟组网</title>
+    <link>https://blog.synchronized.buzz/2024-01-06-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%BC%82%E5%9C%B0%E4%BA%8C%E5%B1%82%E8%99%9A%E6%8B%9F%E7%BB%84%E7%BD%91/</link>
+    <pubDate>Sat, 06 Jan 2024 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2024-01-06-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%BC%82%E5%9C%B0%E4%BA%8C%E5%B1%82%E8%99%9A%E6%8B%9F%E7%BB%84%E7%BD%91/</guid>
+    <description><![CDATA[去年有篇文章介绍了使用 KDE Connect 进行多平台粘贴板同步，跨局域网通信用 Tailscale 、 ZeroTier 之类的软件。 多平台轻量化粘贴板同步方案 - Blog of Kitty • Panics - 知知为知知 这类软件虽]]></description>
+</item>
+<item>
+    <title>2023 年上半年读过的书 [TODO]</title>
+    <link>https://blog.synchronized.buzz/2023-12-30-2023-%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%AF%BB%E8%BF%87%E7%9A%84%E4%B9%A6/</link>
+    <pubDate>Sat, 30 Dec 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-12-30-2023-%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%AF%BB%E8%BF%87%E7%9A%84%E4%B9%A6/</guid>
+    <description><![CDATA[TODO 书籍涉及实体书，多个阅读 APP，整理笔记实在太麻烦，等一个契机集中整理。]]></description>
+</item>
+<item>
+    <title>多平台轻量化粘贴板同步方案</title>
+    <link>https://blog.synchronized.buzz/2023-11-21-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%BD%BB%E9%87%8F%E5%8C%96%E7%B2%98%E8%B4%B4%E6%9D%BF%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88/</link>
+    <pubDate>Tue, 21 Nov 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-11-21-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%BD%BB%E9%87%8F%E5%8C%96%E7%B2%98%E8%B4%B4%E6%9D%BF%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88/</guid>
+    <description><![CDATA[尝试过很多跨平台粘贴板同步方案，甚至动了自己写的念头，好在找到了比较完美的方案： KDE Connect 。 你能想到的想不到的平台都支持，而且功能很多，不只是剪贴]]></description>
+</item>
+<item>
+    <title>AUR 打包时不包含隐私数据</title>
+    <link>https://blog.synchronized.buzz/2023-10-27-aur-%E6%89%93%E5%8C%85%E6%97%B6%E4%B8%8D%E5%8C%85%E5%90%AB%E9%9A%90%E7%A7%81%E6%95%B0%E6%8D%AE/</link>
+    <pubDate>Fri, 27 Oct 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-10-27-aur-%E6%89%93%E5%8C%85%E6%97%B6%E4%B8%8D%E5%8C%85%E5%90%AB%E9%9A%90%E7%A7%81%E6%95%B0%E6%8D%AE/</guid>
+    <description><![CDATA[这两天拆包时瞥了一眼元数据文件 .BUILDINFO，突然发现其中的 builddir、startdir、 installed 变量存在隐私泄漏的风险。 去翻了下 pacman 的]]></description>
+</item>
+<item>
+    <title>根据 URL 使用不同的浏览器</title>
+    <link>https://blog.synchronized.buzz/2023-09-26-%E6%A0%B9%E6%8D%AE-url-%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8/</link>
+    <pubDate>Tue, 26 Sep 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-09-26-%E6%A0%B9%E6%8D%AE-url-%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8/</guid>
+    <description><![CDATA[2023-11-21 的更新 补充一个新例子。 Youtube has started to artificially slow down video load times if you use Firefox. Spoofing Chrome magically makes this problem go away. : youtube 作为 Firefox 用户，有些网站会恶意降低 Firefox 的体验，很是遭糕。从外部 URL 打开浏览器]]></description>
+</item>
+<item>
+    <title>Linux 分离式 Header 全盘加密</title>
+    <link>https://blog.synchronized.buzz/2023-08-19-linux-%E5%88%86%E7%A6%BB%E5%BC%8F-header-%E5%85%A8%E7%9B%98%E5%8A%A0%E5%AF%86/</link>
+    <pubDate>Sat, 19 Aug 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-08-19-linux-%E5%88%86%E7%A6%BB%E5%BC%8F-header-%E5%85%A8%E7%9B%98%E5%8A%A0%E5%AF%86/</guid>
+    <description><![CDATA[Linux 全盘加密的文章已经很多了，本文就不再赘述，主要介绍分离式 Header 全盘加密。 预先准备 创建分区也不赘述了，不过在进行手动分区时更推荐用带 TUI 的 cfdisk 命令，]]></description>
+</item>
+<item>
+    <title>Xorg 交换 ESC 和 CapsLock 键</title>
+    <link>https://blog.synchronized.buzz/2023-07-22-xorg-%E4%BA%A4%E6%8D%A2-esc-%E5%92%8C-capslock-%E9%94%AE/</link>
+    <pubDate>Sat, 22 Jul 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-07-22-xorg-%E4%BA%A4%E6%8D%A2-esc-%E5%92%8C-capslock-%E9%94%AE/</guid>
+    <description><![CDATA[用了很多年 xmodmap 方案实现交换 ESC 和 CapsLock 键，最近发现更新系统后有时会失效。 排查了一番，发现是有些软件包在更新后会触发 systemd udev 重载钩子。 1 2 3 # cat /usr/share/libalpm/hooks/30-systemd-udev-reload.hook sudo /usr/share/libalpm/scripts/systemd-hook udev-reload 配]]></description>
+</item>
+<item>
+    <title>2023 年上半年读过的书 [TODO]</title>
+    <link>https://blog.synchronized.buzz/2023-06-30-2023-%E5%B9%B4%E4%B8%8A%E5%8D%8A%E5%B9%B4%E8%AF%BB%E8%BF%87%E7%9A%84%E4%B9%A6/</link>
+    <pubDate>Fri, 30 Jun 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-06-30-2023-%E5%B9%B4%E4%B8%8A%E5%8D%8A%E5%B9%B4%E8%AF%BB%E8%BF%87%E7%9A%84%E4%B9%A6/</guid>
+    <description><![CDATA[TODO 书籍涉及实体书，多个阅读 APP，整理笔记实在太麻烦，等一个契机集中整理。]]></description>
+</item>
+</channel>
+</rss>

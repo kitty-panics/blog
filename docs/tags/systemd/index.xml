@@ -1,0 +1,39 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Systemd - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/systemd/</link>
+        <description>Systemd - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 22 Mar 2024 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/systemd/" rel="self" type="application/rss+xml" /><item>
+    <title>systemd.unit 无侵入性补丁 —— DynamicUser</title>
+    <link>https://blog.synchronized.buzz/2024-03-22-systemd.unit-%E6%97%A0%E4%BE%B5%E5%85%A5%E6%80%A7%E8%A1%A5%E4%B8%81-dynamicuser/</link>
+    <pubDate>Fri, 22 Mar 2024 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2024-03-22-systemd.unit-%E6%97%A0%E4%BE%B5%E5%85%A5%E6%80%A7%E8%A1%A5%E4%B8%81-dynamicuser/</guid>
+    <description><![CDATA[systemd.unit 在未指定 User= 时默认使用 ROOT 用户运行，但从安全角度来看， 这种默认行为风限太大，应该遵寻最小权限原则，比如可以将 User= 指定为 nobody。 如果想要更细]]></description>
+</item>
+<item>
+    <title>Xorg 交换 ESC 和 CapsLock 键</title>
+    <link>https://blog.synchronized.buzz/2023-07-22-xorg-%E4%BA%A4%E6%8D%A2-esc-%E5%92%8C-capslock-%E9%94%AE/</link>
+    <pubDate>Sat, 22 Jul 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-07-22-xorg-%E4%BA%A4%E6%8D%A2-esc-%E5%92%8C-capslock-%E9%94%AE/</guid>
+    <description><![CDATA[用了很多年 xmodmap 方案实现交换 ESC 和 CapsLock 键，最近发现更新系统后有时会失效。 排查了一番，发现是有些软件包在更新后会触发 systemd udev 重载钩子。 1 2 3 # cat /usr/share/libalpm/hooks/30-systemd-udev-reload.hook sudo /usr/share/libalpm/scripts/systemd-hook udev-reload 配]]></description>
+</item>
+<item>
+    <title>Timed out waiting for device /dev/disk/by-uuid/XXXX-XXXX</title>
+    <link>https://blog.synchronized.buzz/2022-04-11-timed-out-waiting-for-device-%5Cdev%5Cdisk%5Cby-uuid%5Cxxxx-xxxx/</link>
+    <pubDate>Mon, 11 Apr 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-04-11-timed-out-waiting-for-device-%5Cdev%5Cdisk%5Cby-uuid%5Cxxxx-xxxx/</guid>
+    <description><![CDATA[最近系统启动时会随机提示如下信息。 1 2 3 4 5 6 7 8 9 10 [ TIME ] Timed out waiting for device /dev/disk/by-uuid/XXXX-XXXX [DEPEND] Dependency failed for /boot/efi. [DEPEND] Dependency failed for Local File Systems. [DEPEND] Dependency failed for File System Check on /dev/disk/by-uuid/XXXX-XXXX. You are in emergency mode. After logging in, type &#34;journalctl - xb&#34; to]]></description>
+</item>
+<item>
+    <title>OrangePi-Lite (Arch Linux ARM) 重启后 Wi-Fi 无网络</title>
+    <link>https://blog.synchronized.buzz/2021-10-05-orangepi-lite-arch-linux-arm-%E9%87%8D%E5%90%AF%E5%90%8E-wi-fi-%E6%97%A0%E7%BD%91%E7%BB%9C/</link>
+    <pubDate>Tue, 05 Oct 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-10-05-orangepi-lite-arch-linux-arm-%E9%87%8D%E5%90%AF%E5%90%8E-wi-fi-%E6%97%A0%E7%BD%91%E7%BB%9C/</guid>
+    <description><![CDATA[上一篇说到在 OrangePi Lite 中安装了 Arch Linux ARM ，由于 Orange Pi Lite 没有有线网络接口， 所以只能使用 Wi-Fi。Wi-Fi 连接方案如下。 使用 wpa_supplicant 连接到 Wi-Fi。 使用 dhcpcd 请]]></description>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>服务器使用 Arch Linux 的七大理由 - Blog of Kitty • Panics - 知知为知知</title><meta name="Description" content=""><meta property="og:title" content="服务器使用 Arch Linux 的七大理由" />
+<meta property="og:description" content="2024-03-30 的更新 最新仅针对 deb/rpm 投毒的案例，Arch Linux 没有魔改上游的习惯，又逃过一劫。 xz 软件包被植入后门 。 本来打算写一篇有关 Linux 服务器安全配置的博文，但网" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.synchronized.buzz/2021-08-11-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8-arch-linux-%E7%9A%84%E5%85%AD%E5%A4%A7%E7%90%86%E7%94%B1/" /><meta property="og:image" content="https://blog.synchronized.buzz/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-11T00:00:00+08:00" />
+<meta property="article:modified_time" content="2021-08-11T00:00:00+08:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://blog.synchronized.buzz/" /><meta name="twitter:title" content="服务器使用 Arch Linux 的七大理由"/>
+<meta name="twitter:description" content="2024-03-30 的更新 最新仅针对 deb/rpm 投毒的案例，Arch Linux 没有魔改上游的习惯，又逃过一劫。 xz 软件包被植入后门 。 本来打算写一篇有关 Linux 服务器安全配置的博文，但网"/>
+<meta name="application-name" content="My KeepIt site">
+<meta name="apple-mobile-web-app-title" content="My KeepIt site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.synchronized.buzz/2021-08-11-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8-arch-linux-%E7%9A%84%E5%85%AD%E5%A4%A7%E7%90%86%E7%94%B1/" /><link rel="prev" href="https://blog.synchronized.buzz/2021-07-05-%E5%9C%A8-orange-pi-lite-%E4%B8%8A%E5%AE%89%E8%A3%85-arch-linux-arm/" /><link rel="next" href="https://blog.synchronized.buzz/2021-09-24-r7000-2020-%E5%9C%A8-linux-%E4%B8%AD%E5%AE%8C%E5%85%A8%E5%85%B3%E9%97%AD-n-%E5%8D%A1/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "服务器使用 Arch Linux 的七大理由",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.synchronized.buzz\/2021-08-11-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8-arch-linux-%E7%9A%84%E5%85%AD%E5%A4%A7%E7%90%86%E7%94%B1\/"
+        },"genre": "posts","keywords": "Linux, Arch Linux, Server, vps2arch","wordcount":  1645 ,
+        "url": "https:\/\/blog.synchronized.buzz\/2021-08-11-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8-arch-linux-%E7%9A%84%E5%85%AD%E5%A4%A7%E7%90%86%E7%94%B1\/","datePublished": "2021-08-11T00:00:00+08:00","dateModified": "2021-08-11T00:00:00+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Kitty • Panics"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> 博文 </a><a class="menu-item" href="/feed/list"> 订阅 </a><a class="menu-item" href="/series/list"> 专题 </a><a class="menu-item" href="/categories-tags/list"> 分类/标签 </a><a class="menu-item" href="/about/list"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts" title="">博文</a><a class="menu-item" href="/feed/list" title="">订阅</a><a class="menu-item" href="/series/list" title="">专题</a><a class="menu-item" href="/categories-tags/list" title="">分类/标签</a><a class="menu-item" href="/about/list" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">服务器使用 Arch Linux 的七大理由</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/kitty-panics" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kitty • Panics</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-08-11">2021-08-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1645 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#2024-03-30-的更新">2024-03-30 的更新</a></li>
+    <li><a href="#一更易理清配置">一、更易理清配置</a></li>
+    <li><a href="#二线上线下环境一致">二、线上线下环境一致</a></li>
+    <li><a href="#三更安全">三、更安全？</a></li>
+    <li><a href="#四更早体验到新功能">四、更早体验到新功能</a></li>
+    <li><a href="#五打包简单">五、打包简单</a></li>
+    <li><a href="#六用户贡献度高">六、用户贡献度高</a></li>
+    <li><a href="#七个人喜好">七、个人喜好</a></li>
+    <li><a href="#扩展阅读">扩展阅读</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="2024-03-30-的更新">2024-03-30 的更新</h2>
+<p>最新仅针对 deb/rpm 投毒的案例，Arch Linux 没有魔改上游的习惯，又逃过一劫。</p>
+<ul>
+<li><a href="https://archlinux.org/news/the-xz-package-has-been-backdoored/" target="_blank" rel="noopener noreffer">xz 软件包被植入后门</a>
+。</li>
+</ul>
+<p> </p>
+<hr>
+<p> </p>
+<p>本来打算写一篇有关 Linux 服务器安全配置的博文，但网上已经有很多相关的文章了，
+而且服务器安全这块最近似乎也没出现什么新鲜的玩意。</p>
+<p>那就借 Arch Linux 之名水一篇博客，顺带抨击一些部分人奉为圭臬的谬论。</p>
+<h2 id="一更易理清配置">一、更易理清配置</h2>
+<p>各云服务商提供的系统都包含一些定制的配置，而这些配置在不断变动，还不告诉你动了啥。加上很多人安装/配置软件，
+喜欢用网上的一键脚本，安不安全另说，这会让本来就难以理清的配置变得更加混乱。</p>
+<p>记得之前在某云开了台服务器跑个服务，<strong>一天后</strong> 发现性能不够，又开了台相同地区、同样系统的机子做负载均衡，
+结果新开的这台部署完后发现无法访问，开始还以为是自己的问题，排查后发现多了个 <a href="https://wiki.archlinux.org/title/Ufw" target="_blank" rel="noopener noreffer">UFW</a>
+，外加一百多行乱七八糟的规则。
+如果还使用了一键脚本进行部署，还得检查脚本是否写的有问题，更是加大了工作量。</p>
+<p>对于这种黑箱系统，换成 Arch Linux 这类做加法、遵循上游的发行版是一个很好的选择。</p>
+<h2 id="二线上线下环境一致">二、线上线下环境一致</h2>
+<p>各发行版包管理器不同，打包粗细粒度不同，有些包名字也不同，有的发行版有的包而另一发行版却又没有，
+甚至同一发行版相同版本下不同云服务商提供的包也不同。</p>
+<p>所以使用 Arch Linux 这类线上线下皆宜的发行版，本地怎么配置，线上就怎么配置，不用纠结发行版间的差异。</p>
+<p><strong>基于以上两点，所以 <a href="https://wiki.archlinux.org/title/Docker" target="_blank" rel="noopener noreffer">Docker</a>
+ 才是最大的赢家？</strong></p>
+<h2 id="三更安全">三、更安全？</h2>
+<p>虽然说系统安全得益于尽可能牢固的安全配置，但也需要运维人员有足够的安全意识，有部分人会为了稳定性不升级
+(也可能如第五点中那样，压根无从升级)，虽然系统一直不升级能用安全性换取稳定性。但这样的稳定如空中楼阁，
+因为很大部分网络攻击就是针对旧版本软件中的漏洞，一个频繁被攻击甚至被攻破的系统，有何稳定可言？</p>
+<p>而 Arch Linux 用户普遍有更新强迫症，能及时更新到新版，能有效避免很多漏洞扫描和攻击。</p>
+<p>另外，看过一些恶意脚本，有部分会针对 deb/rpm 系发行版优化，使用 Arch Linux 或许能逃过一劫。</p>
+<ul>
+<li><a href="https://feng.si/posts/2019/07/centos-the-last-linux-distro-you-should-ever-consider/" target="_blank" rel="noopener noreffer">CentOS: 永远有多远就离它多远</a>
+</li>
+<li>反向案例：<a href="https://hostloc.com/forum.php?mod=viewthread&amp;tid=197417" target="_blank" rel="noopener noreffer">晒晒你的vps开机时间</a>
+</li>
+</ul>
+<h2 id="四更早体验到新功能">四、更早体验到新功能</h2>
+<p>Debian 系的软件太老了，CentOS 更老 (还好它 <strong>死了</strong>，可惜又 <strong>没完全死</strong>)。想体验一些新特性，
+得等到候年马月。</p>
+<p>Arch Linux 是一个滚动式更新发行版，不断更新软件听起来好像很不稳定的样子，但前面说到 Arch Linux
+是一个遵循上游的发行版，稳定版仓库的包就是上游释出稳定版后打出来的，这和去官网下载稳定版安装没有任何区别。</p>
+<p>诚然软件新版本会有新的 BUG，但同时也修复了旧的 BUG 和带来新的特性，利远大于弊。像 JDK、Python
+之类的软件因需求需要停留在低版本也是可以的。</p>
+<p>所以使用 Arch Linux 这类滚动式更新 (我称之为渐进式升级) 的发行版会有一个很棒的体验。</p>
+<h2 id="五打包简单">五、打包简单</h2>
+<p>一直不太理解的是，有的人一边义正辞严的高呼服务器用 Arch Linux 不稳定，一边孜孜不倦的用
+<code>./configure &amp;&amp; make &amp;&amp; make install</code> 安装软件是什么心理。</p>
+<p>从便捷性和稳定性考虑，所有软件都应通过包管理器进行安装，如果有的软件没包？那就自己打包。</p>
+<p>手动编译安装意味着要手动处理软件依赖关系，很可能会不小心覆盖掉系统原有的动态库文件，
+从而影响到部分软件的正常运行。如果编译安装的软件过多，依赖关系变的复杂，加上时间一长，
+在后续升级和修补漏洞时连自己都忘了需要处理哪些依赖，这样做严重破坏了系统的稳定性。</p>
+<ul>
+<li>反向案例：<a href="https://zhuanlan.zhihu.com/p/403316313" target="_blank" rel="noopener noreffer">记一次Centos 6.1云服务器升级libc-2.15.so失败过程</a>
+。</li>
+</ul>
+<p>所以要是喜欢编译的话，可以使用 Arch Linux 这种打包系统简单的发行版，当然 Gentoo
+也是一个不错的选择。</p>
+<h2 id="六用户贡献度高">六、用户贡献度高</h2>
+<p>用其它主流发行版时，不得不说资料是真的多，教程一搜一大把，但大部份都是重复转载。
+很多教程都在教你要先安装哪些依赖包，编译参数要加啥。可这些编译源码一两次就塾悉了，
+万变不离其宗。</p>
+<p><strong>唯独没人打个包供下载</strong>。</p>
+<p>而 Arch Linux 的 AUR 中，有用户贡献的近 8 万个软件打包脚本。不想编译的话还有很多 <a href="https://wiki.archlinux.org/title/User_repo" target="_blank" rel="noopener noreffer">个人源</a>
+
+供选择，我也维护了一个 <a href="https://aur.synchronized.buzz/" target="_blank" rel="noopener noreffer">个人软件源</a>
+。</p>
+<h2 id="七个人喜好">七、个人喜好</h2>
+<p>Keep It Simple, Stupid.</p>
+<ul>
+<li>简洁</li>
+<li>现代</li>
+<li>实用</li>
+<li>以用户为中心</li>
+</ul>
+<h2 id="扩展阅读">扩展阅读</h2>
+<p>要想在服务器上快速安装 Arch Linux 系统，可以使用 <code>vps2arch</code> 一键安装脚本。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 下载脚本</span>
+</span></span><span class="line"><span class="cl">wget <span class="s2">&#34;https://cdn.jsdelivr.net/gh/kitty-panics/vps2arch/vps2arch&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 赋予脚本可执行权限并运行</span>
+</span></span><span class="line"><span class="cl">chmod +x vps2arch <span class="o">&amp;&amp;</span> ./vps2arch
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-08-11</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.synchronized.buzz/2021-08-11-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8-arch-linux-%E7%9A%84%E5%85%AD%E5%A4%A7%E7%90%86%E7%94%B1/" data-title="服务器使用 Arch Linux 的七大理由" data-hashtags="Linux,Arch Linux,Server,vps2arch"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.synchronized.buzz/2021-08-11-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8-arch-linux-%E7%9A%84%E5%85%AD%E5%A4%A7%E7%90%86%E7%94%B1/" data-hashtag="Linux"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.synchronized.buzz/2021-08-11-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8-arch-linux-%E7%9A%84%E5%85%AD%E5%A4%A7%E7%90%86%E7%94%B1/" data-title="服务器使用 Arch Linux 的七大理由"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.synchronized.buzz/2021-08-11-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8-arch-linux-%E7%9A%84%E5%85%AD%E5%A4%A7%E7%90%86%E7%94%B1/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.synchronized.buzz/2021-08-11-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8-arch-linux-%E7%9A%84%E5%85%AD%E5%A4%A7%E7%90%86%E7%94%B1/" data-title="服务器使用 Arch Linux 的七大理由"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://blog.synchronized.buzz/2021-08-11-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8-arch-linux-%E7%9A%84%E5%85%AD%E5%A4%A7%E7%90%86%E7%94%B1/" data-title="服务器使用 Arch Linux 的七大理由"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/arch-linux/">Arch Linux</a>,&nbsp;<a href="/tags/server/">Server</a>,&nbsp;<a href="/tags/vps2arch/">Vps2arch</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2021-07-05-%E5%9C%A8-orange-pi-lite-%E4%B8%8A%E5%AE%89%E8%A3%85-arch-linux-arm/" class="prev" rel="prev" title="在 Orange Pi Lite 上安装 Arch Linux ARM"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>在 Orange Pi Lite 上安装 Arch Linux ARM</a>
+            <a href="/2021-09-24-r7000-2020-%E5%9C%A8-linux-%E4%B8%AD%E5%AE%8C%E5%85%A8%E5%85%B3%E9%97%AD-n-%E5%8D%A1/" class="next" rel="next" title="R7000 2020 在 Linux 中完全关闭 N 卡">R7000 2020 在 Linux 中完全关闭 N 卡<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2018 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/kitty-panics" target="_blank">Kitty • Panics</a></span>&nbsp;|&nbsp;<span class="license">除非注明，本作品采用 <img style="border-width:0" src="/img/license/BY-NC-ND.png"/> 许可协议</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.fill%2CArray.prototype.find%2CArray.from%2CIntersectionObserver%2CMath.sign%2CObject.assign%2CPromise%2CObject.entries%2Chtml5shiv%2CObject.values%2Cfetch%2CElement.prototype.after"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/object-fit-images@3.2.4/dist/ofi.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.5.4/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10240},"comment":{},"data":{"id-1":"知知为知知","id-2":"知知为知知"},"search":{"highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":100,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

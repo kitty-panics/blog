@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>HOME-Cleaner - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/home-cleaner/</link>
+        <description>HOME-Cleaner - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 19 Dec 2021 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/home-cleaner/" rel="self" type="application/rss+xml" /><item>
+    <title>Linux 版的存储空间隔离</title>
+    <link>https://blog.synchronized.buzz/2021-12-19-linux-%E7%89%88%E7%9A%84%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E9%9A%94%E7%A6%BB/</link>
+    <pubDate>Sun, 19 Dec 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-12-19-linux-%E7%89%88%E7%9A%84%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E9%9A%94%E7%A6%BB/</guid>
+    <description><![CDATA[用过 Android 系统的同学都知道，几乎所有软件都会请求存储权限，然后在里面各种乱拉屎， 导致存储空间乱七八遭的，每次找个东西得翻动半天。为此有开发者写了]]></description>
+</item>
+</channel>
+</rss>

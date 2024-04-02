@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Zip - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/zip/</link>
+        <description>Zip - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 07 May 2021 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/zip/" rel="self" type="application/rss+xml" /><item>
+    <title>使用 Python3 解压乱码的 zip 文件</title>
+    <link>https://blog.synchronized.buzz/2021-05-07-%E4%BD%BF%E7%94%A8-python3-%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E7%9A%84-zip-%E6%96%87%E4%BB%B6/</link>
+    <pubDate>Fri, 07 May 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-05-07-%E4%BD%BF%E7%94%A8-python3-%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E7%9A%84-zip-%E6%96%87%E4%BB%B6/</guid>
+    <description><![CDATA[由于 zip 压缩格式默认没有指定编码格式，所以会使用系统默认的编码 (在简中 Windows 上通常是 GBK，在 Linux 上通常是 UTF-8)，这会导致在 Linux 上解压 Windows 中创建的]]></description>
+</item>
+</channel>
+</rss>

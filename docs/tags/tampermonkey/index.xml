@@ -1,0 +1,31 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tampermonkey - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/tampermonkey/</link>
+        <description>Tampermonkey - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 22 Apr 2023 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/tampermonkey/" rel="self" type="application/rss+xml" /><item>
+    <title>Github 显示直接文件下载地址</title>
+    <link>https://blog.synchronized.buzz/2023-04-22-github-%E6%98%BE%E7%A4%BA%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/</link>
+    <pubDate>Sat, 22 Apr 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-04-22-github-%E6%98%BE%E7%A4%BA%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/</guid>
+    <description><![CDATA[Github 网页下载文件的体验太糟糕了，得点击好几次，有时我只是想复制下载链接而已。 页面中文件列表最右边的目录、文件图标也没有什么用，直接将其替换成下]]></description>
+</item>
+<item>
+    <title>Github 显示绝对时间</title>
+    <link>https://blog.synchronized.buzz/2023-03-25-github-%E6%98%BE%E7%A4%BA%E7%BB%9D%E5%AF%B9%E6%97%B6%E9%97%B4/</link>
+    <pubDate>Sat, 25 Mar 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-03-25-github-%E6%98%BE%E7%A4%BA%E7%BB%9D%E5%AF%B9%E6%97%B6%E9%97%B4/</guid>
+    <description><![CDATA[很奇怪 Github 的产品设计逻辑，用户都是开发者，很多东西需要精确表达，在时间设计上偏偏用相对时间， 有时真的很碍事，尽管可以通过悬停鼠标来显示绝对时间]]></description>
+</item>
+<item>
+    <title>被速率限制时自动切换 Github 镜像站</title>
+    <link>https://blog.synchronized.buzz/2022-01-12-%E8%A2%AB%E9%80%9F%E7%8E%87%E9%99%90%E5%88%B6%E6%97%B6%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2-github-%E9%95%9C%E5%83%8F%E7%AB%99/</link>
+    <pubDate>Wed, 12 Jan 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-01-12-%E8%A2%AB%E9%80%9F%E7%8E%87%E9%99%90%E5%88%B6%E6%97%B6%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2-github-%E9%95%9C%E5%83%8F%E7%AB%99/</guid>
+    <description><![CDATA[由于众所周知的原因，访问 Github 变得越来越困难，幸好还有大量的镜像站可用，但镜像站使用的人太多， 很容易被速率限制。 被速率限制时，只能等待一会再访问]]></description>
+</item>
+</channel>
+</rss>

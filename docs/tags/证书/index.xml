@@ -1,0 +1,23 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>证书 - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/%E8%AF%81%E4%B9%A6/</link>
+        <description>证书 - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 28 Jul 2020 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/%E8%AF%81%E4%B9%A6/" rel="self" type="application/rss+xml" /><item>
+    <title>离线安装 VS2015/VS2017 提示包损坏或丢失，安装 VS2019 程序闪退</title>
+    <link>https://blog.synchronized.buzz/2020-07-28-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85-vs2015%5Cvs2017-%E6%8F%90%E7%A4%BA%E5%8C%85%E6%8D%9F%E5%9D%8F%E6%88%96%E4%B8%A2%E5%A4%B1%E5%AE%89%E8%A3%85-vs2019-%E7%A8%8B%E5%BA%8F%E9%97%AA%E9%80%80/</link>
+    <pubDate>Tue, 28 Jul 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-07-28-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85-vs2015%5Cvs2017-%E6%8F%90%E7%A4%BA%E5%8C%85%E6%8D%9F%E5%9D%8F%E6%88%96%E4%B8%A2%E5%A4%B1%E5%AE%89%E8%A3%85-vs2019-%E7%A8%8B%E5%BA%8F%E9%97%AA%E9%80%80/</guid>
+    <description><![CDATA[之前为方便后续快速安装 Visual Studio，缓存了 VS2015/2017/2019 的 MS Build Tools 离线安装包在本地。今天在安装 VS2015/2017 时提示包损坏或丢失，安装 VS2019 时安装程序直接闪退。 搜索了一番]]></description>
+</item>
+<item>
+    <title>使用 OpenSSL 创建自签证书</title>
+    <link>https://blog.synchronized.buzz/2018-07-26-%E4%BD%BF%E7%94%A8-openssl-%E5%88%9B%E5%BB%BA%E8%87%AA%E7%AD%BE%E8%AF%81%E4%B9%A6/</link>
+    <pubDate>Thu, 26 Jul 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2018-07-26-%E4%BD%BF%E7%94%A8-openssl-%E5%88%9B%E5%BB%BA%E8%87%AA%E7%AD%BE%E8%AF%81%E4%B9%A6/</guid>
+    <description><![CDATA[不需要证书签名请求 依次执行下面两条命令即可。 生成私钥 RSA openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -out 私钥.key ECDSA openssl genpkey -algorithm EC -pkeyopt ec_paramgen_curve:P-256 -out 私钥.key 生成证书 openssl req -x509 -days 90 -key 私钥.key]]></description>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Bat - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/bat/</link>
+        <description>Bat - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 14 Oct 2019 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/bat/" rel="self" type="application/rss+xml" /><item>
+    <title>Batch 提升为 Administrator 权限</title>
+    <link>https://blog.synchronized.buzz/2019-10-14-batch-%E6%8F%90%E5%8D%87%E4%B8%BA-administrator-%E6%9D%83%E9%99%90/</link>
+    <pubDate>Mon, 14 Oct 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-10-14-batch-%E6%8F%90%E5%8D%87%E4%B8%BA-administrator-%E6%9D%83%E9%99%90/</guid>
+    <description><![CDATA[尽管 Windows 用户都默认使用 Administrator 帐户，但它虽名为 Administrator，其实并没有 Administrator 全部的权限，很多操作会受到限制。 所以在执行某些 Batch 脚本时需要提升]]></description>
+</item>
+</channel>
+</rss>

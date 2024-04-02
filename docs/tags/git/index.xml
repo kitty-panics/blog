@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Git - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/git/</link>
+        <description>Git - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 28 May 2020 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/git/" rel="self" type="application/rss+xml" /><item>
+    <title>ABS 打包指定源码克隆深度</title>
+    <link>https://blog.synchronized.buzz/2020-05-28-abs-%E6%89%93%E5%8C%85%E6%8C%87%E5%AE%9A%E6%BA%90%E7%A0%81%E5%85%8B%E9%9A%86%E6%B7%B1%E5%BA%A6/</link>
+    <pubDate>Thu, 28 May 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-05-28-abs-%E6%89%93%E5%8C%85%E6%8C%87%E5%AE%9A%E6%BA%90%E7%A0%81%E5%85%8B%E9%9A%86%E6%B7%B1%E5%BA%A6/</guid>
+    <description><![CDATA[源代码仓库太大，国内下载速度慢真是种煎熬。一般 git clone 时能通过加上 --depth=1 参数指定克隆深度来解决。 但在 AUR 打包时，并不能把 --depth=1 写在 PKGBUILD 中，而应该是 makepkg 的配置文]]></description>
+</item>
+</channel>
+</rss>

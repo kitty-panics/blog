@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Dd - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/dd/</link>
+        <description>Dd - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 09 Nov 2019 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/dd/" rel="self" type="application/rss+xml" /><item>
+    <title>GRUB2 多重引导</title>
+    <link>https://blog.synchronized.buzz/2019-11-09-grub2-%E5%A4%9A%E9%87%8D%E5%BC%95%E5%AF%BC/</link>
+    <pubDate>Sat, 09 Nov 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-11-09-grub2-%E5%A4%9A%E9%87%8D%E5%BC%95%E5%AF%BC/</guid>
+    <description><![CDATA[2021-04-22 日的更新 最近发现一个很棒的多系统启动盘制作工具：Ventoy 。 只需要把 ISO/WIM/IMG/VHD(X)/EFI 等类型的文件拷贝到 U 盘里面就可以启动了，无需其他操作。 还可以一次性]]></description>
+</item>
+</channel>
+</rss>

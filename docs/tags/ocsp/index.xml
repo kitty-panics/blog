@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>OCSP - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/ocsp/</link>
+        <description>OCSP - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 21 Jun 2021 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/ocsp/" rel="self" type="application/rss+xml" /><item>
+    <title>&#39;ssl_stapling&#39; ignored, host not found in OCSP responder &#39;r3.o.lencr.org&#39; in the cert &#39;fullchain.pem&#39;</title>
+    <link>https://blog.synchronized.buzz/2021-06-21-ssl_stapling-ignored-host-not-found-in-ocsp-responder-r3.o.lencr.org-in-the-cert-fullchain.pem/</link>
+    <pubDate>Mon, 21 Jun 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-06-21-ssl_stapling-ignored-host-not-found-in-ocsp-responder-r3.o.lencr.org-in-the-cert-fullchain.pem/</guid>
+    <description><![CDATA[在查看服务器日志时发现 Nginx 中有一个 Warn。 1 2 [warn] 285#285: &#34;ssl_stapling&#34; ignored, host not found in OCSP responder &#34;r3.o.lencr.org&#34; in the certificate &#34;/XXXX/YYYY/ZZZZ/fullchain.pem&#34; 看到这个警告第一反应是不是 Let&rsquo;s Encrypt 的服务挂了，毕竟它以前也出过几次问]]></description>
+</item>
+</channel>
+</rss>

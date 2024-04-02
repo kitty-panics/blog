@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Pacman - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/pacman/</link>
+        <description>Pacman - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 10 Feb 2019 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/pacman/" rel="self" type="application/rss+xml" /><item>
+    <title>【随缘分享】- 2019-02-10</title>
+    <link>https://blog.synchronized.buzz/series-luck/2019-02-10/</link>
+    <pubDate>Sun, 10 Feb 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/series-luck/2019-02-10/</guid>
+    <description><![CDATA[不定期整理搜集到的素材，然后分享出来。 小知识 重新安装 Arch Linux 所有的软件包 要是系统遭到了大规模破坏 (比如 rm -rf)，可以通过下面的命令重新安装所有]]></description>
+</item>
+</channel>
+</rss>

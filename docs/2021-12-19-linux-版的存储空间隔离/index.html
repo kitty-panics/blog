@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Linux 版的存储空间隔离 - Blog of Kitty • Panics - 知知为知知</title><meta name="Description" content=""><meta property="og:title" content="Linux 版的存储空间隔离" />
+<meta property="og:description" content="用过 Android 系统的同学都知道，几乎所有软件都会请求存储权限，然后在里面各种乱拉屎， 导致存储空间乱七八遭的，每次找个东西得翻动半天。为此有开发者写了" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.synchronized.buzz/2021-12-19-linux-%E7%89%88%E7%9A%84%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E9%9A%94%E7%A6%BB/" /><meta property="og:image" content="https://blog.synchronized.buzz/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-19T00:00:00+08:00" />
+<meta property="article:modified_time" content="2021-12-19T00:00:00+08:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://blog.synchronized.buzz/" /><meta name="twitter:title" content="Linux 版的存储空间隔离"/>
+<meta name="twitter:description" content="用过 Android 系统的同学都知道，几乎所有软件都会请求存储权限，然后在里面各种乱拉屎， 导致存储空间乱七八遭的，每次找个东西得翻动半天。为此有开发者写了"/>
+<meta name="application-name" content="My KeepIt site">
+<meta name="apple-mobile-web-app-title" content="My KeepIt site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.synchronized.buzz/2021-12-19-linux-%E7%89%88%E7%9A%84%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E9%9A%94%E7%A6%BB/" /><link rel="prev" href="https://blog.synchronized.buzz/2021-11-22-javascript-%E4%B8%AD-getindexbyvaluegetkeybyvalue/" /><link rel="next" href="https://blog.synchronized.buzz/2022-01-12-%E8%A2%AB%E9%80%9F%E7%8E%87%E9%99%90%E5%88%B6%E6%97%B6%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2-github-%E9%95%9C%E5%83%8F%E7%AB%99/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Linux 版的存储空间隔离",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.synchronized.buzz\/2021-12-19-linux-%E7%89%88%E7%9A%84%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E9%9A%94%E7%A6%BB\/"
+        },"genre": "posts","keywords": "Linux, Android, 存储空间隔离, Firejail, Sandboxing, Bubblewrap, HOME-Cleaner","wordcount":  733 ,
+        "url": "https:\/\/blog.synchronized.buzz\/2021-12-19-linux-%E7%89%88%E7%9A%84%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E9%9A%94%E7%A6%BB\/","datePublished": "2021-12-19T00:00:00+08:00","dateModified": "2021-12-19T00:00:00+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Kitty • Panics"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> 博文 </a><a class="menu-item" href="/feed/list"> 订阅 </a><a class="menu-item" href="/series/list"> 专题 </a><a class="menu-item" href="/categories-tags/list"> 分类/标签 </a><a class="menu-item" href="/about/list"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts" title="">博文</a><a class="menu-item" href="/feed/list" title="">订阅</a><a class="menu-item" href="/series/list" title="">专题</a><a class="menu-item" href="/categories-tags/list" title="">分类/标签</a><a class="menu-item" href="/about/list" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux 版的存储空间隔离</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/kitty-panics" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kitty • Panics</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/%E5%AE%89%E5%85%A8/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>安全</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-12-19">2021-12-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;733 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#使用">使用</a>
+      <ul>
+        <li><a href="#1-为需要隔离的软件写一个-wrapper">1. 为需要隔离的软件写一个 Wrapper</a></li>
+        <li><a href="#2-定制-_firejail-参数">2. 定制 <code>_firejail</code> 参数</a></li>
+        <li><a href="#3-链接到-xdg-user-directories">3. 链接到 <a href="https://wiki.archlinux.org/title/XDG_user_directories">XDG User Directories</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#扩展阅读">扩展阅读</a>
+      <ul>
+        <li><a href="#linux-上的垃圾清理工具">Linux 上的垃圾清理工具</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>用过 Android 系统的同学都知道，几乎所有软件都会请求存储权限，然后在里面各种乱拉屎，
+导致存储空间乱七八遭的，每次找个东西得翻动半天。为此有开发者写了个 <a href="https://sspai.com/post/54420" target="_blank" rel="noopener noreffer">存储空间隔离</a>
+
+的工具，能让存储空间重回整洁，缺点就是需要 ROOT 权限和收费。</p>
+<p>Linux 系统上也是如此，大量软件不遵守 <a href="https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html" target="_blank" rel="noopener noreffer">XDG 规范</a>
+，导致家目录一团糟，好在 Linux
+上可以轻松实现 &ldquo;存储空间隔离&rdquo; 这一功能，而且还是免费的。</p>
+<p>这里需要用到一款沙盒软件 —— <a href="https://wiki.archlinux.org/title/Firejail" target="_blank" rel="noopener noreffer">Firejail</a>
+ (也可以选择其它 <a href="https://wiki.archlinux.org/title/Category:Sandboxing" target="_blank" rel="noopener noreffer">沙盒软件</a>
+，只是我更偏爱 Firejail)。</p>
+<h2 id="使用">使用</h2>
+<h3 id="1-为需要隔离的软件写一个-wrapper">1. 为需要隔离的软件写一个 Wrapper</h3>
+<p>Wrapper 放到自己喜欢的目录 (我的是 <code>$HOME/.local/Redirect-Storage-Bin</code>)，重要的是将此目录置于 PATH
+环境变量开头。这样在运行需要隔离的软件时，除非指明 <code>/usr/bin/</code> 绝对路径，会优先使用 Wrapper。</p>
+<p>以 <a href="https://store.steampowered.com" target="_blank" rel="noopener noreffer">Steam</a>
+ 为例。通过此 Wrapper 运行 Steam 时，Steam 会将 &ldquo;~/.local/Redirect-Storage-Data/steam&rdquo;
+当作家目录。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># steam (PKG: steam)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建隔离目录</span>
+</span></span><span class="line"><span class="cl">mkdir -p <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.local/Redirect-Storage-Data/steam&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 启动 Steam</span>
+</span></span><span class="line"><span class="cl"><span class="nb">exec</span> _firejail --dns<span class="o">=</span>223.6.6.6 --private<span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.local/Redirect-Storage-Data/steam&#34;</span> /usr/lib/steam/bin_steam.sh <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面的 <code>_firejail</code> 命令是 Firejail 的 Wrapper。这样做能在当 Wrapper 数量很多时，可以快速修改 Firejail 参数。</p>
+<h3 id="2-定制-_firejail-参数">2. 定制 <code>_firejail</code> 参数</h3>
+<p>可根据需要定制 Firejail 的参数，比如禁止读取 <code>/media</code> 媒体设备挂载目录、启用 Apparmor……等。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Firejail Wrapper</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">exec</span> /usr/bin/firejail <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --apparmor <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --blacklist<span class="o">=</span><span class="s2">&#34;/media&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --blacklist<span class="o">=</span><span class="s2">&#34;/mnt&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --blacklist<span class="o">=</span><span class="s2">&#34;/swap.file&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --caps.drop<span class="o">=</span>all <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --disable-mnt <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --nodvd <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --nogroups <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --nonewprivs <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --noprofile <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --noroot <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --notv <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --nou2f <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --quiet <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#--memory-deny-write-execute \</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#--private-dev \</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#--private-tmp \</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3-链接到-xdg-user-directories">3. 链接到 <a href="https://wiki.archlinux.org/title/XDG_user_directories" target="_blank" rel="noopener noreffer">XDG User Directories</a>
+</h3>
+<p>为方便查找隔离空间内的文件，可以将 Redirect-Storage-Data 目录链接到 <a href="https://wiki.archlinux.org/title/XDG_user_directories" target="_blank" rel="noopener noreffer">XDG User Directories</a>
+。</p>
+<ul>
+<li>XDG_DESKTOP_DIR: <code>ln -s $HOME/.local/Redirect-Storage-Data $HOME/Desktop/Redirect-Storage-Data</code></li>
+<li>XDG_DOCUMENTS_DIR: <code>ln -s $HOME/.local/Redirect-Storage-Data $HOME/Documents/Redirect-Storage-Data</code></li>
+<li>XDG_DOWNLOAD_DIR: <code>ln -s $HOME/.local/Redirect-Storage-Data $HOME/Downloads/Redirect-Storage-Data</code></li>
+<li>XDG_MUSIC_DIR: <code>ln -s $HOME/.local/Redirect-Storage-Data $HOME/Music/Redirect-Storage-Data</code></li>
+<li>XDG_PICTURES_DIR: <code>ln -s $HOME/.local/Redirect-Storage-Data $HOME/Pictures/Redirect-Storage-Data</code></li>
+<li>XDG_PUBLICSHARE_DIR: <code>ln -s $HOME/.local/Redirect-Storage-Data $HOME/Public/Redirect-Storage-Data</code></li>
+<li>XDG_TEMPLATES_DIR: <code>ln -s $HOME/.local/Redirect-Storage-Data $HOME/Templates/Redirect-Storage-Data</code></li>
+<li>XDG_VIDEOS_DIR: <code>ln -s $HOME/.local/Redirect-Storage-Data $HOME/Videos/Redirect-Storage-Data</code></li>
+</ul>
+<h2 id="扩展阅读">扩展阅读</h2>
+<h3 id="linux-上的垃圾清理工具">Linux 上的垃圾清理工具</h3>
+<p>Linux 系统上似乎没有一款好的垃圾清理工具，为此我写了一个。不过每个人对于垃圾文件的定义不同，
+所以只包含简单的垃圾文件规则示例。</p>
+<p>但规则编写很简单，可以根据自己喜好自行添加。</p>
+<ul>
+<li><a href="https://github.com/kitty-panics/HOME-Cleaner" target="_blank" rel="noopener noreffer">kitty-panics/HOME-Cleaner</a>
+</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-12-19</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.synchronized.buzz/2021-12-19-linux-%E7%89%88%E7%9A%84%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E9%9A%94%E7%A6%BB/" data-title="Linux 版的存储空间隔离" data-hashtags="Linux,Android,存储空间隔离,Firejail,Sandboxing,Bubblewrap,HOME-Cleaner"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.synchronized.buzz/2021-12-19-linux-%E7%89%88%E7%9A%84%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E9%9A%94%E7%A6%BB/" data-hashtag="Linux"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.synchronized.buzz/2021-12-19-linux-%E7%89%88%E7%9A%84%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E9%9A%94%E7%A6%BB/" data-title="Linux 版的存储空间隔离"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.synchronized.buzz/2021-12-19-linux-%E7%89%88%E7%9A%84%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E9%9A%94%E7%A6%BB/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.synchronized.buzz/2021-12-19-linux-%E7%89%88%E7%9A%84%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E9%9A%94%E7%A6%BB/" data-title="Linux 版的存储空间隔离"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://blog.synchronized.buzz/2021-12-19-linux-%E7%89%88%E7%9A%84%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E9%9A%94%E7%A6%BB/" data-title="Linux 版的存储空间隔离"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/android/">Android</a>,&nbsp;<a href="/tags/%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E9%9A%94%E7%A6%BB/">存储空间隔离</a>,&nbsp;<a href="/tags/firejail/">Firejail</a>,&nbsp;<a href="/tags/sandboxing/">Sandboxing</a>,&nbsp;<a href="/tags/bubblewrap/">Bubblewrap</a>,&nbsp;<a href="/tags/home-cleaner/">HOME-Cleaner</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2021-11-22-javascript-%E4%B8%AD-getindexbyvaluegetkeybyvalue/" class="prev" rel="prev" title="JavaScript 中 getIndexByValue、getKeyByValue"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>JavaScript 中 getIndexByValue、getKeyByValue</a>
+            <a href="/2022-01-12-%E8%A2%AB%E9%80%9F%E7%8E%87%E9%99%90%E5%88%B6%E6%97%B6%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2-github-%E9%95%9C%E5%83%8F%E7%AB%99/" class="next" rel="next" title="被速率限制时自动切换 Github 镜像站">被速率限制时自动切换 Github 镜像站<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2018 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/kitty-panics" target="_blank">Kitty • Panics</a></span>&nbsp;|&nbsp;<span class="license">除非注明，本作品采用 <img style="border-width:0" src="/img/license/BY-NC-ND.png"/> 许可协议</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.fill%2CArray.prototype.find%2CArray.from%2CIntersectionObserver%2CMath.sign%2CObject.assign%2CPromise%2CObject.entries%2Chtml5shiv%2CObject.values%2Cfetch%2CElement.prototype.after"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/object-fit-images@3.2.4/dist/ofi.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.5.4/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10240},"comment":{},"data":{"id-1":"知知为知知","id-2":"知知为知知"},"search":{"highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":100,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

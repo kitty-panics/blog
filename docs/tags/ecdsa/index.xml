@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>ECDSA - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/ecdsa/</link>
+        <description>ECDSA - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 26 Jul 2018 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/ecdsa/" rel="self" type="application/rss+xml" /><item>
+    <title>使用 OpenSSL 创建自签证书</title>
+    <link>https://blog.synchronized.buzz/2018-07-26-%E4%BD%BF%E7%94%A8-openssl-%E5%88%9B%E5%BB%BA%E8%87%AA%E7%AD%BE%E8%AF%81%E4%B9%A6/</link>
+    <pubDate>Thu, 26 Jul 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2018-07-26-%E4%BD%BF%E7%94%A8-openssl-%E5%88%9B%E5%BB%BA%E8%87%AA%E7%AD%BE%E8%AF%81%E4%B9%A6/</guid>
+    <description><![CDATA[不需要证书签名请求 依次执行下面两条命令即可。 生成私钥 RSA openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -out 私钥.key ECDSA openssl genpkey -algorithm EC -pkeyopt ec_paramgen_curve:P-256 -out 私钥.key 生成证书 openssl req -x509 -days 90 -key 私钥.key]]></description>
+</item>
+</channel>
+</rss>

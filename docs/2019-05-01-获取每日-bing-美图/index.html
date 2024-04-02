@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>获取每日 Bing 美图 - Blog of Kitty • Panics - 知知为知知</title><meta name="Description" content=""><meta property="og:title" content="获取每日 Bing 美图" />
+<meta property="og:description" content="2019-06-05 的更新 意外发现 Bing 主页图片其实有提供 API，这样的话就能用更优雅的方法解析了。 1 https://bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1 简要的 API 说明如下。 URL 组成部分 参数 含义 https://bing.com/HPImageArchive.aspx ? 无 无 format=js js (也就是 json)," />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.synchronized.buzz/2019-05-01-%E8%8E%B7%E5%8F%96%E6%AF%8F%E6%97%A5-bing-%E7%BE%8E%E5%9B%BE/" /><meta property="og:image" content="https://blog.synchronized.buzz/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-05-01T00:00:00+08:00" />
+<meta property="article:modified_time" content="2019-05-01T00:00:00+08:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://blog.synchronized.buzz/" /><meta name="twitter:title" content="获取每日 Bing 美图"/>
+<meta name="twitter:description" content="2019-06-05 的更新 意外发现 Bing 主页图片其实有提供 API，这样的话就能用更优雅的方法解析了。 1 https://bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1 简要的 API 说明如下。 URL 组成部分 参数 含义 https://bing.com/HPImageArchive.aspx ? 无 无 format=js js (也就是 json),"/>
+<meta name="application-name" content="My KeepIt site">
+<meta name="apple-mobile-web-app-title" content="My KeepIt site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.synchronized.buzz/2019-05-01-%E8%8E%B7%E5%8F%96%E6%AF%8F%E6%97%A5-bing-%E7%BE%8E%E5%9B%BE/" /><link rel="prev" href="https://blog.synchronized.buzz/2019-04-19-%E7%94%A8%E8%84%8F%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0-flameshot-%E6%88%AA%E5%9B%BE%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA/" /><link rel="next" href="https://blog.synchronized.buzz/2019-06-05-i3wm-%E4%B8%AD%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%90%AB%E6%8C%87%E5%AE%9A%E7%A8%8B%E5%BA%8F%E6%97%B6%E5%85%B3%E9%97%AD%E6%8A%A4%E7%9C%BC%E6%A8%A1%E5%BC%8F/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "获取每日 Bing 美图",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.synchronized.buzz\/2019-05-01-%E8%8E%B7%E5%8F%96%E6%AF%8F%E6%97%A5-bing-%E7%BE%8E%E5%9B%BE\/"
+        },"genre": "posts","keywords": "Bing, 壁纸, feh, Python, Python3","wordcount":  539 ,
+        "url": "https:\/\/blog.synchronized.buzz\/2019-05-01-%E8%8E%B7%E5%8F%96%E6%AF%8F%E6%97%A5-bing-%E7%BE%8E%E5%9B%BE\/","datePublished": "2019-05-01T00:00:00+08:00","dateModified": "2019-05-01T00:00:00+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Kitty • Panics"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> 博文 </a><a class="menu-item" href="/feed/list"> 订阅 </a><a class="menu-item" href="/series/list"> 专题 </a><a class="menu-item" href="/categories-tags/list"> 分类/标签 </a><a class="menu-item" href="/about/list"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts" title="">博文</a><a class="menu-item" href="/feed/list" title="">订阅</a><a class="menu-item" href="/series/list" title="">专题</a><a class="menu-item" href="/categories-tags/list" title="">分类/标签</a><a class="menu-item" href="/about/list" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">获取每日 Bing 美图</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/kitty-panics" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kitty • Panics</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/python3/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python3</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2019-05-01">2019-05-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;539 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#2019-06-05-的更新">2019-06-05 的更新</a></li>
+    <li><a href="#实现">实现</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="2019-06-05-的更新">2019-06-05 的更新</h2>
+<p>意外发现 <a href="https://www.bing.com" target="_blank" rel="noopener noreffer">Bing</a>
+ 主页图片其实有提供 API，这样的话就能用更优雅的方法解析了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">https://bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>简要的 API 说明如下。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">URL 组成部分</th>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="https://bing.com/HPImageArchive.aspx" target="_blank" rel="noopener noreffer">https://bing.com/HPImageArchive.aspx</a>
+?</td>
+<td style="text-align:left">无</td>
+<td style="text-align:left">无</td>
+</tr>
+<tr>
+<td style="text-align:left">format=js</td>
+<td style="text-align:left">js (也就是 json), xml</td>
+<td style="text-align:left">输出图片信息所用的数据格式</td>
+</tr>
+<tr>
+<td style="text-align:left">&amp;idx=0</td>
+<td style="text-align:left">0 (默认), 1, 2, 3, 4, 5, 6 ,7</td>
+<td style="text-align:left">输出 x 天前 (0 表示今天) 的图片信息</td>
+</tr>
+<tr>
+<td style="text-align:left">&amp;n=1</td>
+<td style="text-align:left">1 (默认), 2, 3, 4, 5, 6, 7, 8</td>
+<td style="text-align:left">输出 x 天内 (1 表示今天) 所有的图片信息</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<hr>
+<p> </p>
+<p><a href="https://www.bing.com" target="_blank" rel="noopener noreffer">Bing</a>
+ 的主页每天都会更新一张图片，拿来作壁纸不要太爽。</p>
+<p>手动下载壁纸有一段时间，主要是有时候壁纸太丑，不想要，不过手动下载又实在麻烦的很。那就写个脚本呗。</p>
+<h2 id="实现">实现</h2>
+<p>完整代码如下。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># -*- coding:utf-8 -*-</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 下载 Bing 每日图片作为壁纸</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 导包</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 定义图片 &#34;存放目录&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">PATH_WALLPAPER</span> <span class="o">=</span> <span class="s2">&#34;.local/share/Wallpaper/&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 定义图片 &#34;基本 URL&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">URL_BASE</span> <span class="o">=</span> <span class="s2">&#34;https://bing.com&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 定义图片 &#34;API 地址&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">URL_API</span> <span class="o">=</span> <span class="s2">&#34;https://bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 判断壁纸存放目录是否存在，如果不存在就创建</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">DIR_Detection</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">isExists</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">PATH_WALLPAPER</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">isExists</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">PATH_WALLPAPER</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置壁纸</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">Set_Wallpaper</span><span class="p">(</span><span class="n">pic_name</span><span class="p">,</span> <span class="n">pic_type</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 通过 feh 程序设置壁纸</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 如果你想使用其它壁纸设置工具的话，请更改 APP_WALLPAPER</span>
+</span></span><span class="line"><span class="cl">    <span class="n">APP_WALLPAPER</span> <span class="o">=</span> <span class="s2">&#34;feh --randomize --no-fehbg --bg-scale &#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">APP_WALLPAPER</span> <span class="o">+</span> <span class="n">PATH_WALLPAPER</span> <span class="o">+</span> <span class="n">pic_name</span> <span class="o">+</span> <span class="n">pic_type</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 下载壁纸</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">DL_Wallpaper</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 访问 Bing API</span>
+</span></span><span class="line"><span class="cl">    <span class="n">get_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL_API</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 解析图片的 URL</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parse_url</span> <span class="o">=</span> <span class="n">get_json</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;url&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 解析图片的 名称</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parse_name</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;OHR\.(.*)_ZH-CN&#39;</span><span class="p">,</span> <span class="n">parse_url</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 解析图片的 格式</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parse_type</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;1920x1080(.*)\&amp;rf=&#39;</span><span class="p">,</span> <span class="n">parse_url</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 下载图片</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DL_JPG</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL_BASE</span> <span class="o">+</span> <span class="n">parse_url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">PATH_WALLPAPER</span> <span class="o">+</span> <span class="n">parse_name</span> <span class="o">+</span> <span class="n">parse_type</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">DL_JPG</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="o">.</span><span class="n">close</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 设置壁纸</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Set_Wallpaper</span><span class="p">(</span><span class="n">parse_name</span><span class="p">,</span> <span class="n">parse_type</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 入口</span>
+</span></span><span class="line"><span class="cl"><span class="n">DIR_Detection</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">DL_Wallpaper</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2019-05-01</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.synchronized.buzz/2019-05-01-%E8%8E%B7%E5%8F%96%E6%AF%8F%E6%97%A5-bing-%E7%BE%8E%E5%9B%BE/" data-title="获取每日 Bing 美图" data-hashtags="Bing,壁纸,feh,Python,Python3"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.synchronized.buzz/2019-05-01-%E8%8E%B7%E5%8F%96%E6%AF%8F%E6%97%A5-bing-%E7%BE%8E%E5%9B%BE/" data-hashtag="Bing"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.synchronized.buzz/2019-05-01-%E8%8E%B7%E5%8F%96%E6%AF%8F%E6%97%A5-bing-%E7%BE%8E%E5%9B%BE/" data-title="获取每日 Bing 美图"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.synchronized.buzz/2019-05-01-%E8%8E%B7%E5%8F%96%E6%AF%8F%E6%97%A5-bing-%E7%BE%8E%E5%9B%BE/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.synchronized.buzz/2019-05-01-%E8%8E%B7%E5%8F%96%E6%AF%8F%E6%97%A5-bing-%E7%BE%8E%E5%9B%BE/" data-title="获取每日 Bing 美图"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://blog.synchronized.buzz/2019-05-01-%E8%8E%B7%E5%8F%96%E6%AF%8F%E6%97%A5-bing-%E7%BE%8E%E5%9B%BE/" data-title="获取每日 Bing 美图"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/bing/">Bing</a>,&nbsp;<a href="/tags/%E5%A3%81%E7%BA%B8/">壁纸</a>,&nbsp;<a href="/tags/feh/">Feh</a>,&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/python3/">Python3</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2019-04-19-%E7%94%A8%E8%84%8F%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0-flameshot-%E6%88%AA%E5%9B%BE%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA/" class="prev" rel="prev" title="用脏方法实现 FlameShot 截图后自动退出"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>用脏方法实现 FlameShot 截图后自动退出</a>
+            <a href="/2019-06-05-i3wm-%E4%B8%AD%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%90%AB%E6%8C%87%E5%AE%9A%E7%A8%8B%E5%BA%8F%E6%97%B6%E5%85%B3%E9%97%AD%E6%8A%A4%E7%9C%BC%E6%A8%A1%E5%BC%8F/" class="next" rel="next" title="i3wm 中工作区含指定程序时关闭护眼模式">i3wm 中工作区含指定程序时关闭护眼模式<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2018 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/kitty-panics" target="_blank">Kitty • Panics</a></span>&nbsp;|&nbsp;<span class="license">除非注明，本作品采用 <img style="border-width:0" src="/img/license/BY-NC-ND.png"/> 许可协议</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.fill%2CArray.prototype.find%2CArray.from%2CIntersectionObserver%2CMath.sign%2CObject.assign%2CPromise%2CObject.entries%2Chtml5shiv%2CObject.values%2Cfetch%2CElement.prototype.after"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/object-fit-images@3.2.4/dist/ofi.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.5.4/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10240},"comment":{},"data":{"id-1":"知知为知知","id-2":"知知为知知"},"search":{"highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":100,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

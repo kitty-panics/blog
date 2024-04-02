@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>使用 Rsync 备份整个系统 - Blog of Kitty • Panics - 知知为知知</title><meta name="Description" content=""><meta property="og:title" content="使用 Rsync 备份整个系统" />
+<meta property="og:description" content="刚开始用 Linux 时，都是通过 dotfiles 管理器 管理和备份各种 dotfiles， 就算重装系统也可以快速将系统恢复至理想状态。不过随着使用的软件越来越多， 系统的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.synchronized.buzz/2019-02-21-%E4%BD%BF%E7%94%A8-rsync-%E5%A4%87%E4%BB%BD%E6%95%B4%E4%B8%AA%E7%B3%BB%E7%BB%9F/" /><meta property="og:image" content="https://blog.synchronized.buzz/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-02-21T00:00:00+08:00" />
+<meta property="article:modified_time" content="2019-02-21T00:00:00+08:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://blog.synchronized.buzz/" /><meta name="twitter:title" content="使用 Rsync 备份整个系统"/>
+<meta name="twitter:description" content="刚开始用 Linux 时，都是通过 dotfiles 管理器 管理和备份各种 dotfiles， 就算重装系统也可以快速将系统恢复至理想状态。不过随着使用的软件越来越多， 系统的"/>
+<meta name="application-name" content="My KeepIt site">
+<meta name="apple-mobile-web-app-title" content="My KeepIt site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.synchronized.buzz/2019-02-21-%E4%BD%BF%E7%94%A8-rsync-%E5%A4%87%E4%BB%BD%E6%95%B4%E4%B8%AA%E7%B3%BB%E7%BB%9F/" /><link rel="prev" href="https://blog.synchronized.buzz/2019-01-05-%E5%9C%A8%E6%89%A7%E8%A1%8C-grub-mkconfig-%E6%97%B6%E5%8D%A1%E4%BD%8F%E5%BE%88%E9%95%BF%E6%97%B6%E9%97%B4/" /><link rel="next" href="https://blog.synchronized.buzz/2019-03-28-%E4%BD%BF%E7%94%A8-ufw-%E7%A6%81%E7%94%A8-ping-icmp/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "使用 Rsync 备份整个系统",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.synchronized.buzz\/2019-02-21-%E4%BD%BF%E7%94%A8-rsync-%E5%A4%87%E4%BB%BD%E6%95%B4%E4%B8%AA%E7%B3%BB%E7%BB%9F\/"
+        },"genre": "posts","keywords": "Rsync, System Backup, dotfiles","wordcount":  662 ,
+        "url": "https:\/\/blog.synchronized.buzz\/2019-02-21-%E4%BD%BF%E7%94%A8-rsync-%E5%A4%87%E4%BB%BD%E6%95%B4%E4%B8%AA%E7%B3%BB%E7%BB%9F\/","datePublished": "2019-02-21T00:00:00+08:00","dateModified": "2019-02-21T00:00:00+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Kitty • Panics"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> 博文 </a><a class="menu-item" href="/feed/list"> 订阅 </a><a class="menu-item" href="/series/list"> 专题 </a><a class="menu-item" href="/categories-tags/list"> 分类/标签 </a><a class="menu-item" href="/about/list"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts" title="">博文</a><a class="menu-item" href="/feed/list" title="">订阅</a><a class="menu-item" href="/series/list" title="">专题</a><a class="menu-item" href="/categories-tags/list" title="">分类/标签</a><a class="menu-item" href="/about/list" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">使用 Rsync 备份整个系统</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/kitty-panics" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kitty • Panics</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/%E8%BD%AF%E4%BB%B6/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2019-02-21">2019-02-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;662 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#可用方案">可用方案</a></li>
+    <li><a href="#具体使用">具体使用</a></li>
+    <li><a href="#扩展阅读">扩展阅读</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>刚开始用 Linux 时，都是通过 <a href="https://github.com/kitty-panics/dotfiles" target="_blank" rel="noopener noreffer">dotfiles 管理器</a>
+ 管理和备份各种 dotfiles，
+就算重装系统也可以快速将系统恢复至理想状态。不过随着使用的软件越来越多，
+系统的定制程度也越来越高，加上有些软件配置过于分散，管理 dotfiles
+的成本也越来越高。</p>
+<p>所以直接备份整个系统是更好的选择。</p>
+<h2 id="可用方案">可用方案</h2>
+<p>Linux 上备份整个系统的方法有很多，包括但不限于以下几种。</p>
+<ul>
+<li>LVM Snapshots
+<ul>
+<li>仅适用于启用了 LVM</li>
+</ul>
+</li>
+<li>e2image
+<ul>
+<li>仅适用于 Ext2/3/4 文件系统</li>
+</ul>
+</li>
+<li>Btrfs Snapshots
+<ul>
+<li>仅适用于 Btrfs 文件系统</li>
+</ul>
+</li>
+<li>xfsdump
+<ul>
+<li>仅适用于 xfs 文件系统</li>
+</ul>
+</li>
+<li>dd
+<ul>
+<li>不能增量备份</li>
+</ul>
+</li>
+<li>tar 打包
+<ul>
+<li>不能增量备份</li>
+</ul>
+</li>
+<li>Rsync</li>
+<li>Clonezilla</li>
+<li>SquashFS</li>
+<li>&hellip;&hellip;</li>
+</ul>
+<h2 id="具体使用">具体使用</h2>
+<p>以上的方法各有各的好处或不足，综合考量后择了 Rsync。</p>
+<p>不过 Rsync 参数太多了，写个脚本便于操作。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 备份系统</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 开始备份</span>
+</span></span><span class="line"><span class="cl">Full_System_Backup<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    sudo rsync -a -A -X -H --delete --delete-excluded -S --numeric-ids <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>               --exclude<span class="o">={</span><span class="s2">&#34;/boot/*&#34;</span>,<span class="s2">&#34;/dev/*&#34;</span>,<span class="s2">&#34;/media/*&#34;</span>,<span class="s2">&#34;/mnt/*&#34;</span>,<span class="s2">&#34;/proc/*&#34;</span>,<span class="s2">&#34;/run/*&#34;</span>,<span class="s2">&#34;/sys/*&#34;</span>,<span class="s2">&#34;/tmp/*&#34;</span>,<span class="s2">&#34;/lost+found&#34;</span>,<span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/SysBackup&#34;</span><span class="o">}</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>               --info<span class="o">=</span>progress2 --human-readable <span class="s2">&#34;/&#34;</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 判断备份类型</span>
+</span></span><span class="line"><span class="cl">Backup_Type<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> -e <span class="s2">&#34;=&gt; 周备份还是月备份？ [ (w)Weekly / (m)Monthly ]&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">read</span> -r Week_Month
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$Week_Month</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;w&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        Full_System_Backup <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/SysBackup/Weekly&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$Week_Month</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;m&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        Full_System_Backup <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/SysBackup/Monthly&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">echo</span> -e <span class="s2">&#34;=&gt; 参数错误。&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 执行 Backup_Type 函数</span>
+</span></span><span class="line"><span class="cl">Backup_Type
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="扩展阅读">扩展阅读</h2>
+<p>以下是上面使用到的 Rsync 参数的解释。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl"># 必要的参数
+</span></span><span class="line"><span class="cl">    #--archive                      # -a, 以递归方式传输文件，并保留所有文件属性，等于 -rlptgoD (但不含 -H,-A,-X)
+</span></span><span class="line"><span class="cl">    #--acls                         # -A, 保留 ACL 属性 (implies -p)
+</span></span><span class="line"><span class="cl">    #--xattrs                       # -X, 保留扩展属性
+</span></span><span class="line"><span class="cl">    #--hard-links                   # -H, 保留硬链接
+</span></span><span class="line"><span class="cl">    #--delete                       #     从 DEST 目录中删除无关文件
+</span></span><span class="line"><span class="cl">    #--delete-excluded              #     还从目录中删除排除的文件
+</span></span><span class="line"><span class="cl">    #--sparse                       # -S, 对稀疏文件进行特殊处理以节省 DST 的空间
+</span></span><span class="line"><span class="cl">    #--numeric-ids                  #     禁用用户名和组名的映射，将转移为数字的组和用户 ID
+</span></span><span class="line"><span class="cl">    #--exclude={&#34;/dev/*&#34;,&#34;/proc/*&#34;,&#34;/sys/*&#34;,&#34;/tmp/*&#34;,&#34;/run/*&#34;,&#34;/mnt/*&#34;,&#34;/media/*&#34;,&#34;/lost+found&#34;} # 排除文件与目录
+</span></span><span class="line"><span class="cl">    #--exclude=&#39;*~&#39;                 # 排除以 ~ 结尾的文件
+</span></span><span class="line"><span class="cl">    #--exclude-from=root.exclude    # 从 root.exclude 文件中读取额外的排除列表
+</span></span><span class="line"><span class="cl"># 可选项
+</span></span><span class="line"><span class="cl">    #--one-file-system              # -x, 不要越过文件系统边界
+</span></span><span class="line"><span class="cl">    #--verbose                      # -v, 详细模式输出
+</span></span><span class="line"><span class="cl">    #--info=progress2               #     显示整体的进度和传输速度信息
+</span></span><span class="line"><span class="cl">    #--human-readable               # -h, 以人类可读的格式输出数字
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2019-02-21</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.synchronized.buzz/2019-02-21-%E4%BD%BF%E7%94%A8-rsync-%E5%A4%87%E4%BB%BD%E6%95%B4%E4%B8%AA%E7%B3%BB%E7%BB%9F/" data-title="使用 Rsync 备份整个系统" data-hashtags="Rsync,System Backup,dotfiles"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.synchronized.buzz/2019-02-21-%E4%BD%BF%E7%94%A8-rsync-%E5%A4%87%E4%BB%BD%E6%95%B4%E4%B8%AA%E7%B3%BB%E7%BB%9F/" data-hashtag="Rsync"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.synchronized.buzz/2019-02-21-%E4%BD%BF%E7%94%A8-rsync-%E5%A4%87%E4%BB%BD%E6%95%B4%E4%B8%AA%E7%B3%BB%E7%BB%9F/" data-title="使用 Rsync 备份整个系统"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.synchronized.buzz/2019-02-21-%E4%BD%BF%E7%94%A8-rsync-%E5%A4%87%E4%BB%BD%E6%95%B4%E4%B8%AA%E7%B3%BB%E7%BB%9F/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.synchronized.buzz/2019-02-21-%E4%BD%BF%E7%94%A8-rsync-%E5%A4%87%E4%BB%BD%E6%95%B4%E4%B8%AA%E7%B3%BB%E7%BB%9F/" data-title="使用 Rsync 备份整个系统"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://blog.synchronized.buzz/2019-02-21-%E4%BD%BF%E7%94%A8-rsync-%E5%A4%87%E4%BB%BD%E6%95%B4%E4%B8%AA%E7%B3%BB%E7%BB%9F/" data-title="使用 Rsync 备份整个系统"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/rsync/">Rsync</a>,&nbsp;<a href="/tags/system-backup/">System Backup</a>,&nbsp;<a href="/tags/dotfiles/">Dotfiles</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2019-01-05-%E5%9C%A8%E6%89%A7%E8%A1%8C-grub-mkconfig-%E6%97%B6%E5%8D%A1%E4%BD%8F%E5%BE%88%E9%95%BF%E6%97%B6%E9%97%B4/" class="prev" rel="prev" title="在执行 grub-mkconfig 时卡住很长时间"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>在执行 grub-mkconfig 时卡住很长时间</a>
+            <a href="/2019-03-28-%E4%BD%BF%E7%94%A8-ufw-%E7%A6%81%E7%94%A8-ping-icmp/" class="next" rel="next" title="使用 UFW 禁用 PING (ICMP)">使用 UFW 禁用 PING (ICMP)<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2018 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/kitty-panics" target="_blank">Kitty • Panics</a></span>&nbsp;|&nbsp;<span class="license">除非注明，本作品采用 <img style="border-width:0" src="/img/license/BY-NC-ND.png"/> 许可协议</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.fill%2CArray.prototype.find%2CArray.from%2CIntersectionObserver%2CMath.sign%2CObject.assign%2CPromise%2CObject.entries%2Chtml5shiv%2CObject.values%2Cfetch%2CElement.prototype.after"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/object-fit-images@3.2.4/dist/ofi.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.5.4/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10240},"comment":{},"data":{"id-1":"知知为知知","id-2":"知知为知知"},"search":{"highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":100,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

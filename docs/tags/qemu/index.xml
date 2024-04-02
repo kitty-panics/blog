@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>QEMU - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/qemu/</link>
+        <description>QEMU - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 09 Jul 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/qemu/" rel="self" type="application/rss+xml" /><item>
+    <title>在 x86 机器上编译 ARM 软件</title>
+    <link>https://blog.synchronized.buzz/2022-07-09-%E5%9C%A8-x86-%E6%9C%BA%E5%99%A8%E4%B8%8A%E7%BC%96%E8%AF%91-arm-%E8%BD%AF%E4%BB%B6/</link>
+    <pubDate>Sat, 09 Jul 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-07-09-%E5%9C%A8-x86-%E6%9C%BA%E5%99%A8%E4%B8%8A%E7%BC%96%E8%AF%91-arm-%E8%BD%AF%E4%BB%B6/</guid>
+    <description><![CDATA[前文回顾 《在 Orange Pi Lite 上安装 Arch Linux ARM》 《OrangePi-Lite (Arch Linux ARM) 重启后 Wi-Fi 无网络》 几年前买的 Orange Pi Lite 不带网口，联网只能靠 Wi-Fi，每次升]]></description>
+</item>
+</channel>
+</rss>

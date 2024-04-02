@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>BOOT - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/boot/</link>
+        <description>BOOT - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 12 Oct 2018 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/boot/" rel="self" type="application/rss+xml" /><item>
+    <title>GRUB2 救援模式下解密 LUKS1</title>
+    <link>https://blog.synchronized.buzz/2018-10-12-grub2-%E6%95%91%E6%8F%B4%E6%A8%A1%E5%BC%8F%E4%B8%8B%E8%A7%A3%E5%AF%86-luks1/</link>
+    <pubDate>Fri, 12 Oct 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2018-10-12-grub2-%E6%95%91%E6%8F%B4%E6%A8%A1%E5%BC%8F%E4%B8%8B%E8%A7%A3%E5%AF%86-luks1/</guid>
+    <description><![CDATA[众所周知，GRUB2 有两种模式，一种是正常模式，支持超多的特性、超多的模块，使得 GRUB 有着 GRUB OS 的称号。另一种就是救援模式，只支持最基本的命令，最]]></description>
+</item>
+</channel>
+</rss>

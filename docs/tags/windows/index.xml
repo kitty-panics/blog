@@ -1,0 +1,31 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Windows - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/windows/</link>
+        <description>Windows - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 26 Sep 2023 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/windows/" rel="self" type="application/rss+xml" /><item>
+    <title>根据 URL 使用不同的浏览器</title>
+    <link>https://blog.synchronized.buzz/2023-09-26-%E6%A0%B9%E6%8D%AE-url-%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8/</link>
+    <pubDate>Tue, 26 Sep 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-09-26-%E6%A0%B9%E6%8D%AE-url-%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8/</guid>
+    <description><![CDATA[2023-11-21 的更新 补充一个新例子。 Youtube has started to artificially slow down video load times if you use Firefox. Spoofing Chrome magically makes this problem go away. : youtube 作为 Firefox 用户，有些网站会恶意降低 Firefox 的体验，很是遭糕。从外部 URL 打开浏览器]]></description>
+</item>
+<item>
+    <title>禁止 VBox Guest Additions 检查更新</title>
+    <link>https://blog.synchronized.buzz/2023-01-09-%E7%A6%81%E6%AD%A2-vbox-guest-additions-%E6%A3%80%E6%9F%A5%E6%9B%B4%E6%96%B0/</link>
+    <pubDate>Mon, 09 Jan 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-01-09-%E7%A6%81%E6%AD%A2-vbox-guest-additions-%E6%A3%80%E6%9F%A5%E6%9B%B4%E6%96%B0/</guid>
+    <description><![CDATA[使用 VirtualBox 时，VBoxGuestAdditions 应该是必装的，共享粘贴板、文件夹…… 等功能都依赖此组件。 但 VBoxGuestAdditions 每次在系统启动后会进行更新检查，如]]></description>
+</item>
+<item>
+    <title>Batch 提升为 Administrator 权限</title>
+    <link>https://blog.synchronized.buzz/2019-10-14-batch-%E6%8F%90%E5%8D%87%E4%B8%BA-administrator-%E6%9D%83%E9%99%90/</link>
+    <pubDate>Mon, 14 Oct 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-10-14-batch-%E6%8F%90%E5%8D%87%E4%B8%BA-administrator-%E6%9D%83%E9%99%90/</guid>
+    <description><![CDATA[尽管 Windows 用户都默认使用 Administrator 帐户，但它虽名为 Administrator，其实并没有 Administrator 全部的权限，很多操作会受到限制。 所以在执行某些 Batch 脚本时需要提升]]></description>
+</item>
+</channel>
+</rss>

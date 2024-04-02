@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>XSS - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/xss/</link>
+        <description>XSS - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 12 Jan 2021 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/xss/" rel="self" type="application/rss+xml" /><item>
+    <title>Nginx 配置响应头安全策略</title>
+    <link>https://blog.synchronized.buzz/2021-01-12-nginx-%E9%85%8D%E7%BD%AE%E5%93%8D%E5%BA%94%E5%A4%B4%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5/</link>
+    <pubDate>Tue, 12 Jan 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-01-12-nginx-%E9%85%8D%E7%BD%AE%E5%93%8D%E5%BA%94%E5%A4%B4%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5/</guid>
+    <description><![CDATA[HTTP Headers 种类繁多 (详见 HTTP Headers - HTTP | MDN )，对于请求头的安全配置一般只需配置以下七项即可。 Content-Security-Policy 简称 CSP，指定的页面可以加载哪些资源。 Nginx 配置示例: 1 add_header Content-Security-Policy]]></description>
+</item>
+</channel>
+</rss>

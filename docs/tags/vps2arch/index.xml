@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Vps2arch - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/vps2arch/</link>
+        <description>Vps2arch - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 11 Aug 2021 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/vps2arch/" rel="self" type="application/rss+xml" /><item>
+    <title>服务器使用 Arch Linux 的七大理由</title>
+    <link>https://blog.synchronized.buzz/2021-08-11-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8-arch-linux-%E7%9A%84%E5%85%AD%E5%A4%A7%E7%90%86%E7%94%B1/</link>
+    <pubDate>Wed, 11 Aug 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-08-11-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8-arch-linux-%E7%9A%84%E5%85%AD%E5%A4%A7%E7%90%86%E7%94%B1/</guid>
+    <description><![CDATA[2024-03-30 的更新 最新仅针对 deb/rpm 投毒的案例，Arch Linux 没有魔改上游的习惯，又逃过一劫。 xz 软件包被植入后门 。 本来打算写一篇有关 Linux 服务器安全配置的博文，但网]]></description>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Xfce4 中实现类 i3wm 二级快捷键 - Blog of Kitty • Panics - 知知为知知</title><meta name="Description" content=""><meta property="og:title" content="Xfce4 中实现类 i3wm 二级快捷键" />
+<meta property="og:description" content="使用 i3wm 有一两年时间，虽然很喜欢它，但受不了很多窗口得手动干预才能显示成正常大小， 遂转用了 Xfce ，在使用 Xfce 的日子里，最怀念的就是 i3wm 二级快捷键 功能。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.synchronized.buzz/2020-06-28-xfce4-%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%B1%BB-i3wm-%E4%BA%8C%E7%BA%A7%E5%BF%AB%E6%8D%B7%E9%94%AE/" /><meta property="og:image" content="https://blog.synchronized.buzz/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-06-28T00:00:00+08:00" />
+<meta property="article:modified_time" content="2020-06-28T00:00:00+08:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://blog.synchronized.buzz/" /><meta name="twitter:title" content="Xfce4 中实现类 i3wm 二级快捷键"/>
+<meta name="twitter:description" content="使用 i3wm 有一两年时间，虽然很喜欢它，但受不了很多窗口得手动干预才能显示成正常大小， 遂转用了 Xfce ，在使用 Xfce 的日子里，最怀念的就是 i3wm 二级快捷键 功能。"/>
+<meta name="application-name" content="My KeepIt site">
+<meta name="apple-mobile-web-app-title" content="My KeepIt site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.synchronized.buzz/2020-06-28-xfce4-%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%B1%BB-i3wm-%E4%BA%8C%E7%BA%A7%E5%BF%AB%E6%8D%B7%E9%94%AE/" /><link rel="prev" href="https://blog.synchronized.buzz/2020-05-28-abs-%E6%89%93%E5%8C%85%E6%8C%87%E5%AE%9A%E6%BA%90%E7%A0%81%E5%85%8B%E9%9A%86%E6%B7%B1%E5%BA%A6/" /><link rel="next" href="https://blog.synchronized.buzz/2020-07-28-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85-vs2015%5Cvs2017-%E6%8F%90%E7%A4%BA%E5%8C%85%E6%8D%9F%E5%9D%8F%E6%88%96%E4%B8%A2%E5%A4%B1%E5%AE%89%E8%A3%85-vs2019-%E7%A8%8B%E5%BA%8F%E9%97%AA%E9%80%80/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Xfce4 中实现类 i3wm 二级快捷键",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.synchronized.buzz\/2020-06-28-xfce4-%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%B1%BB-i3wm-%E4%BA%8C%E7%BA%A7%E5%BF%AB%E6%8D%B7%E9%94%AE\/"
+        },"genre": "posts","keywords": "Xfce4, i3wm, 快捷键, 二级快捷键, binding_modes, xev, secondary-shortcut","wordcount":  677 ,
+        "url": "https:\/\/blog.synchronized.buzz\/2020-06-28-xfce4-%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%B1%BB-i3wm-%E4%BA%8C%E7%BA%A7%E5%BF%AB%E6%8D%B7%E9%94%AE\/","datePublished": "2020-06-28T00:00:00+08:00","dateModified": "2020-06-28T00:00:00+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Kitty • Panics"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> 博文 </a><a class="menu-item" href="/feed/list"> 订阅 </a><a class="menu-item" href="/series/list"> 专题 </a><a class="menu-item" href="/categories-tags/list"> 分类/标签 </a><a class="menu-item" href="/about/list"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts" title="">博文</a><a class="menu-item" href="/feed/list" title="">订阅</a><a class="menu-item" href="/series/list" title="">专题</a><a class="menu-item" href="/categories-tags/list" title="">分类/标签</a><a class="menu-item" href="/about/list" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Xfce4 中实现类 i3wm 二级快捷键</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/kitty-panics" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kitty • Panics</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-06-28">2020-06-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;677 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#使用">使用</a></li>
+    <li><a href="#代码">代码</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>使用 <a href="https://wiki.archlinux.org/title/I3" target="_blank" rel="noopener noreffer">i3wm</a>
+ 有一两年时间，虽然很喜欢它，但受不了很多窗口得手动干预才能显示成正常大小，
+遂转用了 <a href="https://wiki.archlinux.org/title/Xfce" target="_blank" rel="noopener noreffer">Xfce</a>
+，在使用 Xfce 的日子里，最怀念的就是 i3wm <a href="https://i3wm.org/docs/userguide.html#binding_modes" target="_blank" rel="noopener noreffer">二级快捷键</a>
+ 功能。</p>
+<p>搜了下好像没有现成的方案，本来想用 Python 写的，也有相关的库供调用，但需要 root 权限，
+频繁输密码太烦了，就用 Shell 写了一个，虽然实现很不优雅，但也算实现了需求。</p>
+<h2 id="使用">使用</h2>
+<p>先在 Xfce4 的 <code>设置</code> -&gt; <code>键盘</code> -&gt; <code>应用程序快捷键</code> -&gt; <code>+ 添加(A)</code> 设置一级快捷键，
+一级快捷键的执行命令指向 <code>secondary-shortcut</code> 脚本。如下图所示。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/posts/2020/06-28/Shortcuts.png"
+        data-srcset="/img/posts/2020/06-28/Shortcuts.png, /img/posts/2020/06-28/Shortcuts.png 1.5x, /img/posts/2020/06-28/Shortcuts.png 2x"
+        data-sizes="auto"
+        alt="/img/posts/2020/06-28/Shortcuts.png"
+        title="一级快捷键" /></p>
+<p>按下一级快捷键后会弹出个窗口监听二级快捷键。</p>
+<h2 id="代码">代码</h2>
+<p>下面的代码以 <code>secondary-shortcut</code> 名保存并放进 PATH 即可。原理就是运行 <code>xev</code>
+程序并解析出监听到的按键，再根据所按下的按键执行对应的动作。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 仿 i3wm 二级快捷键</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建临时目录</span>
+</span></span><span class="line"><span class="cl">Get-Ready<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">SET_TMP_DIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>mktemp -d<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$SET_TMP_DIR</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 清理</span>
+</span></span><span class="line"><span class="cl">Clean-Up<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 结束可能还在运行中的进程</span>
+</span></span><span class="line"><span class="cl">    killall xev &gt; /dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">    killall secondary-shortcut &gt; /dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 删除临时文件</span>
+</span></span><span class="line"><span class="cl">    rm -rf <span class="s2">&#34;</span><span class="nv">$SET_TMP_DIR</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 退出本脚本</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">exit</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 键听与响应按键</span>
+</span></span><span class="line"><span class="cl">Net_APP<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    xev -name KeyPress <span class="p">|</span> awk -F <span class="s1">&#39;[ )]+&#39;</span> <span class="s1">&#39;/^KeyPress/ { a[NR+2] } NR in a { system(&#34;echo &#34;$8&#34; &gt; KeyPress\.log&#34;) }&#39;</span> <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> :<span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">GET_KEY</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>cat KeyPress.log<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$GET_KEY</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;Escape&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span> <span class="c1"># 按下 Escape 键取消二级快捷键的监听</span>
+</span></span><span class="line"><span class="cl">            Clean-Up
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$GET_KEY</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;c&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>    <span class="c1"># 按下 c 键运行 Chrome 程序</span>
+</span></span><span class="line"><span class="cl">            google-chrome <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl">            Clean-Up
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$GET_KEY</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;f&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>    <span class="c1"># 按下 f 键运行 Firefox 程序</span>
+</span></span><span class="line"><span class="cl">            firefox <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl">            Clean-Up
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">            :
+</span></span><span class="line"><span class="cl">        <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">    <span class="k">done</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 键听与响应按键</span>
+</span></span><span class="line"><span class="cl">Dev_APP<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    xev -name KeyPress <span class="p">|</span> awk -F <span class="s1">&#39;[ )]+&#39;</span> <span class="s1">&#39;/^KeyPress/ { a[NR+2] } NR in a { system(&#34;echo &#34;$8&#34; &gt; KeyPress\.log&#34;) }&#39;</span> <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> :<span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">GET_KEY</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>cat KeyPress.log<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$GET_KEY</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;Escape&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span> <span class="c1"># 按下 Escape 键取消二级快捷键的监听</span>
+</span></span><span class="line"><span class="cl">            Clean-Up
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$GET_KEY</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;c&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>    <span class="c1"># 按下 c 键运行 Clion 程序</span>
+</span></span><span class="line"><span class="cl">            clion <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl">            Clean-Up
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$GET_KEY</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;w&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>    <span class="c1"># 按下 w 键运行 Webstorm 程序</span>
+</span></span><span class="line"><span class="cl">            webstorm <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl">            Clean-Up
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">            :
+</span></span><span class="line"><span class="cl">        <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">    <span class="k">done</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 解析从 Xfce4 传来的一级快捷键</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;n&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    Get-Ready
+</span></span><span class="line"><span class="cl">    Net_APP
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;d&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    Get-Ready
+</span></span><span class="line"><span class="cl">    Dev_APP
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> -e <span class="s2">&#34;&gt;&gt;&gt; 参数 1 错误。&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-06-28</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.synchronized.buzz/2020-06-28-xfce4-%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%B1%BB-i3wm-%E4%BA%8C%E7%BA%A7%E5%BF%AB%E6%8D%B7%E9%94%AE/" data-title="Xfce4 中实现类 i3wm 二级快捷键" data-hashtags="Xfce4,i3wm,快捷键,二级快捷键,binding_modes,xev,secondary-shortcut"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.synchronized.buzz/2020-06-28-xfce4-%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%B1%BB-i3wm-%E4%BA%8C%E7%BA%A7%E5%BF%AB%E6%8D%B7%E9%94%AE/" data-hashtag="Xfce4"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.synchronized.buzz/2020-06-28-xfce4-%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%B1%BB-i3wm-%E4%BA%8C%E7%BA%A7%E5%BF%AB%E6%8D%B7%E9%94%AE/" data-title="Xfce4 中实现类 i3wm 二级快捷键"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.synchronized.buzz/2020-06-28-xfce4-%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%B1%BB-i3wm-%E4%BA%8C%E7%BA%A7%E5%BF%AB%E6%8D%B7%E9%94%AE/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.synchronized.buzz/2020-06-28-xfce4-%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%B1%BB-i3wm-%E4%BA%8C%E7%BA%A7%E5%BF%AB%E6%8D%B7%E9%94%AE/" data-title="Xfce4 中实现类 i3wm 二级快捷键"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://blog.synchronized.buzz/2020-06-28-xfce4-%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%B1%BB-i3wm-%E4%BA%8C%E7%BA%A7%E5%BF%AB%E6%8D%B7%E9%94%AE/" data-title="Xfce4 中实现类 i3wm 二级快捷键"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/xfce4/">Xfce4</a>,&nbsp;<a href="/tags/i3wm/">I3wm</a>,&nbsp;<a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/">快捷键</a>,&nbsp;<a href="/tags/%E4%BA%8C%E7%BA%A7%E5%BF%AB%E6%8D%B7%E9%94%AE/">二级快捷键</a>,&nbsp;<a href="/tags/binding_modes/">Binding_modes</a>,&nbsp;<a href="/tags/xev/">Xev</a>,&nbsp;<a href="/tags/secondary-shortcut/">Secondary-Shortcut</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020-05-28-abs-%E6%89%93%E5%8C%85%E6%8C%87%E5%AE%9A%E6%BA%90%E7%A0%81%E5%85%8B%E9%9A%86%E6%B7%B1%E5%BA%A6/" class="prev" rel="prev" title="ABS 打包指定源码克隆深度"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>ABS 打包指定源码克隆深度</a>
+            <a href="/2020-07-28-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85-vs2015%5Cvs2017-%E6%8F%90%E7%A4%BA%E5%8C%85%E6%8D%9F%E5%9D%8F%E6%88%96%E4%B8%A2%E5%A4%B1%E5%AE%89%E8%A3%85-vs2019-%E7%A8%8B%E5%BA%8F%E9%97%AA%E9%80%80/" class="next" rel="next" title="离线安装 VS2015/VS2017 提示包损坏或丢失，安装 VS2019 程序闪退">离线安装 VS2015/VS2017 提示包损坏或丢失，安装 VS2019 程序闪退<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2018 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/kitty-panics" target="_blank">Kitty • Panics</a></span>&nbsp;|&nbsp;<span class="license">除非注明，本作品采用 <img style="border-width:0" src="/img/license/BY-NC-ND.png"/> 许可协议</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.fill%2CArray.prototype.find%2CArray.from%2CIntersectionObserver%2CMath.sign%2CObject.assign%2CPromise%2CObject.entries%2Chtml5shiv%2CObject.values%2Cfetch%2CElement.prototype.after"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/object-fit-images@3.2.4/dist/ofi.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.5.4/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10240},"comment":{},"data":{"id-1":"知知为知知","id-2":"知知为知知"},"search":{"highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":100,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

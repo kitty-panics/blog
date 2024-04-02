@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>QT5 - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/qt5/</link>
+        <description>QT5 - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 03 Jun 2019 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/qt5/" rel="self" type="application/rss+xml" /><item>
+    <title>不清真的 Steam</title>
+    <link>https://blog.synchronized.buzz/tags-mood/2019-06-03-%E4%B8%8D%E6%B8%85%E7%9C%9F%E7%9A%84-steam/</link>
+    <pubDate>Mon, 03 Jun 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/tags-mood/2019-06-03-%E4%B8%8D%E6%B8%85%E7%9C%9F%E7%9A%84-steam/</guid>
+    <description><![CDATA[统一了下 GTK3 和 QT5 的外观，绝大部分程序的风格看起来很协调了，唯独 Steam 托盘图标的右键菜单一如既往的丑，还以为这货的主题像其 Proxy 一样不受系统控制。 今天因]]></description>
+</item>
+</channel>
+</rss>

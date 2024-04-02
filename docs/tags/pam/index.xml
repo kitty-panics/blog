@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>PAM - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/pam/</link>
+        <description>PAM - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 16 Feb 2021 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/pam/" rel="self" type="application/rss+xml" /><item>
+    <title>Linux 上密码错三次后正确密码也提示密码错误</title>
+    <link>https://blog.synchronized.buzz/2021-02-16-linux-%E4%B8%8A%E5%AF%86%E7%A0%81%E9%94%99%E4%B8%89%E6%AC%A1%E5%90%8E%E6%AD%A3%E7%A1%AE%E5%AF%86%E7%A0%81%E4%B9%9F%E6%8F%90%E7%A4%BA%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF/</link>
+    <pubDate>Tue, 16 Feb 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-02-16-linux-%E4%B8%8A%E5%AF%86%E7%A0%81%E9%94%99%E4%B8%89%E6%AC%A1%E5%90%8E%E6%AD%A3%E7%A1%AE%E5%AF%86%E7%A0%81%E4%B9%9F%E6%8F%90%E7%A4%BA%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF/</guid>
+    <description><![CDATA[突然发现用户密码输错三次后，再输入正确密码也会提示密码错误，要等待一段时间才恢复正常。 一番搜索后发现是 pambase 在 v20200721.1-2 版本加入的新特性：即在 15min 内密码错]]></description>
+</item>
+</channel>
+</rss>

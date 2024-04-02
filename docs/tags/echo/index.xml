@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Echo - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/echo/</link>
+        <description>Echo - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 28 Sep 2019 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/echo/" rel="self" type="application/rss+xml" /><item>
+    <title>一键重启移动光猫</title>
+    <link>https://blog.synchronized.buzz/2019-09-28-%E4%B8%80%E9%94%AE%E9%87%8D%E5%90%AF%E7%A7%BB%E5%8A%A8%E5%85%89%E7%8C%AB/</link>
+    <pubDate>Sat, 28 Sep 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-09-28-%E4%B8%80%E9%94%AE%E9%87%8D%E5%90%AF%E7%A7%BB%E5%8A%A8%E5%85%89%E7%8C%AB/</guid>
+    <description><![CDATA[2022-06-01 的更新 家里升级到了 1000M 宽带，换了一个新光猫。登录与重启相对于之前有大两个变化。 登录密码无需经过 Base64 编码。 重启不再需要 CurrentLocalTime (当前时间) 参数。 我这里]]></description>
+</item>
+</channel>
+</rss>

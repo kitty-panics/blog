@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Secondary-Shortcut - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/secondary-shortcut/</link>
+        <description>Secondary-Shortcut - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 28 Jun 2020 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/secondary-shortcut/" rel="self" type="application/rss+xml" /><item>
+    <title>Xfce4 中实现类 i3wm 二级快捷键</title>
+    <link>https://blog.synchronized.buzz/2020-06-28-xfce4-%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%B1%BB-i3wm-%E4%BA%8C%E7%BA%A7%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+    <pubDate>Sun, 28 Jun 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-06-28-xfce4-%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%B1%BB-i3wm-%E4%BA%8C%E7%BA%A7%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+    <description><![CDATA[使用 i3wm 有一两年时间，虽然很喜欢它，但受不了很多窗口得手动干预才能显示成正常大小， 遂转用了 Xfce ，在使用 Xfce 的日子里，最怀念的就是 i3wm 二级快捷键 功能。]]></description>
+</item>
+</channel>
+</rss>

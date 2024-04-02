@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>NTP Server - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/ntp-server/</link>
+        <description>NTP Server - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 07 Nov 2018 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/ntp-server/" rel="self" type="application/rss+xml" /><item>
+    <title>类原生 ROM 时间校准、无线认证</title>
+    <link>https://blog.synchronized.buzz/2018-11-07-%E5%8E%9F%E7%94%9F-rom-%E6%97%B6%E9%97%B4%E6%A0%A1%E5%87%86%E6%97%A0%E7%BA%BF%E8%AE%A4%E8%AF%81/</link>
+    <pubDate>Wed, 07 Nov 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2018-11-07-%E5%8E%9F%E7%94%9F-rom-%E6%97%B6%E9%97%B4%E6%A0%A1%E5%87%86%E6%97%A0%E7%BA%BF%E8%AE%A4%E8%AF%81/</guid>
+    <description><![CDATA[使用类原生系统有两个地方很烦人，一是没插 SIM 卡时时间不能自动校准，二是 Wi-Fi 经常提示 &ldquo;已连接，但无法访问互联网&rdquo;、&ldq]]></description>
+</item>
+</channel>
+</rss>

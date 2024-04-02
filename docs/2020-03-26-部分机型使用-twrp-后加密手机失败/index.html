@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>部分机型使用 TWRP 后加密手机失败 - Blog of Kitty • Panics - 知知为知知</title><meta name="Description" content=""><meta property="og:title" content="部分机型使用 TWRP 后加密手机失败" />
+<meta property="og:description" content="备用机一直在用 LineageOS 类原生系统，今天突然发现系统居然未加密 (从 Android 7.0 开始默认使用文件级加密 (FBE))，尝试加密还失败了。 开始以为是系统的问题，然" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.synchronized.buzz/2020-03-26-%E9%83%A8%E5%88%86%E6%9C%BA%E5%9E%8B%E4%BD%BF%E7%94%A8-twrp-%E5%90%8E%E5%8A%A0%E5%AF%86%E6%89%8B%E6%9C%BA%E5%A4%B1%E8%B4%A5/" /><meta property="og:image" content="https://blog.synchronized.buzz/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-03-26T00:00:00+08:00" />
+<meta property="article:modified_time" content="2020-03-26T00:00:00+08:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://blog.synchronized.buzz/" /><meta name="twitter:title" content="部分机型使用 TWRP 后加密手机失败"/>
+<meta name="twitter:description" content="备用机一直在用 LineageOS 类原生系统，今天突然发现系统居然未加密 (从 Android 7.0 开始默认使用文件级加密 (FBE))，尝试加密还失败了。 开始以为是系统的问题，然"/>
+<meta name="application-name" content="My KeepIt site">
+<meta name="apple-mobile-web-app-title" content="My KeepIt site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.synchronized.buzz/2020-03-26-%E9%83%A8%E5%88%86%E6%9C%BA%E5%9E%8B%E4%BD%BF%E7%94%A8-twrp-%E5%90%8E%E5%8A%A0%E5%AF%86%E6%89%8B%E6%9C%BA%E5%A4%B1%E8%B4%A5/" /><link rel="prev" href="https://blog.synchronized.buzz/2020-02-15-steam-need-online-update/" /><link rel="next" href="https://blog.synchronized.buzz/2020-04-04-%E6%B7%B1%E5%88%87%E5%93%80%E6%82%BC%E5%9C%A8%E6%8A%97%E5%87%BB%E6%96%B0%E5%86%A0%E8%82%BA%E7%82%8E%E6%96%97%E4%BA%89%E4%B8%AD%E7%9A%84%E7%89%BA%E7%89%B2%E7%83%88%E5%A3%AB%E5%92%8C%E9%80%9D%E4%B8%96%E5%90%8C%E8%83%9E/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "部分机型使用 TWRP 后加密手机失败",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.synchronized.buzz\/2020-03-26-%E9%83%A8%E5%88%86%E6%9C%BA%E5%9E%8B%E4%BD%BF%E7%94%A8-twrp-%E5%90%8E%E5%8A%A0%E5%AF%86%E6%89%8B%E6%9C%BA%E5%A4%B1%E8%B4%A5\/"
+        },"genre": "posts","keywords": "Android, LineageOS, FBE, Recovery, TWRP, e2fsck, tune2fs","wordcount":  948 ,
+        "url": "https:\/\/blog.synchronized.buzz\/2020-03-26-%E9%83%A8%E5%88%86%E6%9C%BA%E5%9E%8B%E4%BD%BF%E7%94%A8-twrp-%E5%90%8E%E5%8A%A0%E5%AF%86%E6%89%8B%E6%9C%BA%E5%A4%B1%E8%B4%A5\/","datePublished": "2020-03-26T00:00:00+08:00","dateModified": "2020-03-26T00:00:00+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Kitty • Panics"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> 博文 </a><a class="menu-item" href="/feed/list"> 订阅 </a><a class="menu-item" href="/series/list"> 专题 </a><a class="menu-item" href="/categories-tags/list"> 分类/标签 </a><a class="menu-item" href="/about/list"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts" title="">博文</a><a class="menu-item" href="/feed/list" title="">订阅</a><a class="menu-item" href="/series/list" title="">专题</a><a class="menu-item" href="/categories-tags/list" title="">分类/标签</a><a class="menu-item" href="/about/list" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">部分机型使用 TWRP 后加密手机失败</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/kitty-panics" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kitty • Panics</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/android/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Android</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-03-26">2020-03-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;948 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#原因">原因</a></li>
+    <li><a href="#解决">解决</a>
+      <ul>
+        <li><a href="#需要先找到-data-所在的分区">需要先找到 /data 所在的分区</a></li>
+        <li><a href="#再进入-twrp-执行缩小分区操作">再进入 TWRP 执行缩小分区操作</a></li>
+        <li><a href="#最后重新加密">最后重新加密</a></li>
+      </ul>
+    </li>
+    <li><a href="#扩展阅读">扩展阅读</a>
+      <ul>
+        <li><a href="#一键命令">一键命令</a></li>
+        <li><a href="#please-run-e2fsck--f-devblockmmcblk0p49-first"><code>Please run 'e2fsck -f /dev/block/mmcblk0p49' first.</code></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>备用机一直在用 <a href="https://download.lineageos.org" target="_blank" rel="noopener noreffer">LineageOS</a>
+ 类原生系统，今天突然发现系统居然未加密 (从 Android 7.0
+开始默认使用文件级加密 (FBE))，尝试加密还失败了。</p>
+<p>开始以为是系统的问题，然后换了一个类原生系统，结果发现还是没能解决问题。</p>
+<h2 id="原因">原因</h2>
+<p>一番排查发现是 TWRP 的问题，是因为 /data 所在的分区 (即 userdata 分区) 占用了加密页脚空间导致的
+(在 Device Tree 中的 BoardConfig.mk 文件中定义)。</p>
+<p>所以只需缩小 /data 所在的分区 (即 userdata 分区) 为加密页脚留下足够的空间 (16KiB) 即可。</p>
+<h2 id="解决">解决</h2>
+<h3 id="需要先找到-data-所在的分区">需要先找到 /data 所在的分区</h3>
+<p>一般来说是 <code>/dev/block/bootdevice/by-name/userdata</code>。</p>
+<ol>
+<li>电脑安装 ADB 工具和手机驱动
+(不得不说在 Linux 下使用 ADB 工具 <strong>不用安装驱动</strong> 真的很棒)</li>
+<li>手机开启 USB 调试模式并连接电脑</li>
+<li>执行 <code>adb logcat &gt; get-logcat.log</code> 命令</li>
+<li>在手机上执行加密操作 (通常是 &ldquo;设置 -&gt; 安全性和位置信息 -&gt; 加密与凭据 -&gt; 加密手机&rdquo;)</li>
+<li>等待加密失败并重启</li>
+<li>结束 ADB 操作 (通常是同时按下 &ldquo;Ctrl 键 + C 键&rdquo;)</li>
+<li>在 get-logcat.log 中查找含 &ldquo;<strong>E Cryptfs</strong>&rdquo; 字符的行 (示例如下)，<strong>并记住这个分区名</strong>
+(在我的设备上为 /dev/block/bootdevice/by-name/userdata)</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Text" data-lang="Text"><span class="line"><span class="cl">02-26 10:29:27.594   459  7814 E Cryptfs : Bad magic for real block device /dev/block/bootdevice/by-name/userdata
+</span></span><span class="line"><span class="cl">02-26 10:29:27.594   459  7814 E Cryptfs : Orig filesystem overlaps crypto footer region.  Cannot encrypt in place.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="再进入-twrp-执行缩小分区操作">再进入 TWRP 执行缩小分区操作</h3>
+<ol>
+<li>进入 TWRP，卸载 /data (&ldquo;Mount&rdquo; -&gt; &ldquo;取消标记 Data&rdquo;)</li>
+<li>手机连接电脑并执行 <code>adb shell</code> 命令 (也可以用 TWRP 内建的终端，但操作起来没电脑舒服)</li>
+<li>执行 <code>ls -l /dev/block/bootdevice/by-name/userdata</code> 命令
+<ul>
+<li>此步骤用于显示出 userdata 分区所在的块，<strong>记住这个块设备名</strong> (在我的设备上为 /dev/block/mmcblk0p49)</li>
+</ul>
+<ul>
+<li>参数 <strong>-l</strong> 解释: 使用较长格式列出信息</li>
+</ul>
+</li>
+<li>执行 <code>e2fsck -y -f /dev/block/mmcblk0p49</code> 命令
+<ul>
+<li>此步骤用于检查文件系统的完整性</li>
+</ul>
+<ul>
+<li>参数 <strong>-y</strong> 解释: 采取非交动方式，所有的问题均自动以 yes 回答</li>
+<li>参数 <strong>-f</strong> 解释: 即使文件系统没有错误，仍强制检查正确性</li>
+</ul>
+</li>
+<li>执行下面的命令
+<ul>
+<li>此步骤用于过滤出块的大小，<strong>并会将这个数值减去 16384 (16)</strong> (在我的设备上为 2588025)</li>
+</ul>
+<ul>
+<li>参数 <strong>-l</strong> 解释: 显示文件超级块内容</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">expr <span class="k">$(</span>tune2fs -l /dev/block/mmcblk0p49 <span class="p">|</span> grep <span class="s2">&#34;Block count&#34;</span> <span class="p">|</span> awk <span class="s1">&#39;{print $3}&#39;</span><span class="k">)</span> - <span class="m">16384</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="6">
+<li>执行 <code>resize2fs /dev/block/mmcblk0p49 2588025</code> 命令
+<ul>
+<li>此步骤用于调整文件系统的大小</li>
+</ul>
+</li>
+</ol>
+<p><strong>注:</strong></p>
+<p>上述中的各分区名、块设备名、块大小只是示例，需根据自己设备的实际情况作相应的修改。</p>
+<h3 id="最后重新加密">最后重新加密</h3>
+<p>再重新执行加密操作，不出意外应该能正常执行加密了。</p>
+<h2 id="扩展阅读">扩展阅读</h2>
+<h3 id="一键命令">一键命令</h3>
+<p>如果您已知晓原理，并觉得上述操作繁锁的话，可以使用下面的一键命令。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">resize2fs /dev/block/mmcblk0p49 <span class="sb">`</span>expr <span class="k">$(</span>tune2fs -l /dev/block/mmcblk0p49 <span class="p">|</span> grep <span class="s2">&#34;Block count&#34;</span> <span class="p">|</span> awk <span class="s1">&#39;{print $3}&#39;</span><span class="k">)</span> - 16384<span class="sb">`</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="please-run-e2fsck--f-devblockmmcblk0p49-first"><code>Please run 'e2fsck -f /dev/block/mmcblk0p49' first.</code></h3>
+<p>可能还会遇到一个错误提示 <code>Please run 'e2fsck -f /dev/block/mmcblk0p49' first.</code>，
+但是运行了 e2fsck 后还是无法加密。</p>
+<p>对此，只需对 resize2fs 命令加上 <code>-f</code> 参数即可，表示强制调整大小。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-03-26</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.synchronized.buzz/2020-03-26-%E9%83%A8%E5%88%86%E6%9C%BA%E5%9E%8B%E4%BD%BF%E7%94%A8-twrp-%E5%90%8E%E5%8A%A0%E5%AF%86%E6%89%8B%E6%9C%BA%E5%A4%B1%E8%B4%A5/" data-title="部分机型使用 TWRP 后加密手机失败" data-hashtags="Android,LineageOS,FBE,Recovery,TWRP,e2fsck,tune2fs"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.synchronized.buzz/2020-03-26-%E9%83%A8%E5%88%86%E6%9C%BA%E5%9E%8B%E4%BD%BF%E7%94%A8-twrp-%E5%90%8E%E5%8A%A0%E5%AF%86%E6%89%8B%E6%9C%BA%E5%A4%B1%E8%B4%A5/" data-hashtag="Android"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.synchronized.buzz/2020-03-26-%E9%83%A8%E5%88%86%E6%9C%BA%E5%9E%8B%E4%BD%BF%E7%94%A8-twrp-%E5%90%8E%E5%8A%A0%E5%AF%86%E6%89%8B%E6%9C%BA%E5%A4%B1%E8%B4%A5/" data-title="部分机型使用 TWRP 后加密手机失败"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.synchronized.buzz/2020-03-26-%E9%83%A8%E5%88%86%E6%9C%BA%E5%9E%8B%E4%BD%BF%E7%94%A8-twrp-%E5%90%8E%E5%8A%A0%E5%AF%86%E6%89%8B%E6%9C%BA%E5%A4%B1%E8%B4%A5/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.synchronized.buzz/2020-03-26-%E9%83%A8%E5%88%86%E6%9C%BA%E5%9E%8B%E4%BD%BF%E7%94%A8-twrp-%E5%90%8E%E5%8A%A0%E5%AF%86%E6%89%8B%E6%9C%BA%E5%A4%B1%E8%B4%A5/" data-title="部分机型使用 TWRP 后加密手机失败"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://blog.synchronized.buzz/2020-03-26-%E9%83%A8%E5%88%86%E6%9C%BA%E5%9E%8B%E4%BD%BF%E7%94%A8-twrp-%E5%90%8E%E5%8A%A0%E5%AF%86%E6%89%8B%E6%9C%BA%E5%A4%B1%E8%B4%A5/" data-title="部分机型使用 TWRP 后加密手机失败"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/android/">Android</a>,&nbsp;<a href="/tags/lineageos/">LineageOS</a>,&nbsp;<a href="/tags/fbe/">FBE</a>,&nbsp;<a href="/tags/recovery/">Recovery</a>,&nbsp;<a href="/tags/twrp/">TWRP</a>,&nbsp;<a href="/tags/e2fsck/">E2fsck</a>,&nbsp;<a href="/tags/tune2fs/">Tune2fs</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020-02-15-steam-need-online-update/" class="prev" rel="prev" title="Steam need online update"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Steam need online update</a>
+            <a href="/2020-04-04-%E6%B7%B1%E5%88%87%E5%93%80%E6%82%BC%E5%9C%A8%E6%8A%97%E5%87%BB%E6%96%B0%E5%86%A0%E8%82%BA%E7%82%8E%E6%96%97%E4%BA%89%E4%B8%AD%E7%9A%84%E7%89%BA%E7%89%B2%E7%83%88%E5%A3%AB%E5%92%8C%E9%80%9D%E4%B8%96%E5%90%8C%E8%83%9E/" class="next" rel="next" title="深切哀悼在抗击新冠肺炎斗争中的牺牲烈士和逝世同胞">深切哀悼在抗击新冠肺炎斗争中的牺牲烈士和逝世同胞<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2018 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/kitty-panics" target="_blank">Kitty • Panics</a></span>&nbsp;|&nbsp;<span class="license">除非注明，本作品采用 <img style="border-width:0" src="/img/license/BY-NC-ND.png"/> 许可协议</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.fill%2CArray.prototype.find%2CArray.from%2CIntersectionObserver%2CMath.sign%2CObject.assign%2CPromise%2CObject.entries%2Chtml5shiv%2CObject.values%2Cfetch%2CElement.prototype.after"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/object-fit-images@3.2.4/dist/ofi.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.5.4/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10240},"comment":{},"data":{"id-1":"知知为知知","id-2":"知知为知知"},"search":{"highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":100,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

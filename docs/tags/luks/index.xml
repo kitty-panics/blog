@@ -1,0 +1,47 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>LUKS - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/luks/</link>
+        <description>LUKS - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 19 Aug 2023 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/luks/" rel="self" type="application/rss+xml" /><item>
+    <title>Linux 分离式 Header 全盘加密</title>
+    <link>https://blog.synchronized.buzz/2023-08-19-linux-%E5%88%86%E7%A6%BB%E5%BC%8F-header-%E5%85%A8%E7%9B%98%E5%8A%A0%E5%AF%86/</link>
+    <pubDate>Sat, 19 Aug 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-08-19-linux-%E5%88%86%E7%A6%BB%E5%BC%8F-header-%E5%85%A8%E7%9B%98%E5%8A%A0%E5%AF%86/</guid>
+    <description><![CDATA[Linux 全盘加密的文章已经很多了，本文就不再赘述，主要介绍分离式 Header 全盘加密。 预先准备 创建分区也不赘述了，不过在进行手动分区时更推荐用带 TUI 的 cfdisk 命令，]]></description>
+</item>
+<item>
+    <title>Timed out waiting for device /dev/disk/by-uuid/XXXX-XXXX</title>
+    <link>https://blog.synchronized.buzz/2022-04-11-timed-out-waiting-for-device-%5Cdev%5Cdisk%5Cby-uuid%5Cxxxx-xxxx/</link>
+    <pubDate>Mon, 11 Apr 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-04-11-timed-out-waiting-for-device-%5Cdev%5Cdisk%5Cby-uuid%5Cxxxx-xxxx/</guid>
+    <description><![CDATA[最近系统启动时会随机提示如下信息。 1 2 3 4 5 6 7 8 9 10 [ TIME ] Timed out waiting for device /dev/disk/by-uuid/XXXX-XXXX [DEPEND] Dependency failed for /boot/efi. [DEPEND] Dependency failed for Local File Systems. [DEPEND] Dependency failed for File System Check on /dev/disk/by-uuid/XXXX-XXXX. You are in emergency mode. After logging in, type &#34;journalctl - xb&#34; to]]></description>
+</item>
+<item>
+    <title>重装 Arch Linux 遇到的新坑</title>
+    <link>https://blog.synchronized.buzz/2021-03-05-%E9%87%8D%E8%A3%85-arch-linux-%E9%81%87%E5%88%B0%E7%9A%84%E6%96%B0%E5%9D%91/</link>
+    <pubDate>Fri, 05 Mar 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-03-05-%E9%87%8D%E8%A3%85-arch-linux-%E9%81%87%E5%88%B0%E7%9A%84%E6%96%B0%E5%9D%91/</guid>
+    <description><![CDATA[2023-04-11 的更新 ArchWiki 里更新了 GRUB2 的 LUKS2 配置文档。 2021-06-08 的更新 世界变化真快，GRUB2 也支持 LUKS2 了 (详见：GRUB 2.06 Released With BootHole Fixes, LUKS2 Encrypted Volume Support )。 但是支持的还不完善，需要手]]></description>
+</item>
+<item>
+    <title>在执行 grub-mkconfig 时卡住很长时间</title>
+    <link>https://blog.synchronized.buzz/2019-01-05-%E5%9C%A8%E6%89%A7%E8%A1%8C-grub-mkconfig-%E6%97%B6%E5%8D%A1%E4%BD%8F%E5%BE%88%E9%95%BF%E6%97%B6%E9%97%B4/</link>
+    <pubDate>Sat, 05 Jan 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-01-05-%E5%9C%A8%E6%89%A7%E8%A1%8C-grub-mkconfig-%E6%97%B6%E5%8D%A1%E4%BD%8F%E5%BE%88%E9%95%BF%E6%97%B6%E9%97%B4/</guid>
+    <description><![CDATA[Error 最近需要把系统重装在 LVM on LUKS 上，在安装的最后一步 grub-mkconfig 卡住了，提示以下错误。 1 WARNING: Device /dev/xxx not initialized in udev database even after waiting 10000000 microseconds Fix 这个错误是由于 lvm2 上游的变动，导致 GRUB2 出现]]></description>
+</item>
+<item>
+    <title>GRUB2 救援模式下解密 LUKS1</title>
+    <link>https://blog.synchronized.buzz/2018-10-12-grub2-%E6%95%91%E6%8F%B4%E6%A8%A1%E5%BC%8F%E4%B8%8B%E8%A7%A3%E5%AF%86-luks1/</link>
+    <pubDate>Fri, 12 Oct 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2018-10-12-grub2-%E6%95%91%E6%8F%B4%E6%A8%A1%E5%BC%8F%E4%B8%8B%E8%A7%A3%E5%AF%86-luks1/</guid>
+    <description><![CDATA[众所周知，GRUB2 有两种模式，一种是正常模式，支持超多的特性、超多的模块，使得 GRUB 有着 GRUB OS 的称号。另一种就是救援模式，只支持最基本的命令，最]]></description>
+</item>
+</channel>
+</rss>

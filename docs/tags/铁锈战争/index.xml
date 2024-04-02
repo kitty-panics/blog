@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>铁锈战争 - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/%E9%93%81%E9%94%88%E6%88%98%E4%BA%89/</link>
+        <description>铁锈战争 - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 02 Jan 2018 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/%E9%93%81%E9%94%88%E6%88%98%E4%BA%89/" rel="self" type="application/rss+xml" /><item>
+    <title>汉化：Rusted Warfare (铁锈战争)</title>
+    <link>https://blog.synchronized.buzz/series-games/%E6%B1%89%E5%8C%96rusted-warfare-%E9%93%81%E9%94%88%E6%88%98%E4%BA%89/</link>
+    <pubDate>Tue, 02 Jan 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/series-games/%E6%B1%89%E5%8C%96rusted-warfare-%E9%93%81%E9%94%88%E6%88%98%E4%BA%89/</guid>
+    <description><![CDATA[其实 Rusted Warfare 官方是自带中文的，但是它不会根据 Locale 自动更改， 也不支持通过 Steam 命令行指定，得自己手动修改配置文件。 1 2 3 4 5 6 7 8 # 编辑设置文件 vim $HOME/.local/share/Steam/steamapps/common/Rusted Warfare/preferences.ini #]]></description>
+</item>
+</channel>
+</rss>

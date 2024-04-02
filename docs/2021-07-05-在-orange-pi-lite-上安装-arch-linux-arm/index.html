@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>在 Orange Pi Lite 上安装 Arch Linux ARM - Blog of Kitty • Panics - 知知为知知</title><meta name="Description" content=""><meta property="og:title" content="在 Orange Pi Lite 上安装 Arch Linux ARM" />
+<meta property="og:description" content="前段时间将云服务器的系统都换成了 Arch Linux，最近意外发现角落吃灰的 Orange Pi Lite。 正好手上有张多余的 MicroSD 卡，烧录了几个系统发现都不如意 (官方提" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.synchronized.buzz/2021-07-05-%E5%9C%A8-orange-pi-lite-%E4%B8%8A%E5%AE%89%E8%A3%85-arch-linux-arm/" /><meta property="og:image" content="https://blog.synchronized.buzz/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-05T00:00:00+08:00" />
+<meta property="article:modified_time" content="2021-07-05T00:00:00+08:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://blog.synchronized.buzz/" /><meta name="twitter:title" content="在 Orange Pi Lite 上安装 Arch Linux ARM"/>
+<meta name="twitter:description" content="前段时间将云服务器的系统都换成了 Arch Linux，最近意外发现角落吃灰的 Orange Pi Lite。 正好手上有张多余的 MicroSD 卡，烧录了几个系统发现都不如意 (官方提"/>
+<meta name="application-name" content="My KeepIt site">
+<meta name="apple-mobile-web-app-title" content="My KeepIt site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.synchronized.buzz/2021-07-05-%E5%9C%A8-orange-pi-lite-%E4%B8%8A%E5%AE%89%E8%A3%85-arch-linux-arm/" /><link rel="prev" href="https://blog.synchronized.buzz/2021-06-21-ssl_stapling-ignored-host-not-found-in-ocsp-responder-r3.o.lencr.org-in-the-cert-fullchain.pem/" /><link rel="next" href="https://blog.synchronized.buzz/2021-08-11-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8-arch-linux-%E7%9A%84%E5%85%AD%E5%A4%A7%E7%90%86%E7%94%B1/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "在 Orange Pi Lite 上安装 Arch Linux ARM",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.synchronized.buzz\/2021-07-05-%E5%9C%A8-orange-pi-lite-%E4%B8%8A%E5%AE%89%E8%A3%85-arch-linux-arm\/"
+        },"genre": "posts","keywords": "OrangePi, OrangePi Lite, Linux, Arch Linux, Arch Linux ARM, U-Boot, RTL8189FTV","wordcount":  519 ,
+        "url": "https:\/\/blog.synchronized.buzz\/2021-07-05-%E5%9C%A8-orange-pi-lite-%E4%B8%8A%E5%AE%89%E8%A3%85-arch-linux-arm\/","datePublished": "2021-07-05T00:00:00+08:00","dateModified": "2021-07-05T00:00:00+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Kitty • Panics"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> 博文 </a><a class="menu-item" href="/feed/list"> 订阅 </a><a class="menu-item" href="/series/list"> 专题 </a><a class="menu-item" href="/categories-tags/list"> 分类/标签 </a><a class="menu-item" href="/about/list"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Blog of Kitty • Panics - 知知为知知"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts" title="">博文</a><a class="menu-item" href="/feed/list" title="">订阅</a><a class="menu-item" href="/series/list" title="">专题</a><a class="menu-item" href="/categories-tags/list" title="">分类/标签</a><a class="menu-item" href="/about/list" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">在 Orange Pi Lite 上安装 Arch Linux ARM</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/kitty-panics" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kitty • Panics</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-07-05">2021-07-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;519 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#设备准备篇">设备准备篇</a></li>
+    <li><a href="#系统安装篇">系统安装篇</a></li>
+    <li><a href="#系统体验篇">系统体验篇</a></li>
+    <li><a href="#扩展阅读">扩展阅读</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>前段时间将云服务器的系统都换成了 Arch Linux，最近意外发现角落吃灰的 Orange Pi Lite。</p>
+<p>正好手上有张多余的 MicroSD 卡，烧录了几个系统发现都不如意 (官方提供的系统太很老了，
+而且还是用 Armbian 改的，而 Armbian 又基于 Debian，但我不喜欢 Debian)。索性也换成
+Arch Linux (ARM) 吧。</p>
+<p>不过 Arch Linux ARM 官方并不支持 Orange Pi，所以无法用 <code>dd</code> 烧录系统。以下是手动安装步骤。</p>
+<h2 id="设备准备篇">设备准备篇</h2>
+<ol>
+<li>将 MicroSD 卡开头清零
+<ul>
+<li><code>sudo dd if=/dev/zero of=/dev/sdX bs=1M count=8</code></li>
+</ul>
+</li>
+<li>对 MicroSD 卡进行分区 (磁盘标签类型为 dos)
+<ul>
+<li><code>sudo cfdisk /dev/sdX</code></li>
+</ul>
+</li>
+<li>将分区格式化成 Ext4
+<ul>
+<li><code>sudo mkfs.ext4 /dev/sdX1</code></li>
+</ul>
+</li>
+<li>挂载分区至 /mnt (随便挂载到哪，这只是一种约定俗成)
+<ul>
+<li><code>sudo mkdir /mnt</code></li>
+<li><code>sudo mount /dev/sdX1 /mnt</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="系统安装篇">系统安装篇</h2>
+<ol>
+<li>下载 Arch Linux ARM 根文件系统
+<ul>
+<li><code>curl -LO &quot;https://archlinuxarm.org/os/ArchLinuxARM-armv7-latest.tar.gz&quot;</code></li>
+</ul>
+</li>
+<li>解压根文件系统至挂载目录
+<ul>
+<li><code>sudo bsdtar -xpf ArchLinuxARM-armv7-latest.tar.gz -C /mnt/</code></li>
+</ul>
+</li>
+<li>编译并复制 <a href="https://github.com/kitty-panics/OrangePi-Lite-UBoot/tree/master/binary/boot-script" target="_blank" rel="noopener noreffer">boot-script</a>
+ 镜像至挂载目录
+<ul>
+<li><code>sudo cp -rf boot.scr /mnt/boot/</code></li>
+</ul>
+</li>
+<li>编译并写入 <a href="https://github.com/kitty-panics/OrangePi-Lite-UBoot/tree/master/binary/u-boot/Stable" target="_blank" rel="noopener noreffer">u-boot</a>
+ 镜像至 MicroSD 卡
+<ul>
+<li><code>sudo dd if=u-boot-sunxi-with-spl.bin of=/dev/sdX bs=1024 seek=8</code></li>
+</ul>
+</li>
+<li>卸载分区并弹出 MicroSD 卡
+<ul>
+<li><code>sudo umount /mnt</code></li>
+<li><code>sudo eject /dev/sdX</code></li>
+</ul>
+</li>
+</ol>
+<p><strong>注：</strong></p>
+<p>Arch Linux ARM 根文件系统默认不提供 boot-script 和 U-BOOT 引导程序。
+如果你不具备编译环境或不会编译，可以使用我已编译好的文件。</p>
+<h2 id="系统体验篇">系统体验篇</h2>
+<ol>
+<li>初始化 pacman Keyring
+<ul>
+<li><code>pacman-key --init</code></li>
+</ul>
+</li>
+<li>填充 Arch Linux ARM 软件包的签名密钥
+<ul>
+<li><code>pacman-key --populate archlinuxarm</code></li>
+</ul>
+</li>
+</ol>
+<p><strong>注：</strong></p>
+<p>Arch Linux ARM 官方固件包中不提供 OrangePi Lite 的 Wi-Fi 驱动，如果你不具备编译环境或不会编译，
+可以从下面下在我编译好的驱动软件包。</p>
+<ul>
+<li><a href="https://github.com/kitty-panics/OrangePi-Lite-RTL8189FTV" target="_blank" rel="noopener noreffer">kitty-panics/OrangePi-Lite-RTL8189FTV</a>
+</li>
+</ul>
+<h2 id="扩展阅读">扩展阅读</h2>
+<p>Arch Linux ARM 根文件系统默认有两个用户，其登录密码与用户名相同。</p>
+<p>一个是 <code>root</code> 管理员用户，另一个是 <code>alarm</code> 普通用户 (<strong>A</strong>rch <strong>L</strong>inux <strong>ARM</strong> 的缩写)。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-07-05</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.synchronized.buzz/2021-07-05-%E5%9C%A8-orange-pi-lite-%E4%B8%8A%E5%AE%89%E8%A3%85-arch-linux-arm/" data-title="在 Orange Pi Lite 上安装 Arch Linux ARM" data-hashtags="OrangePi,OrangePi Lite,Linux,Arch Linux,Arch Linux ARM,U-Boot,RTL8189FTV"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.synchronized.buzz/2021-07-05-%E5%9C%A8-orange-pi-lite-%E4%B8%8A%E5%AE%89%E8%A3%85-arch-linux-arm/" data-hashtag="OrangePi"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.synchronized.buzz/2021-07-05-%E5%9C%A8-orange-pi-lite-%E4%B8%8A%E5%AE%89%E8%A3%85-arch-linux-arm/" data-title="在 Orange Pi Lite 上安装 Arch Linux ARM"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.synchronized.buzz/2021-07-05-%E5%9C%A8-orange-pi-lite-%E4%B8%8A%E5%AE%89%E8%A3%85-arch-linux-arm/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.synchronized.buzz/2021-07-05-%E5%9C%A8-orange-pi-lite-%E4%B8%8A%E5%AE%89%E8%A3%85-arch-linux-arm/" data-title="在 Orange Pi Lite 上安装 Arch Linux ARM"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://blog.synchronized.buzz/2021-07-05-%E5%9C%A8-orange-pi-lite-%E4%B8%8A%E5%AE%89%E8%A3%85-arch-linux-arm/" data-title="在 Orange Pi Lite 上安装 Arch Linux ARM"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/orangepi/">OrangePi</a>,&nbsp;<a href="/tags/orangepi-lite/">OrangePi Lite</a>,&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/arch-linux/">Arch Linux</a>,&nbsp;<a href="/tags/arch-linux-arm/">Arch Linux ARM</a>,&nbsp;<a href="/tags/u-boot/">U-Boot</a>,&nbsp;<a href="/tags/rtl8189ftv/">RTL8189FTV</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2021-06-21-ssl_stapling-ignored-host-not-found-in-ocsp-responder-r3.o.lencr.org-in-the-cert-fullchain.pem/" class="prev" rel="prev" title="&#39;ssl_stapling&#39; ignored, host not found in OCSP responder &#39;r3.o.lencr.org&#39; in the cert &#39;fullchain.pem&#39;"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>&#39;ssl_stapling&#39; ignored, host not found in OCSP responder &#39;r3.o.lencr.org&#39; in the cert &#39;fullchain.pem&#39;</a>
+            <a href="/2021-08-11-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8-arch-linux-%E7%9A%84%E5%85%AD%E5%A4%A7%E7%90%86%E7%94%B1/" class="next" rel="next" title="服务器使用 Arch Linux 的七大理由">服务器使用 Arch Linux 的七大理由<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2018 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/kitty-panics" target="_blank">Kitty • Panics</a></span>&nbsp;|&nbsp;<span class="license">除非注明，本作品采用 <img style="border-width:0" src="/img/license/BY-NC-ND.png"/> 许可协议</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.fill%2CArray.prototype.find%2CArray.from%2CIntersectionObserver%2CMath.sign%2CObject.assign%2CPromise%2CObject.entries%2Chtml5shiv%2CObject.values%2Cfetch%2CElement.prototype.after"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/object-fit-images@3.2.4/dist/ofi.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.5.4/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10240},"comment":{},"data":{"id-1":"知知为知知","id-2":"知知为知知"},"search":{"highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":100,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

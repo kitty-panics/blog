@@ -1,0 +1,47 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Arch Linux - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/arch-linux/</link>
+        <description>Arch Linux - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 05 Oct 2021 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/arch-linux/" rel="self" type="application/rss+xml" /><item>
+    <title>OrangePi-Lite (Arch Linux ARM) 重启后 Wi-Fi 无网络</title>
+    <link>https://blog.synchronized.buzz/2021-10-05-orangepi-lite-arch-linux-arm-%E9%87%8D%E5%90%AF%E5%90%8E-wi-fi-%E6%97%A0%E7%BD%91%E7%BB%9C/</link>
+    <pubDate>Tue, 05 Oct 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-10-05-orangepi-lite-arch-linux-arm-%E9%87%8D%E5%90%AF%E5%90%8E-wi-fi-%E6%97%A0%E7%BD%91%E7%BB%9C/</guid>
+    <description><![CDATA[上一篇说到在 OrangePi Lite 中安装了 Arch Linux ARM ，由于 Orange Pi Lite 没有有线网络接口， 所以只能使用 Wi-Fi。Wi-Fi 连接方案如下。 使用 wpa_supplicant 连接到 Wi-Fi。 使用 dhcpcd 请]]></description>
+</item>
+<item>
+    <title>服务器使用 Arch Linux 的七大理由</title>
+    <link>https://blog.synchronized.buzz/2021-08-11-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8-arch-linux-%E7%9A%84%E5%85%AD%E5%A4%A7%E7%90%86%E7%94%B1/</link>
+    <pubDate>Wed, 11 Aug 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-08-11-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8-arch-linux-%E7%9A%84%E5%85%AD%E5%A4%A7%E7%90%86%E7%94%B1/</guid>
+    <description><![CDATA[2024-03-30 的更新 最新仅针对 deb/rpm 投毒的案例，Arch Linux 没有魔改上游的习惯，又逃过一劫。 xz 软件包被植入后门 。 本来打算写一篇有关 Linux 服务器安全配置的博文，但网]]></description>
+</item>
+<item>
+    <title>在 Orange Pi Lite 上安装 Arch Linux ARM</title>
+    <link>https://blog.synchronized.buzz/2021-07-05-%E5%9C%A8-orange-pi-lite-%E4%B8%8A%E5%AE%89%E8%A3%85-arch-linux-arm/</link>
+    <pubDate>Mon, 05 Jul 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-07-05-%E5%9C%A8-orange-pi-lite-%E4%B8%8A%E5%AE%89%E8%A3%85-arch-linux-arm/</guid>
+    <description><![CDATA[前段时间将云服务器的系统都换成了 Arch Linux，最近意外发现角落吃灰的 Orange Pi Lite。 正好手上有张多余的 MicroSD 卡，烧录了几个系统发现都不如意 (官方提]]></description>
+</item>
+<item>
+    <title>重装 Arch Linux 遇到的新坑</title>
+    <link>https://blog.synchronized.buzz/2021-03-05-%E9%87%8D%E8%A3%85-arch-linux-%E9%81%87%E5%88%B0%E7%9A%84%E6%96%B0%E5%9D%91/</link>
+    <pubDate>Fri, 05 Mar 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-03-05-%E9%87%8D%E8%A3%85-arch-linux-%E9%81%87%E5%88%B0%E7%9A%84%E6%96%B0%E5%9D%91/</guid>
+    <description><![CDATA[2023-04-11 的更新 ArchWiki 里更新了 GRUB2 的 LUKS2 配置文档。 2021-06-08 的更新 世界变化真快，GRUB2 也支持 LUKS2 了 (详见：GRUB 2.06 Released With BootHole Fixes, LUKS2 Encrypted Volume Support )。 但是支持的还不完善，需要手]]></description>
+</item>
+<item>
+    <title>ABS 打包指定源码克隆深度</title>
+    <link>https://blog.synchronized.buzz/2020-05-28-abs-%E6%89%93%E5%8C%85%E6%8C%87%E5%AE%9A%E6%BA%90%E7%A0%81%E5%85%8B%E9%9A%86%E6%B7%B1%E5%BA%A6/</link>
+    <pubDate>Thu, 28 May 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-05-28-abs-%E6%89%93%E5%8C%85%E6%8C%87%E5%AE%9A%E6%BA%90%E7%A0%81%E5%85%8B%E9%9A%86%E6%B7%B1%E5%BA%A6/</guid>
+    <description><![CDATA[源代码仓库太大，国内下载速度慢真是种煎熬。一般 git clone 时能通过加上 --depth=1 参数指定克隆深度来解决。 但在 AUR 打包时，并不能把 --depth=1 写在 PKGBUILD 中，而应该是 makepkg 的配置文]]></description>
+</item>
+</channel>
+</rss>

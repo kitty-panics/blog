@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>LUKS2 - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/luks2/</link>
+        <description>LUKS2 - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 05 Mar 2021 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/luks2/" rel="self" type="application/rss+xml" /><item>
+    <title>重装 Arch Linux 遇到的新坑</title>
+    <link>https://blog.synchronized.buzz/2021-03-05-%E9%87%8D%E8%A3%85-arch-linux-%E9%81%87%E5%88%B0%E7%9A%84%E6%96%B0%E5%9D%91/</link>
+    <pubDate>Fri, 05 Mar 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-03-05-%E9%87%8D%E8%A3%85-arch-linux-%E9%81%87%E5%88%B0%E7%9A%84%E6%96%B0%E5%9D%91/</guid>
+    <description><![CDATA[2023-04-11 的更新 ArchWiki 里更新了 GRUB2 的 LUKS2 配置文档。 2021-06-08 的更新 世界变化真快，GRUB2 也支持 LUKS2 了 (详见：GRUB 2.06 Released With BootHole Fixes, LUKS2 Encrypted Volume Support )。 但是支持的还不完善，需要手]]></description>
+</item>
+</channel>
+</rss>

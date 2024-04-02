@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>RTL8189FTV - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/rtl8189ftv/</link>
+        <description>RTL8189FTV - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 05 Jul 2021 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/rtl8189ftv/" rel="self" type="application/rss+xml" /><item>
+    <title>在 Orange Pi Lite 上安装 Arch Linux ARM</title>
+    <link>https://blog.synchronized.buzz/2021-07-05-%E5%9C%A8-orange-pi-lite-%E4%B8%8A%E5%AE%89%E8%A3%85-arch-linux-arm/</link>
+    <pubDate>Mon, 05 Jul 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-07-05-%E5%9C%A8-orange-pi-lite-%E4%B8%8A%E5%AE%89%E8%A3%85-arch-linux-arm/</guid>
+    <description><![CDATA[前段时间将云服务器的系统都换成了 Arch Linux，最近意外发现角落吃灰的 Orange Pi Lite。 正好手上有张多余的 MicroSD 卡，烧录了几个系统发现都不如意 (官方提]]></description>
+</item>
+</channel>
+</rss>

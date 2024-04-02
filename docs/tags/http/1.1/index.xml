@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>HTTP/1.1 - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/http/1.1/</link>
+        <description>HTTP/1.1 - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 12 Aug 2020 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/http/1.1/" rel="self" type="application/rss+xml" /><item>
+    <title>Nginx 只允许 HTTP/2、HTTP/3 协议</title>
+    <link>https://blog.synchronized.buzz/2020-08-12-nginx-%E5%8F%AA%E5%85%81%E8%AE%B8-http%5C2http%5C3-%E5%8D%8F%E8%AE%AE/</link>
+    <pubDate>Wed, 12 Aug 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-08-12-nginx-%E5%8F%AA%E5%85%81%E8%AE%B8-http%5C2http%5C3-%E5%8D%8F%E8%AE%AE/</guid>
+    <description><![CDATA[个人网站没什么用户，不需要考虑兼容性，喜欢启用一些新特性。 如果只单单允许 HTTP/1.1 或只允许 HTTP/2 倒是很容易，一个 if 语句就行了。 1 2 3 if ($server_protocol !~* &#34;HTTP/1.1&#34;) { return 403 &#34;Only HTTP/1.1 protocol]]></description>
+</item>
+</channel>
+</rss>

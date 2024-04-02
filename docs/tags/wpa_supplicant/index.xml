@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Wpa_supplicant - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/wpa_supplicant/</link>
+        <description>Wpa_supplicant - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 05 Oct 2021 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/wpa_supplicant/" rel="self" type="application/rss+xml" /><item>
+    <title>OrangePi-Lite (Arch Linux ARM) 重启后 Wi-Fi 无网络</title>
+    <link>https://blog.synchronized.buzz/2021-10-05-orangepi-lite-arch-linux-arm-%E9%87%8D%E5%90%AF%E5%90%8E-wi-fi-%E6%97%A0%E7%BD%91%E7%BB%9C/</link>
+    <pubDate>Tue, 05 Oct 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-10-05-orangepi-lite-arch-linux-arm-%E9%87%8D%E5%90%AF%E5%90%8E-wi-fi-%E6%97%A0%E7%BD%91%E7%BB%9C/</guid>
+    <description><![CDATA[上一篇说到在 OrangePi Lite 中安装了 Arch Linux ARM ，由于 Orange Pi Lite 没有有线网络接口， 所以只能使用 Wi-Fi。Wi-Fi 连接方案如下。 使用 wpa_supplicant 连接到 Wi-Fi。 使用 dhcpcd 请]]></description>
+</item>
+</channel>
+</rss>

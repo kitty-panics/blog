@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>TLD - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/tld/</link>
+        <description>TLD - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 11 Dec 2018 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/tld/" rel="self" type="application/rss+xml" /><item>
+    <title>批量解析顶级域名和二级域名</title>
+    <link>https://blog.synchronized.buzz/2018-12-11-%E6%89%B9%E9%87%8F%E8%A7%A3%E6%9E%90%E9%A1%B6%E7%BA%A7%E5%9F%9F%E5%90%8D%E5%92%8C%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D/</link>
+    <pubDate>Tue, 11 Dec 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2018-12-11-%E6%89%B9%E9%87%8F%E8%A7%A3%E6%9E%90%E9%A1%B6%E7%BA%A7%E5%9F%9F%E5%90%8D%E5%92%8C%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D/</guid>
+    <description><![CDATA[为方便描述，本文将 .com、.cn、.com.cn、.edu.cn 这类一级 / 二级域名统一定义为 顶级域名，对其下一级子域名定义为 二级域名。 最近]]></description>
+</item>
+</channel>
+</rss>

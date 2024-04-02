@@ -1,0 +1,71 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>软件 - Category - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/categories/%E8%BD%AF%E4%BB%B6/</link>
+        <description>软件 - Category - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 06 Jan 2024 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/categories/%E8%BD%AF%E4%BB%B6/" rel="self" type="application/rss+xml" /><item>
+    <title>多平台异地二层虚拟组网</title>
+    <link>https://blog.synchronized.buzz/2024-01-06-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%BC%82%E5%9C%B0%E4%BA%8C%E5%B1%82%E8%99%9A%E6%8B%9F%E7%BB%84%E7%BD%91/</link>
+    <pubDate>Sat, 06 Jan 2024 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2024-01-06-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%BC%82%E5%9C%B0%E4%BA%8C%E5%B1%82%E8%99%9A%E6%8B%9F%E7%BB%84%E7%BD%91/</guid>
+    <description><![CDATA[去年有篇文章介绍了使用 KDE Connect 进行多平台粘贴板同步，跨局域网通信用 Tailscale 、 ZeroTier 之类的软件。 多平台轻量化粘贴板同步方案 - Blog of Kitty • Panics - 知知为知知 这类软件虽]]></description>
+</item>
+<item>
+    <title>隐私保护 —— 伪装浏览器指纹</title>
+    <link>https://blog.synchronized.buzz/2023-05-18-%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4-%E4%BC%AA%E8%A3%85%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8C%87%E7%BA%B9/</link>
+    <pubDate>Thu, 18 May 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-05-18-%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4-%E4%BC%AA%E8%A3%85%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8C%87%E7%BA%B9/</guid>
+    <description><![CDATA[虽说现在越来越多的网络服务只提供 APP，还有些就算提供网页版也需要登录， 但还是有隐私保护的习惯。 IP 地址 IP 地址应该算是最好伪装的，得益于国内分]]></description>
+</item>
+<item>
+    <title>禁止 VBox Guest Additions 检查更新</title>
+    <link>https://blog.synchronized.buzz/2023-01-09-%E7%A6%81%E6%AD%A2-vbox-guest-additions-%E6%A3%80%E6%9F%A5%E6%9B%B4%E6%96%B0/</link>
+    <pubDate>Mon, 09 Jan 2023 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2023-01-09-%E7%A6%81%E6%AD%A2-vbox-guest-additions-%E6%A3%80%E6%9F%A5%E6%9B%B4%E6%96%B0/</guid>
+    <description><![CDATA[使用 VirtualBox 时，VBoxGuestAdditions 应该是必装的，共享粘贴板、文件夹…… 等功能都依赖此组件。 但 VBoxGuestAdditions 每次在系统启动后会进行更新检查，如]]></description>
+</item>
+<item>
+    <title>proxychains-ng 对 Chromium 无效</title>
+    <link>https://blog.synchronized.buzz/2022-10-11-proxychains-ng-%E5%AF%B9-chromium-%E6%97%A0%E6%95%88/</link>
+    <pubDate>Tue, 11 Oct 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-10-11-proxychains-ng-%E5%AF%B9-chromium-%E6%97%A0%E6%95%88/</guid>
+    <description><![CDATA[最近 Google 关闭国内服务器的翻译 API 服务，才发现 Chrome 自带的网页翻译居然不受扩展控制， 尽管设置中显示 &ldquo;Chrome is using proxy settings from an extension&rdquo;。 那些]]></description>
+</item>
+<item>
+    <title>png、svg 格式的图片转换成字体</title>
+    <link>https://blog.synchronized.buzz/2020-10-18-pngsvg-%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E6%88%90%E5%AD%97%E4%BD%93/</link>
+    <pubDate>Sun, 18 Oct 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-10-18-pngsvg-%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E6%88%90%E5%AD%97%E4%BD%93/</guid>
+    <description><![CDATA[2022-05-19 的更新 不知从何时起，IcoMoon 只能上传 SVG 格式的图像了。不过对于简单的 png 格式图片可以用 png2svg 脚本转换成 svg 格式。 最近有需求要在某软件的状态栏上]]></description>
+</item>
+<item>
+    <title>加快 Stack OverFlow 访问速度</title>
+    <link>https://blog.synchronized.buzz/2019-12-15-%E5%8A%A0%E5%BF%AB-stack-overflow-%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/</link>
+    <pubDate>Sun, 15 Dec 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-12-15-%E5%8A%A0%E5%BF%AB-stack-overflow-%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/</guid>
+    <description><![CDATA[2021-11-22 的更新 此方法已失效，因为 Stack OverFlow 现在搜索时需先通过 Google 的 reCAPTCHE 验证码， 禁用掉 JavaScript 也就无法加载验证码了。 reCAPTCHE 验证码脚本共有两个地址，默认使用第一个 (但第一]]></description>
+</item>
+<item>
+    <title>用脏方法实现 FlameShot 截图后自动退出</title>
+    <link>https://blog.synchronized.buzz/2019-04-19-%E7%94%A8%E8%84%8F%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0-flameshot-%E6%88%AA%E5%9B%BE%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA/</link>
+    <pubDate>Fri, 19 Apr 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-04-19-%E7%94%A8%E8%84%8F%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0-flameshot-%E6%88%AA%E5%9B%BE%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA/</guid>
+    <description><![CDATA[2022-02-04 的更新 截止今日，v11.0.0 可通过 flameshot gui 命令实现截图后自动退出，本文可废弃。 截图工具比较喜欢 FlameShot ，截图后有编辑功能，还算比较轻量，UI 也很好]]></description>
+</item>
+<item>
+    <title>使用 Rsync 备份整个系统</title>
+    <link>https://blog.synchronized.buzz/2019-02-21-%E4%BD%BF%E7%94%A8-rsync-%E5%A4%87%E4%BB%BD%E6%95%B4%E4%B8%AA%E7%B3%BB%E7%BB%9F/</link>
+    <pubDate>Thu, 21 Feb 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-02-21-%E4%BD%BF%E7%94%A8-rsync-%E5%A4%87%E4%BB%BD%E6%95%B4%E4%B8%AA%E7%B3%BB%E7%BB%9F/</guid>
+    <description><![CDATA[刚开始用 Linux 时，都是通过 dotfiles 管理器 管理和备份各种 dotfiles， 就算重装系统也可以快速将系统恢复至理想状态。不过随着使用的软件越来越多， 系统的]]></description>
+</item>
+</channel>
+</rss>

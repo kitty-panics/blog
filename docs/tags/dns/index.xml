@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>DNS - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/dns/</link>
+        <description>DNS - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 15 Feb 2020 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/dns/" rel="self" type="application/rss+xml" /><item>
+    <title>Steam need online update</title>
+    <link>https://blog.synchronized.buzz/2020-02-15-steam-need-online-update/</link>
+    <pubDate>Sat, 15 Feb 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-02-15-steam-need-online-update/</guid>
+    <description><![CDATA[打算把卸载掉的 Steam 装回来，结果运行安装程序时弹出 &ldquo;Steam need online update&rdquo; 错误提示。 给出的错误信息实在太少了，不过对于这种情况可以在终端运行试试，一般来说能获取]]></description>
+</item>
+</channel>
+</rss>

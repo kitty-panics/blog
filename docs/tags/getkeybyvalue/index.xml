@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>GetKeyByValue - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/getkeybyvalue/</link>
+        <description>GetKeyByValue - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 22 Nov 2021 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/getkeybyvalue/" rel="self" type="application/rss+xml" /><item>
+    <title>JavaScript 中 getIndexByValue、getKeyByValue</title>
+    <link>https://blog.synchronized.buzz/2021-11-22-javascript-%E4%B8%AD-getindexbyvaluegetkeybyvalue/</link>
+    <pubDate>Mon, 22 Nov 2021 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2021-11-22-javascript-%E4%B8%AD-getindexbyvaluegetkeybyvalue/</guid>
+    <description><![CDATA[分享两个有用的 JavaScript 代码片段。 getIndexByValue 通过值查数组的下标。 1 2 3 4 5 function getIndexByValue(array, value) { return array.map(function (item) { return item; }).indexOf(value); } getKeyByValue 通过值查对象的键。 1 2 3 4 5 function getKeyByValue(object, value) { return Object.keys(object).find(function (key) { return object[key] === value; }); }]]></description>
+</item>
+</channel>
+</rss>

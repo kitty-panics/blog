@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Beep - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/beep/</link>
+        <description>Beep - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 22 Aug 2018 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/beep/" rel="self" type="application/rss+xml" /><item>
+    <title>禁用 Linux 系统的蜂鸣声</title>
+    <link>https://blog.synchronized.buzz/2018-08-22-%E7%A6%81%E7%94%A8-linux-%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%9C%82%E9%B8%A3%E5%A3%B0/</link>
+    <pubDate>Wed, 22 Aug 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2018-08-22-%E7%A6%81%E7%94%A8-linux-%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%9C%82%E9%B8%A3%E5%A3%B0/</guid>
+    <description><![CDATA[有时在终端或 TTY 中按下 Backspace、Tab 键会发出 &ldquo;滴&rdquo; 声，还是最大音量， 特别是在大半夜，会吓死人的。 搜索了一番]]></description>
+</item>
+</channel>
+</rss>

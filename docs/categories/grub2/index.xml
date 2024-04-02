@@ -1,0 +1,31 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>GRUB2 - Category - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/categories/grub2/</link>
+        <description>GRUB2 - Category - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 09 Nov 2019 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/categories/grub2/" rel="self" type="application/rss+xml" /><item>
+    <title>GRUB2 多重引导</title>
+    <link>https://blog.synchronized.buzz/2019-11-09-grub2-%E5%A4%9A%E9%87%8D%E5%BC%95%E5%AF%BC/</link>
+    <pubDate>Sat, 09 Nov 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-11-09-grub2-%E5%A4%9A%E9%87%8D%E5%BC%95%E5%AF%BC/</guid>
+    <description><![CDATA[2021-04-22 日的更新 最近发现一个很棒的多系统启动盘制作工具：Ventoy 。 只需要把 ISO/WIM/IMG/VHD(X)/EFI 等类型的文件拷贝到 U 盘里面就可以启动了，无需其他操作。 还可以一次性]]></description>
+</item>
+<item>
+    <title>在执行 grub-mkconfig 时卡住很长时间</title>
+    <link>https://blog.synchronized.buzz/2019-01-05-%E5%9C%A8%E6%89%A7%E8%A1%8C-grub-mkconfig-%E6%97%B6%E5%8D%A1%E4%BD%8F%E5%BE%88%E9%95%BF%E6%97%B6%E9%97%B4/</link>
+    <pubDate>Sat, 05 Jan 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-01-05-%E5%9C%A8%E6%89%A7%E8%A1%8C-grub-mkconfig-%E6%97%B6%E5%8D%A1%E4%BD%8F%E5%BE%88%E9%95%BF%E6%97%B6%E9%97%B4/</guid>
+    <description><![CDATA[Error 最近需要把系统重装在 LVM on LUKS 上，在安装的最后一步 grub-mkconfig 卡住了，提示以下错误。 1 WARNING: Device /dev/xxx not initialized in udev database even after waiting 10000000 microseconds Fix 这个错误是由于 lvm2 上游的变动，导致 GRUB2 出现]]></description>
+</item>
+<item>
+    <title>GRUB2 救援模式下解密 LUKS1</title>
+    <link>https://blog.synchronized.buzz/2018-10-12-grub2-%E6%95%91%E6%8F%B4%E6%A8%A1%E5%BC%8F%E4%B8%8B%E8%A7%A3%E5%AF%86-luks1/</link>
+    <pubDate>Fri, 12 Oct 2018 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2018-10-12-grub2-%E6%95%91%E6%8F%B4%E6%A8%A1%E5%BC%8F%E4%B8%8B%E8%A7%A3%E5%AF%86-luks1/</guid>
+    <description><![CDATA[众所周知，GRUB2 有两种模式，一种是正常模式，支持超多的特性、超多的模块，使得 GRUB 有着 GRUB OS 的称号。另一种就是救援模式，只支持最基本的命令，最]]></description>
+</item>
+</channel>
+</rss>

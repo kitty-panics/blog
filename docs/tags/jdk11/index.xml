@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>JDK11 - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/jdk11/</link>
+        <description>JDK11 - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 11 Sep 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/jdk11/" rel="self" type="application/rss+xml" /><item>
+    <title>在 JDK 11 上运行 XMind 8</title>
+    <link>https://blog.synchronized.buzz/2022-09-11-%E5%9C%A8-jdk-11-%E4%B8%8A%E8%BF%90%E8%A1%8C-xmind-8/</link>
+    <pubDate>Sun, 11 Sep 2022 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2022-09-11-%E5%9C%A8-jdk-11-%E4%B8%8A%E8%BF%90%E8%A1%8C-xmind-8/</guid>
+    <description><![CDATA[虽然 XMind 8 已经停止支持了，但个人感觉比新版更好用，而且它是用 Java 写的， 在后面很多年都可以运行的很好。 Error 目前我正在逐步移除系统中依赖 JDK 8 的软件，X]]></description>
+</item>
+</channel>
+</rss>

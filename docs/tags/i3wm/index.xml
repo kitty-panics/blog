@@ -1,0 +1,31 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>I3wm - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/i3wm/</link>
+        <description>I3wm - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 28 Jun 2020 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/i3wm/" rel="self" type="application/rss+xml" /><item>
+    <title>Xfce4 中实现类 i3wm 二级快捷键</title>
+    <link>https://blog.synchronized.buzz/2020-06-28-xfce4-%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%B1%BB-i3wm-%E4%BA%8C%E7%BA%A7%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+    <pubDate>Sun, 28 Jun 2020 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2020-06-28-xfce4-%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%B1%BB-i3wm-%E4%BA%8C%E7%BA%A7%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+    <description><![CDATA[使用 i3wm 有一两年时间，虽然很喜欢它，但受不了很多窗口得手动干预才能显示成正常大小， 遂转用了 Xfce ，在使用 Xfce 的日子里，最怀念的就是 i3wm 二级快捷键 功能。]]></description>
+</item>
+<item>
+    <title>i3wm 中工作区含指定程序时关闭护眼模式</title>
+    <link>https://blog.synchronized.buzz/2019-06-05-i3wm-%E4%B8%AD%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%90%AB%E6%8C%87%E5%AE%9A%E7%A8%8B%E5%BA%8F%E6%97%B6%E5%85%B3%E9%97%AD%E6%8A%A4%E7%9C%BC%E6%A8%A1%E5%BC%8F/</link>
+    <pubDate>Wed, 05 Jun 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-06-05-i3wm-%E4%B8%AD%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%90%AB%E6%8C%87%E5%AE%9A%E7%A8%8B%E5%BA%8F%E6%97%B6%E5%85%B3%E9%97%AD%E6%8A%A4%E7%9C%BC%E6%A8%A1%E5%BC%8F/</guid>
+    <description><![CDATA[作为长时间使用电脑的人群，电脑上启用护眼模式真的很重要。 但是护眼模式会使屏幕色温发生改变，颜色也就不正常了，而像追剧、 修图、游戏等场景又需要]]></description>
+</item>
+<item>
+    <title>用脏方法实现 FlameShot 截图后自动退出</title>
+    <link>https://blog.synchronized.buzz/2019-04-19-%E7%94%A8%E8%84%8F%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0-flameshot-%E6%88%AA%E5%9B%BE%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA/</link>
+    <pubDate>Fri, 19 Apr 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-04-19-%E7%94%A8%E8%84%8F%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0-flameshot-%E6%88%AA%E5%9B%BE%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA/</guid>
+    <description><![CDATA[2022-02-04 的更新 截止今日，v11.0.0 可通过 flameshot gui 命令实现截图后自动退出，本文可废弃。 截图工具比较喜欢 FlameShot ，截图后有编辑功能，还算比较轻量，UI 也很好]]></description>
+</item>
+</channel>
+</rss>

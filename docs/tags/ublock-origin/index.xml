@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>UBlock Origin - Tag - Blog of Kitty • Panics - 知知为知知</title>
+        <link>https://blog.synchronized.buzz/tags/ublock-origin/</link>
+        <description>UBlock Origin - Tag - Blog of Kitty • Panics - 知知为知知</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 15 Dec 2019 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.synchronized.buzz/tags/ublock-origin/" rel="self" type="application/rss+xml" /><item>
+    <title>加快 Stack OverFlow 访问速度</title>
+    <link>https://blog.synchronized.buzz/2019-12-15-%E5%8A%A0%E5%BF%AB-stack-overflow-%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/</link>
+    <pubDate>Sun, 15 Dec 2019 00:00:00 &#43;0800</pubDate>
+    <author>Kitty • Panics</author>
+    <guid>https://blog.synchronized.buzz/2019-12-15-%E5%8A%A0%E5%BF%AB-stack-overflow-%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/</guid>
+    <description><![CDATA[2021-11-22 的更新 此方法已失效，因为 Stack OverFlow 现在搜索时需先通过 Google 的 reCAPTCHE 验证码， 禁用掉 JavaScript 也就无法加载验证码了。 reCAPTCHE 验证码脚本共有两个地址，默认使用第一个 (但第一]]></description>
+</item>
+</channel>
+</rss>
